@@ -111,6 +111,10 @@ export const formatAudioPlaylist = ({
     playlist.contentProtection = attributes.contentProtection;
   }
 
+  if (attributes.trickMode) {
+    playlist.trickMode = attributes.trickMode;
+  }
+
   if (sidx) {
     playlist.sidx = sidx;
   }
@@ -302,6 +306,10 @@ export const formatVideoPlaylist = ({
 
   if (attributes.contentProtection) {
     playlist.contentProtection = attributes.contentProtection;
+  }
+
+  if (attributes.trickMode) {
+    playlist.trickMode = attributes.trickMode;
   }
 
   if (sidx) {

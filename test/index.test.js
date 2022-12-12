@@ -18,6 +18,7 @@ import multiperiodSegmentTemplate from './manifests/multiperiod-segment-template
 import multiperiodSegmentList from './manifests/multiperiod-segment-list.mpd';
 import multiperiodDynamic from './manifests/multiperiod-dynamic.mpd';
 import audioOnly from './manifests/audio-only.mpd';
+import trickMode from './manifests/trickmode.mpd';
 import multiperiodStartnumber from './manifests/multiperiod-startnumber.mpd';
 import multiperiodStartnumberRemovedPeriods from
   './manifests/multiperiod-startnumber-removed-periods.mpd';
@@ -65,6 +66,9 @@ import {
 import {
   parsedManifest as audioOnlyManifest
 } from './manifests/audio-only.js';
+import {
+  parsedManifest as trickModeManifest
+} from './manifests/trickmode.js';
 import {
   parsedManifest as multiperiodStartnumberManifest
 } from './manifests/multiperiod-startnumber.js';
@@ -138,6 +142,10 @@ QUnit.test('has parse', function(assert) {
   name: 'audio-only',
   input: audioOnly,
   expected: audioOnlyManifest
+}, {
+  name: 'trickmode',
+  input: trickMode,
+  expected: trickModeManifest
 }, {
   name: 'multiperiod_startnumber',
   input: multiperiodStartnumber,

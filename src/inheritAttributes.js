@@ -58,6 +58,7 @@ export const buildBaseUrls = (referenceUrls, baseUrlElements) => {
  *         The Segment information contained within the provided AdaptationSet
  */
 export const getSegmentInformation = (adaptationSet) => {
+  const essentialProperty = findChildren(adaptationSet, 'EssentialProperty')[0];
   const segmentTemplate = findChildren(adaptationSet, 'SegmentTemplate')[0];
   const segmentList = findChildren(adaptationSet, 'SegmentList')[0];
   const segmentUrls = segmentList && findChildren(segmentList, 'SegmentURL')
@@ -102,6 +103,12 @@ export const getSegmentInformation = (adaptationSet) => {
       initialization: parseAttributes(segmentInitialization)
     })
   };
+
+  const trickMode = essentialProperty && parseAttributes(essentialProperty).schemeIdUri === 'http://dashif.org/guidelines/trickmode';
+
+  if (trickMode) {
+    segmentInfo.trickMode = trickMode;
+  }
 
   Object.keys(segmentInfo).forEach(key => {
     if (!segmentInfo[key]) {

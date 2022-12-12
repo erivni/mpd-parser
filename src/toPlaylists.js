@@ -18,6 +18,11 @@ export const generateSegments = ({ attributes, segmentInfo }) => {
     segmentAttributes = merge(attributes, segmentInfo.list);
   }
 
+  if (segmentInfo.trickMode) {
+    attributes.trickMode = segmentInfo.trickMode;
+    segmentAttributes.trickMode = segmentInfo.trickMode;
+  }
+
   const segmentsInfo = {
     attributes
   };
