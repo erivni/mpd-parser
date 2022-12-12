@@ -1102,5 +1102,6 @@ export const parsedManifest = {
   ],
   segments: [],
   suggestedPresentationDelay: 6,
+  timeShiftBufferDepth: 180,
   uri: ''
 };

@@ -404,7 +404,8 @@ export const toM3u8 = ({
     sourceDuration: duration,
     type,
     suggestedPresentationDelay,
-    minimumUpdatePeriod
+    minimumUpdatePeriod,
+    timeShiftBufferDepth
   } = dashPlaylists[0].attributes;
 
   const videoPlaylists = mergeDiscontiguousPlaylists(dashPlaylists.filter(videoOnly)).map(formatVideoPlaylist);
@@ -427,6 +428,10 @@ export const toM3u8 = ({
     duration,
     playlists: addSidxSegmentsToPlaylists(videoPlaylists, sidxMapping)
   };
+
+  if (timeShiftBufferDepth) {
+    manifest.timeShiftBufferDepth = dashPlaylists[0].attributes.timeShiftBufferDepth;
+  }
 
   if (minimumUpdatePeriod >= 0) {
     manifest.minimumUpdatePeriod = minimumUpdatePeriod * 1000;
