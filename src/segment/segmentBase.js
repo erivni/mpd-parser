@@ -137,6 +137,9 @@ export const addSidxSegmentsToPlaylist = (playlist, sidx, baseUrl) => {
 
     const segment = segmentsFromBase(attributes)[0];
 
+    segment.duration = segment.duration || duration / timescale;
+    segment.timeline = segment.timeline || timeline;
+
     if (initSegment) {
       segment.map = initSegment;
     }

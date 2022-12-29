@@ -272,7 +272,9 @@ if (window.BigInt) {
         length: 5
       },
       number: 0,
-      presentationTime: 0
+      presentationTime: 0,
+      timeline: 0,
+      duration: 2
     }]);
   });
 }
