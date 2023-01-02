@@ -9,7 +9,6 @@ import { stringToMpdXml } from '../src/stringToMpdXml';
 import errors from '../src/errors';
 import QUnit from 'qunit';
 import { toPlaylists } from '../src/toPlaylists';
-import decodeB64ToUint8Array from '@videojs/vhs-utils/es/decode-b64-to-uint8-array';
 
 QUnit.module('buildBaseUrls');
 
@@ -2073,9 +2072,6 @@ QUnit.test('keySystem info for representation - lowercase UUIDs', function(asser
   const widevinePsshB64 = 'AAAANHBzc2gAAAAA7e+LqXnWSs6jyCfc1R0h7QAAABQIARIQCHJ4bvnnRl+jok5bDvj6RQ==';
   const playreadyPsshB64 = 'AAAB5HBzc2gAAAAAmgTweZhAQoarkuZb4IhflQAAAcTEAQAAAQABALoBPABXAFIATQBIAEUAQQBEAEUAUgAgAHgAbQBsAG4AcwA9ACIAaAB0AHQAcAA6AC8ALwBzAGMAaABlAG0AYQBzAC4AbQBpAGMAcgBvAHMAbwBmAHQALgBjAG8AbQAvAEQAUgBNAC8AMgAwADAANwAvADAAMwAvAFAAbABhAHkAUgBlAGEAZAB5AEgAZQBhAGQAZQByACIAIAB2AGUAcgBzAGkAbwBuAD0AIgA0AC4AMAAuADAALgAwACIAPgA8AEQAQQBUAEEAPgA8AFAAUgBPAFQARQBDAFQASQBOAEYATwA+ADwASwBFAFkATABFAE4APgAxADYAPAAvAEsARQBZAEwARQBOAD4APABBAEwARwBJAEQAPgBBAEUAUwBDAFQAUgA8AC8AQQBMAEcASQBEAD4APAAvAFAAUgBPAFQARQBDAFQASQBOAEYATwA+ADwASwBJAEQAPgBiAG4AaAB5AEMATwBmADUAWAAwAGEAagBvAGsANQBiAEQAdgBqADYAUgBRAD0APQA8AC8ASwBJAEQAPgA8AC8ARABBAFQAQQA+ADwALwBXAFIATQBIAEUAQQBEAEUAUgA+AA==';
 
-  const widevinePsshBytes = decodeB64ToUint8Array(widevinePsshB64);
-  const playreadyPsshBytes = decodeB64ToUint8Array(playreadyPsshB64);
-
   // Content protection info from dash.js demo
   const actual = inheritAttributes(stringToMpdXml(`
     <MPD mediaPresentationDuration="PT30S" xmlns:cenc="urn:mpeg:cenc:2013">
@@ -2118,14 +2114,14 @@ QUnit.test('keySystem info for representation - lowercase UUIDs', function(asser
               schemeIdUri: 'urn:uuid:9a04f079-9840-4286-ab92-e65be0885f95',
               value: 'MSPR 2.0'
             },
-            pssh: playreadyPsshBytes
+            pssh: playreadyPsshB64
           },
           'com.widevine.alpha': {
             attributes: {
               schemeIdUri: 'urn:uuid:edef8ba9-79d6-4ace-a3c8-27dcd51d21ed',
               value: 'Widevine'
             },
-            pssh: widevinePsshBytes
+            pssh: widevinePsshB64
           }
         },
         'height': 404,
@@ -2158,9 +2154,6 @@ QUnit.test('keySystem info for representation - uppercase UUIDs', function(asser
 
   const widevinePsshB64 = 'AAAANHBzc2gAAAAA7e+LqXnWSs6jyCfc1R0h7QAAABQIARIQCHJ4bvnnRl+jok5bDvj6RQ==';
   const playreadyPsshB64 = 'AAAB5HBzc2gAAAAAmgTweZhAQoarkuZb4IhflQAAAcTEAQAAAQABALoBPABXAFIATQBIAEUAQQBEAEUAUgAgAHgAbQBsAG4AcwA9ACIAaAB0AHQAcAA6AC8ALwBzAGMAaABlAG0AYQBzAC4AbQBpAGMAcgBvAHMAbwBmAHQALgBjAG8AbQAvAEQAUgBNAC8AMgAwADAANwAvADAAMwAvAFAAbABhAHkAUgBlAGEAZAB5AEgAZQBhAGQAZQByACIAIAB2AGUAcgBzAGkAbwBuAD0AIgA0AC4AMAAuADAALgAwACIAPgA8AEQAQQBUAEEAPgA8AFAAUgBPAFQARQBDAFQASQBOAEYATwA+ADwASwBFAFkATABFAE4APgAxADYAPAAvAEsARQBZAEwARQBOAD4APABBAEwARwBJAEQAPgBBAEUAUwBDAFQAUgA8AC8AQQBMAEcASQBEAD4APAAvAFAAUgBPAFQARQBDAFQASQBOAEYATwA+ADwASwBJAEQAPgBiAG4AaAB5AEMATwBmADUAWAAwAGEAagBvAGsANQBiAEQAdgBqADYAUgBRAD0APQA8AC8ASwBJAEQAPgA8AC8ARABBAFQAQQA+ADwALwBXAFIATQBIAEUAQQBEAEUAUgA+AA==';
-
-  const widevinePsshBytes = decodeB64ToUint8Array(widevinePsshB64);
-  const playreadyPsshBytes = decodeB64ToUint8Array(playreadyPsshB64);
 
   // Content protection info from dash.js demo
   const actual = inheritAttributes(stringToMpdXml(`
@@ -2204,14 +2197,14 @@ QUnit.test('keySystem info for representation - uppercase UUIDs', function(asser
               schemeIdUri: 'urn:uuid:9a04f079-9840-4286-ab92-e65be0885f95',
               value: 'MSPR 2.0'
             },
-            pssh: playreadyPsshBytes
+            pssh: playreadyPsshB64
           },
           'com.widevine.alpha': {
             attributes: {
               schemeIdUri: 'urn:uuid:edef8ba9-79d6-4ace-a3c8-27dcd51d21ed',
               value: 'Widevine'
             },
-            pssh: widevinePsshBytes
+            pssh: widevinePsshB64
           }
         },
         'height': 404,
