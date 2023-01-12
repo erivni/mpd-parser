@@ -6,7 +6,13 @@ export const stringToMpdXml = (manifestString) => {
     throw new Error(errors.DASH_EMPTY_MANIFEST);
   }
 
-  const parser = new DOMParser();
+  const parser = new DOMParser({
+    errorHandler: {
+      warning(e) { },
+      error(e) { },
+      fatalError(e) { }
+    }
+  });
   let xml;
   let mpd;
 
