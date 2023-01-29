@@ -22,6 +22,7 @@ import trickMode from './manifests/trickmode.mpd';
 import multiperiodStartnumber from './manifests/multiperiod-startnumber.mpd';
 import multiperiodStartnumberRemovedPeriods from
   './manifests/multiperiod-startnumber-removed-periods.mpd';
+import stppRedirect from './manifests/stpp-redirect.mpd';
 import {
   parsedManifest as maatVttSegmentTemplateManifest
 } from './manifests/maat_vtt_segmentTemplate.js';
@@ -75,6 +76,9 @@ import {
 import {
   parsedManifest as multiperiodStartnumberRemovedPeriodsManifest
 } from './manifests/multiperiod-startnumber-removed-periods.js';
+import {
+  parsedManifest as stppRedirectManifest
+} from './manifests/stpp-redirect.js';
 
 QUnit.module('mpd-parser');
 
@@ -164,4 +168,11 @@ QUnit.test('multiperiod_startnumber_removed_periods test manifest', function(ass
   const actual = parse(multiperiodStartnumberRemovedPeriods, { previousManifest });
 
   assert.deepEqual(actual, multiperiodStartnumberRemovedPeriodsManifest);
+});
+
+// this test is handled separately since `customRedirectUrl` option is required
+QUnit.test('stpp_custom_redirect test manifest', function(assert) {
+  const actual = parse(stppRedirect, {customRedirectUrl: 'http://localhost:9876?url='});
+
+  assert.deepEqual(actual, stppRedirectManifest);
 });

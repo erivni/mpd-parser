@@ -26,10 +26,10 @@ import window from 'global/window';
  * @return {SingleUri} full segment information transformed into a format similar
  *   to m3u8-parser
  */
-export const urlTypeToSegment = ({ baseUrl = '', source = '', range = '', indexRange = '' }) => {
+export const urlTypeToSegment = ({ baseUrl = '', source = '', range = '', indexRange = '', customRedirectUrl = '' }) => {
   const segment = {
     uri: source,
-    resolvedUri: resolveUrl(baseUrl || '', source)
+    resolvedUri: encodeURI(`${customRedirectUrl || ''}${resolveUrl(baseUrl || '', source)}`)
   };
 
   if (range || indexRange) {

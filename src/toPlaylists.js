@@ -3,7 +3,7 @@ import { segmentsFromTemplate } from './segment/segmentTemplate';
 import { segmentsFromList } from './segment/segmentList';
 import { segmentsFromBase } from './segment/segmentBase';
 
-export const generateSegments = ({ attributes, segmentInfo }) => {
+export const generateSegments = ({ attributes, segmentInfo }, options) => {
   let segmentAttributes;
   let segmentsFn;
 
@@ -30,7 +30,9 @@ export const generateSegments = ({ attributes, segmentInfo }) => {
   if (!segmentsFn) {
     return segmentsInfo;
   }
-
+  if (segmentAttributes.codecs === 'stpp' && options.customRedirectUrl !== undefined && options.customRedirectUrl !== '') {
+    segmentAttributes.customRedirectUrl = options.customRedirectUrl;
+  }
   const segments = segmentsFn(segmentAttributes, segmentInfo.segmentTimeline);
 
   // The @duration attribute will be used to determin the playlist's targetDuration which
@@ -62,4 +64,4 @@ export const generateSegments = ({ attributes, segmentInfo }) => {
   return segmentsInfo;
 };
 
-export const toPlaylists = (representations) => representations.map(generateSegments);
+export const toPlaylists = (representations, options) => representations.map(e => generateSegments(e, options));

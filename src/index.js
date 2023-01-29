@@ -23,7 +23,7 @@ const VERSION = version;
  */
 const parse = (manifestString, options = {}) => {
   const parsedManifestInfo = inheritAttributes(stringToMpdXml(manifestString), options);
-  const playlists = toPlaylists(parsedManifestInfo.representationInfo);
+  const playlists = toPlaylists(parsedManifestInfo.representationInfo, options);
 
   return toM3u8({
     dashPlaylists: playlists,
