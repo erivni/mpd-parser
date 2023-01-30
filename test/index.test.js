@@ -172,7 +172,7 @@ QUnit.test('multiperiod_startnumber_removed_periods test manifest', function(ass
 
 // this test is handled separately since `customRedirectUrl` option is required
 QUnit.test('stpp_custom_redirect test manifest', function(assert) {
-  const actual = parse(stppRedirect, {customRedirectUrl: 'http://localhost:9876?url='});
+  const actual = parse(stppRedirect, {subtitleConverterUrl: 'http://localhost:9876?url='});
 
   assert.deepEqual(actual, stppRedirectManifest);
 });

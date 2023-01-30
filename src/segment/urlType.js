@@ -23,13 +23,14 @@ import window from 'global/window';
  * @param {string} source - source url for segment
  * @param {string} range - optional range used for range calls,
  *   follows  RFC 2616, Clause 14.35.1
+ * @param {string} subtitleConverterUrl - optional url for subtitle JIT converter
  * @return {SingleUri} full segment information transformed into a format similar
  *   to m3u8-parser
  */
-export const urlTypeToSegment = ({ baseUrl = '', source = '', range = '', indexRange = '', customRedirectUrl = '' }) => {
+export const urlTypeToSegment = ({ baseUrl = '', source = '', range = '', indexRange = '', subtitleConverterUrl = '' }) => {
   const segment = {
     uri: source,
-    resolvedUri: encodeURI(`${customRedirectUrl || ''}${resolveUrl(baseUrl || '', source)}`)
+    resolvedUri: encodeURI(`${subtitleConverterUrl || ''}${resolveUrl(baseUrl || '', source)}`)
   };
 
   if (range || indexRange) {

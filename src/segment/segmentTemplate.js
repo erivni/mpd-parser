@@ -148,7 +148,7 @@ export const segmentsFromTemplate = (attributes, segmentTimeline) => {
     baseUrl: attributes.baseUrl,
     source: constructTemplateUrl(initialization.sourceURL, templateValues),
     range: initialization.range,
-    customRedirectUrl: attributes.customRedirectUrl
+    subtitleConverterUrl: attributes.subtitleConverterUrl
   });
 
   const segments = parseTemplateInfo(attributes, segmentTimeline);
@@ -172,7 +172,7 @@ export const segmentsFromTemplate = (attributes, segmentTimeline) => {
       uri,
       timeline: segment.timeline,
       duration: segment.duration,
-      resolvedUri: encodeURI(`${attributes.customRedirectUrl || ''}${resolveUrl(attributes.baseUrl || '', uri)}`),
+      resolvedUri: encodeURI(`${attributes.subtitleConverterUrl || ''}${resolveUrl(attributes.baseUrl || '', uri)}`),
       map: mapSegment,
       number: segment.number,
       presentationTime
