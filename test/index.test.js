@@ -23,6 +23,7 @@ import multiperiodStartnumber from './manifests/multiperiod-startnumber.mpd';
 import multiperiodStartnumberRemovedPeriods from
   './manifests/multiperiod-startnumber-removed-periods.mpd';
 import stppRedirect from './manifests/stpp-redirect.mpd';
+import filteredCodecs from './manifests/filtered-codecs.mpd';
 import {
   parsedManifest as maatVttSegmentTemplateManifest
 } from './manifests/maat_vtt_segmentTemplate.js';
@@ -79,6 +80,9 @@ import {
 import {
   parsedManifest as stppRedirectManifest
 } from './manifests/stpp-redirect.js';
+import {
+  parsedManifest as filteredCodecsManifest
+} from './manifests/filtered-codecs.js';
 
 QUnit.module('mpd-parser');
 
@@ -154,9 +158,22 @@ QUnit.test('has parse', function(assert) {
   name: 'multiperiod_startnumber',
   input: multiperiodStartnumber,
   expected: multiperiodStartnumberManifest
-}].forEach(({ name, input, expected }) => {
+}, {
+  name: 'stpp_custom_redirect',
+  input: stppRedirect,
+  expected: stppRedirectManifest,
+  options: { subtitleConverterUrl: 'http://localhost:9876?url=' }
+}, {
+  name: 'filtered_codecs',
+  input: filteredCodecs,
+  expected: filteredCodecsManifest,
+  options: { codecsFilter:
+      (playlist) => {
+        return playlist.attributes.mimeType === 'application/mp4' && playlist.attributes.codecs === 'stpp';
+      }}
+}].forEach(({ name, input, expected, options = {} }) => {
   QUnit.test(`${name} test manifest`, function(assert) {
-    const actual = parse(input);
+    const actual = parse(input, options);
 
     assert.deepEqual(actual, expected);
   });
@@ -168,11 +185,4 @@ QUnit.test('multiperiod_startnumber_removed_periods test manifest', function(ass
   const actual = parse(multiperiodStartnumberRemovedPeriods, { previousManifest });
 
   assert.deepEqual(actual, multiperiodStartnumberRemovedPeriodsManifest);
-});
-
-// this test is handled separately since `customRedirectUrl` option is required
-QUnit.test('stpp_custom_redirect test manifest', function(assert) {
-  const actual = parse(stppRedirect, {subtitleConverterUrl: 'http://localhost:9876?url='});
-
-  assert.deepEqual(actual, stppRedirectManifest);
 });

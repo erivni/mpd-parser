@@ -23,7 +23,8 @@ const VERSION = version;
  */
 const parse = (manifestString, options = {}) => {
   const parsedManifestInfo = inheritAttributes(stringToMpdXml(manifestString), options);
-  const playlists = toPlaylists(parsedManifestInfo.representationInfo, options);
+  const filteredRepresentation = options.codecsFilter instanceof Function ? parsedManifestInfo.representationInfo.filter(options.codecsFilter) : parsedManifestInfo.representationInfo;
+  const playlists = toPlaylists(filteredRepresentation, options);
 
   return toM3u8({
     dashPlaylists: playlists,
