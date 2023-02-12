@@ -104,7 +104,8 @@ export const parsedManifest = {
                     resolvedUri: 'https://www.example.com/audio/init.m4f'
                   },
                   number: 5,
-                  presentationTime: 25
+                  presentationTime: 25,
+                  last: true
                 }
               ],
               mediaSequence: 0,
@@ -219,7 +220,8 @@ export const parsedManifest = {
             resolvedUri: 'https://www.example.com/video/init.m4f'
           },
           number: 5,
-          presentationTime: 25
+          presentationTime: 25,
+          last: true
         }
       ],
       mediaSequence: 0,

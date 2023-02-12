@@ -282,7 +282,8 @@ export const parsedManifest = {
                     resolvedUri: 'https://example.com/default_audio128_2/segment$Number$.m4f'
                   },
                   presentationTime: 33.94009546131973,
-                  number: 19
+                  number: 19,
+                  last: true
                 }
               ],
               mediaSequence: 0,
@@ -568,7 +569,8 @@ export const parsedManifest = {
                     resolvedUri: 'https://example.com/default_audio96_2/segment$Number$.m4f'
                   },
                   presentationTime: 33.94009546131973,
-                  number: 19
+                  number: 19,
+                  last: true
                 }
               ],
               mediaSequence: 0,
@@ -873,7 +875,8 @@ export const parsedManifest = {
             resolvedUri: 'https://example.com/default_video2000_0_1280x720/segment$Number$.m4f'
           },
           presentationTime: 33.955347162,
-          number: 19
+          number: 19,
+          last: true
         }
       ],
       mediaSequence: 0,
@@ -1166,7 +1169,8 @@ export const parsedManifest = {
             resolvedUri: 'https://example.com/default_video1200_1_960x540/segment$Number$.m4f'
           },
           presentationTime: 33.955347162,
-          number: 19
+          number: 19,
+          last: true
         }
       ],
       mediaSequence: 0,
@@ -1459,7 +1463,8 @@ export const parsedManifest = {
             resolvedUri: 'https://example.com/default_video900_1_640x360/segment$Number$.m4f'
           },
           presentationTime: 33.955347162,
-          number: 19
+          number: 19,
+          last: true
         }
       ],
       mediaSequence: 0,

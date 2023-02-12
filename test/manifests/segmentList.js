@@ -99,7 +99,8 @@ export const parsedManifest = {
           timeline: 0,
           presentationTime: 5,
           uri: 'low/segment-6.ts',
-          number: 5
+          number: 5,
+          last: true
         }
       ],
       timeline: 0,
@@ -245,7 +246,8 @@ export const parsedManifest = {
           timeline: 0,
           presentationTime: 540,
           uri: 'high/segment-10.ts',
-          number: 9
+          number: 9,
+          last: true
         }
       ],
       timeline: 0,

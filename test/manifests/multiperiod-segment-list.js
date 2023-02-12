@@ -85,7 +85,8 @@ export const parsedManifest = {
           timeline: 6,
           presentationTime: 9,
           uri: 'low/segment-2.ts',
-          number: 3
+          number: 3,
+          last: true
         }
       ],
       timeline: 0,

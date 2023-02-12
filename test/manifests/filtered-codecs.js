@@ -2242,7 +2242,8 @@ export const parsedManifest = {
                     resolvedUri: 'http://localhost:9999/test/19/init.mp4'
                   },
                   number: 183,
-                  presentationTime: 732
+                  presentationTime: 732,
+                  last: true
                 }
               ]
             }
@@ -4482,7 +4483,8 @@ export const parsedManifest = {
                     resolvedUri: 'http://localhost:9999/test/21/init.mp4'
                   },
                   number: 183,
-                  presentationTime: 732
+                  presentationTime: 732,
+                  last: true
                 }
               ]
             }
@@ -6722,7 +6724,8 @@ export const parsedManifest = {
                     resolvedUri: 'http://localhost:9999/test/23/init.mp4'
                   },
                   number: 183,
-                  presentationTime: 732
+                  presentationTime: 732,
+                  last: true
                 }
               ]
             }
@@ -8962,7 +8965,8 @@ export const parsedManifest = {
                     resolvedUri: 'http://localhost:9999/test/25/init.mp4'
                   },
                   number: 183,
-                  presentationTime: 732
+                  presentationTime: 732,
+                  last: true
                 }
               ]
             }
@@ -11202,7 +11206,8 @@ export const parsedManifest = {
                     resolvedUri: 'http://localhost:9999/test/27/init.mp4'
                   },
                   number: 183,
-                  presentationTime: 732
+                  presentationTime: 732,
+                  last: true
                 }
               ]
             }

@@ -71,7 +71,8 @@ export const parsedManifest = {
                     resolvedUri: 'https://www.example.com/audio/init.hdr'
                   },
                   number: 3,
-                  presentationTime: 12
+                  presentationTime: 12,
+                  last: true
                 }
               ],
               mediaSequence: 0,
@@ -157,7 +158,8 @@ export const parsedManifest = {
             resolvedUri: 'https://www.example.com/video/init.hdr'
           },
           number: 3,
-          presentationTime: 12
+          presentationTime: 12,
+          last: true
         }
       ],
       mediaSequence: 0,
