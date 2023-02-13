@@ -50,10 +50,8 @@ const mergeDiscontiguousPlaylists = playlists => {
   }, {}));
 
   return mergedPlaylists.map(playlist => {
-    const lastSegment = (playlist.segments || []).at(-1);
-
-    if (lastSegment) {
-      lastSegment.last = true;
+    if (playlist.segments && playlist.segments.length > 0 && playlist.segments[playlist.segments.length - 1]) {
+      playlist.segments[playlist.segments.length - 1].last = true;
     }
 
     playlist.discontinuityStarts =
