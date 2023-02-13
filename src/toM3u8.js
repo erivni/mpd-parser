@@ -50,7 +50,7 @@ const mergeDiscontiguousPlaylists = playlists => {
   }, {}));
 
   return mergedPlaylists.map(playlist => {
-    if (playlist.segments && playlist.segments.length > 0 && playlist.segments[playlist.segments.length - 1]) {
+    if (playlist.segments && playlist.segments.length > 0) {
       playlist.segments[playlist.segments.length - 1].last = true;
     }
 

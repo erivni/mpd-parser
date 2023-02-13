@@ -154,7 +154,7 @@ export const addSidxSegmentsToPlaylist = (playlist, sidx, baseUrl) => {
     number++;
   }
 
-  if (segments.length > 0 && segments[segments.length - 1]) {
+  if (segments.length > 0) {
     segments[segments.length - 1].last = true;
   }
 
