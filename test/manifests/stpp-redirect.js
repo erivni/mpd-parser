@@ -58,7 +58,8 @@ export const parsedManifest = {
                   presentationTime: 3.9938321995464854,
                   resolvedUri: 'https://example.com/default_audio128_2/segment2.m4f',
                   timeline: 0,
-                  uri: 'https://example.com/default_audio128_2/segment2.m4f'
+                  uri: 'https://example.com/default_audio128_2/segment2.m4f',
+                  last: true
                 }
               ],
               targetDuration: 2,
@@ -118,7 +119,8 @@ export const parsedManifest = {
                   presentationTime: 3.9938321995464854,
                   resolvedUri: 'https://example.com/default_audio96_2/segment2.m4f',
                   timeline: 0,
-                  uri: 'https://example.com/default_audio96_2/segment2.m4f'
+                  uri: 'https://example.com/default_audio96_2/segment2.m4f',
+                  last: true
                 }
               ],
               targetDuration: 2,
@@ -191,7 +193,8 @@ export const parsedManifest = {
                   presentationTime: 1.3346666666666667,
                   resolvedUri: 'http://localhost:9876?url=https://example.com/default_video900_1_640x360/stpp/subtitle/segment2.m4f',
                   timeline: 0,
-                  uri: 'https://example.com/default_video900_1_640x360/stpp/subtitle/segment2.m4f'
+                  uri: 'https://example.com/default_video900_1_640x360/stpp/subtitle/segment2.m4f',
+                  last: true
                 }
               ],
               targetDuration: 1,
@@ -266,7 +269,8 @@ export const parsedManifest = {
           presentationTime: 4.004,
           resolvedUri: 'https://example.com/default_video2000_0_1280x720/segment2.m4f',
           timeline: 0,
-          uri: 'https://example.com/default_video2000_0_1280x720/segment2.m4f'
+          uri: 'https://example.com/default_video2000_0_1280x720/segment2.m4f',
+          last: true
         }
       ],
       targetDuration: 3,
@@ -333,7 +337,8 @@ export const parsedManifest = {
           presentationTime: 4.004,
           resolvedUri: 'https://example.com/default_video1200_1_960x540/segment2.m4f',
           timeline: 0,
-          uri: 'https://example.com/default_video1200_1_960x540/segment2.m4f'
+          uri: 'https://example.com/default_video1200_1_960x540/segment2.m4f',
+          last: true
         }
       ],
       targetDuration: 3,
@@ -400,7 +405,8 @@ export const parsedManifest = {
           presentationTime: 4.004,
           resolvedUri: 'https://example.com/default_video900_1_640x360/segment2.m4f',
           timeline: 0,
-          uri: 'https://example.com/default_video900_1_640x360/segment2.m4f'
+          uri: 'https://example.com/default_video900_1_640x360/segment2.m4f',
+          last: true
         }
       ],
       targetDuration: 3,

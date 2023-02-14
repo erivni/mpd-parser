@@ -34,6 +34,7 @@ export const parsedManifest = {
           timeline: 0,
           number: 0,
           presentationTime: 0,
+          last: true,
           map: {
             uri: '',
             resolvedUri: 'https://www.example.com/1080p.ts'

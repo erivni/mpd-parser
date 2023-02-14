@@ -50,6 +50,10 @@ const mergeDiscontiguousPlaylists = playlists => {
   }, {}));
 
   return mergedPlaylists.map(playlist => {
+    if (playlist.segments && playlist.segments.length > 0) {
+      playlist.segments[playlist.segments.length - 1].last = true;
+    }
+
     playlist.discontinuityStarts =
         findIndexes(playlist.segments || [], 'discontinuity');
 
@@ -141,7 +145,8 @@ export const formatVttPlaylist = ({
       timeline: attributes.periodStart,
       resolvedUri: attributes.baseUrl || '',
       duration: attributes.sourceDuration,
-      number: 0
+      number: 0,
+      last: true
     }];
     // targetDuration should be the same duration as the only segment
     attributes.duration = attributes.sourceDuration;

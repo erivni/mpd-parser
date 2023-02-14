@@ -148,7 +148,8 @@ QUnit.test('playlists', function(assert) {
                 resolvedUri: 'https://www.example.com/vtt',
                 timeline: 0,
                 uri: 'https://www.example.com/vtt',
-                number: 0
+                number: 0,
+                last: true
               }],
               timeline: 0,
               uri: ''
@@ -170,7 +171,8 @@ QUnit.test('playlists', function(assert) {
                 resolvedUri: 'https://www.example.com/vtt',
                 timeline: 0,
                 uri: 'https://www.example.com/vtt',
-                number: 0
+                number: 0,
+                last: true
               }],
               timeline: 0,
               uri: ''
@@ -422,7 +424,8 @@ QUnit.test('playlists with segments', function(assert) {
                   uri: '',
                   resolvedUri: ''
                 },
-                number: 1
+                number: 1,
+                last: true
               }],
               timeline: 0,
               timelineStarts: [{ start: 0, timeline: 0 }],
@@ -459,7 +462,8 @@ QUnit.test('playlists with segments', function(assert) {
                   uri: '',
                   resolvedUri: ''
                 },
-                number: 1
+                number: 1,
+                last: true
               }],
               timeline: 0,
               timelineStarts: [{ start: 0, timeline: 0 }],
@@ -507,7 +511,8 @@ QUnit.test('playlists with segments', function(assert) {
                   uri: '',
                   resolvedUri: ''
                 },
-                number: 1
+                number: 1,
+                last: true
               }],
               timeline: 0,
               timelineStarts: [{ start: 0, timeline: 0 }],
@@ -543,7 +548,8 @@ QUnit.test('playlists with segments', function(assert) {
                   uri: '',
                   resolvedUri: ''
                 },
-                number: 1
+                number: 1,
+                last: true
               }],
               timeline: 0,
               timelineStarts: [{ start: 0, timeline: 0 }],
@@ -593,7 +599,8 @@ QUnit.test('playlists with segments', function(assert) {
           uri: '',
           resolvedUri: ''
         },
-        number: 1
+        number: 1,
+        last: true
       }],
       timeline: 0,
       timelineStarts: [{ start: 0, timeline: 0 }],
@@ -690,7 +697,8 @@ QUnit.test('playlists with sidx and sidxMapping', function(assert) {
       duration: 2,
       number: 0,
       presentationTime: 0,
-      timeline: 0
+      timeline: 0,
+      last: true
     }],
     endList: true,
     mediaSequence: 0,

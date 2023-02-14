@@ -157,7 +157,8 @@ export const parsedManifest = {
                   number: 9,
                   resolvedUri: 'http://example.com/audio/v0/864.m4f',
                   timeline: 111,
-                  uri: '864.m4f'
+                  uri: '864.m4f',
+                  last: true
                 }
               ],
               targetDuration: 1,
@@ -322,7 +323,8 @@ export const parsedManifest = {
           number: 9,
           resolvedUri: 'http://example.com/video/D/D864.m4f',
           timeline: 111,
-          uri: 'D864.m4f'
+          uri: 'D864.m4f',
+          last: true
         }
       ],
       targetDuration: 1,
@@ -476,7 +478,8 @@ export const parsedManifest = {
           number: 9,
           resolvedUri: 'http://example.com/video/E/E864.m4f',
           timeline: 111,
-          uri: 'E864.m4f'
+          uri: 'E864.m4f',
+          last: true
         }
       ],
       targetDuration: 1,
@@ -630,7 +633,8 @@ export const parsedManifest = {
           number: 9,
           resolvedUri: 'http://example.com/video/F/F864.m4f',
           timeline: 111,
-          uri: 'F864.m4f'
+          uri: 'F864.m4f',
+          last: true
         }
       ],
       targetDuration: 1,
@@ -784,7 +788,8 @@ export const parsedManifest = {
           number: 9,
           resolvedUri: 'http://example.com/video/A/A864.m4f',
           timeline: 111,
-          uri: 'A864.m4f'
+          uri: 'A864.m4f',
+          last: true
         }
       ],
       targetDuration: 1,
@@ -938,7 +943,8 @@ export const parsedManifest = {
           number: 9,
           resolvedUri: 'http://example.com/video/B/B864.m4f',
           timeline: 111,
-          uri: 'B864.m4f'
+          uri: 'B864.m4f',
+          last: true
         }
       ],
       targetDuration: 1,
@@ -1092,7 +1098,8 @@ export const parsedManifest = {
           number: 9,
           resolvedUri: 'http://example.com/video/C/C864.m4f',
           timeline: 111,
-          uri: 'C864.m4f'
+          uri: 'C864.m4f',
+          last: true
         }
       ],
       targetDuration: 1,

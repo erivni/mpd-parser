@@ -74,7 +74,8 @@ export const parsedManifest = {
                     resolvedUri: 'https://www.example.com/63000/init.m4f'
                   },
                   number: 3,
-                  presentationTime: 5.952
+                  presentationTime: 5.952,
+                  last: true
                 }
               ],
               mediaSequence: 0,
@@ -152,7 +153,8 @@ export const parsedManifest = {
                     resolvedUri: 'https://www.example.com/125000/init.m4f'
                   },
                   number: 3,
-                  presentationTime: 5.952
+                  presentationTime: 5.952,
+                  last: true
                 }
               ],
               mediaSequence: 0,
@@ -238,7 +240,8 @@ export const parsedManifest = {
                     resolvedUri: 'https://www.example.com/63000/es/init.m4f'
                   },
                   number: 3,
-                  presentationTime: 5.952
+                  presentationTime: 5.952,
+                  last: true
                 }
               ],
               mediaSequence: 0,
@@ -316,7 +319,8 @@ export const parsedManifest = {
                     resolvedUri: 'https://www.example.com/125000/es/init.m4f'
                   },
                   number: 3,
-                  presentationTime: 5.952
+                  presentationTime: 5.952,
+                  last: true
                 }
               ],
               mediaSequence: 0,
@@ -367,7 +371,8 @@ export const parsedManifest = {
                   timeline: 0,
                   resolvedUri: 'https://example.com/en.dash',
                   duration: 6,
-                  number: 0
+                  number: 0,
+                  last: true
                 }
               ],
               mediaSequence: 0,
@@ -403,7 +408,8 @@ export const parsedManifest = {
                   timeline: 0,
                   resolvedUri: 'https://example.com/es.vtt',
                   duration: 6,
-                  number: 0
+                  number: 0,
+                  last: true
                 }
               ],
               mediaSequence: 0,
@@ -489,7 +495,8 @@ export const parsedManifest = {
             resolvedUri: 'https://www.example.com/482/init.m4f'
           },
           number: 3,
-          presentationTime: 5.75575
+          presentationTime: 5.75575,
+          last: true
         }
       ],
       mediaSequence: 0,
@@ -574,7 +581,8 @@ export const parsedManifest = {
             resolvedUri: 'https://www.example.com/720/init.m4f'
           },
           number: 3,
-          presentationTime: 5.75575
+          presentationTime: 5.75575,
+          last: true
         }
       ],
       mediaSequence: 0,

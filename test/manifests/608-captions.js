@@ -63,7 +63,8 @@ export const parsedManifest = {
             resolvedUri: 'https://www.example.com/1080p.ts'
           },
           resolvedUri: 'https://www.example.com/1080p.ts',
-          uri: 'https://www.example.com/1080p.ts'
+          uri: 'https://www.example.com/1080p.ts',
+          last: true
         }
       ],
       timeline: 0,

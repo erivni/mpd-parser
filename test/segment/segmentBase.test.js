@@ -215,7 +215,8 @@ QUnit.test('generates playlist from sidx references', function(assert) {
     duration: 2,
     timeline: 0,
     presentationTime: 0,
-    number: 0
+    number: 0,
+    last: true
   }]);
 });
 
@@ -274,7 +275,8 @@ if (window.BigInt) {
       number: 0,
       presentationTime: 0,
       timeline: 0,
-      duration: 2
+      duration: 2,
+      last: true
     }]);
   });
 }
