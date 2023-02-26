@@ -173,11 +173,14 @@ export const segmentsFromTemplate = (attributes, segmentTimeline) => {
       timeline: segment.timeline,
       duration: segment.duration,
       resolvedUri: encodeURI(`${attributes.subtitleConverterUrl || ''}${resolveUrl(attributes.baseUrl || '', uri)}`),
-      map: mapSegment,
       number: segment.number,
       presentationTime
     };
 
+    // initSegment should exist only when not using subtitle converter
+    if (!attributes.subtitleConverterUrl) {
+      map.map = mapSegment;
+    }
     return map;
   });
 };
