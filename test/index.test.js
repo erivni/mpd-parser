@@ -22,7 +22,7 @@ import trickMode from './manifests/trickmode.mpd';
 import multiperiodStartnumber from './manifests/multiperiod-startnumber.mpd';
 import multiperiodStartnumberRemovedPeriods from
   './manifests/multiperiod-startnumber-removed-periods.mpd';
-import stppNoInit from './manifests/stpp-redirect.mpd';
+import stppNoInit from './manifests/stpp-no-init.mpd';
 import filteredCodecs from './manifests/filtered-codecs.mpd';
 import {
   parsedManifest as maatVttSegmentTemplateManifest
@@ -79,7 +79,7 @@ import {
 } from './manifests/multiperiod-startnumber-removed-periods.js';
 import {
   parsedManifest as stppNoInitManifest
-} from './manifests/stpp-redirect.js';
+} from './manifests/stpp-no-init.js';
 import {
   parsedManifest as filteredCodecsManifest
 } from './manifests/filtered-codecs.js';
