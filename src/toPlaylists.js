@@ -31,7 +31,7 @@ export const generateSegments = ({ attributes, segmentInfo }, options) => {
     return segmentsInfo;
   }
   if (segmentAttributes.codecs === 'stpp' && options.removeSubtitlesInit) {
-    segmentAttributes.isSubtitle = true;
+    segmentAttributes.removeInitMap = true;
   }
   const segments = segmentsFn(segmentAttributes, segmentInfo.segmentTimeline);
 

@@ -147,8 +147,7 @@ export const segmentsFromTemplate = (attributes, segmentTimeline) => {
   const mapSegment = urlTypeToSegment({
     baseUrl: attributes.baseUrl,
     source: constructTemplateUrl(initialization.sourceURL, templateValues),
-    range: initialization.range,
-    isSubtitle: attributes.isSubtitle
+    range: initialization.range
   });
 
   const segments = parseTemplateInfo(attributes, segmentTimeline);
@@ -178,7 +177,7 @@ export const segmentsFromTemplate = (attributes, segmentTimeline) => {
     };
 
     // No need for initSegment for subtitles
-    if (!attributes.isSubtitle) {
+    if (!attributes.removeInitMap) {
       map.map = mapSegment;
     }
     return map;
