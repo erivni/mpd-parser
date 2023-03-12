@@ -10,6 +10,34 @@ import {
 export const generateSidxKey = (sidx) => sidx &&
   sidx.uri + '-' + byteRangeToString(sidx.byterange);
 
+const removeOverlappedSegments = (oldSegments, newSegments) => {
+  if (!oldSegments || !newSegments) {
+    return oldSegments;
+  }
+
+  if (newSegments.length > 0) {
+    let n = 0;
+    const newSegment = newSegments[0].presentationTime + newSegments[0].timeline;
+
+    // remove overlapping segments
+    for (let i = oldSegments.length - 1; i >= 0; i--) {
+      const previousSegment = oldSegments[i].presentationTime + oldSegments[i].timeline;
+
+      if (previousSegment < newSegment) {
+        break;
+      }
+      n++;
+    }
+
+    // if there are segments to remove because of overlap
+    if (n > 0) {
+      return oldSegments.slice(0, n * -1);
+    }
+  }
+
+  return oldSegments;
+};
+
 const mergeDiscontiguousPlaylists = playlists => {
   const mergedPlaylists = values(playlists.reduce((acc, playlist) => {
     // assuming playlist IDs are the same across periods
@@ -24,6 +52,10 @@ const mergeDiscontiguousPlaylists = playlists => {
     } else {
       // Subsequent Periods
       if (playlist.segments) {
+
+        // remove overlapped segments, override old segments with new
+        acc[name].segments = removeOverlappedSegments(acc[name].segments, playlist.segments);
+
         // first segment of subsequent periods signal a discontinuity
         if (playlist.segments[0]) {
           playlist.segments[0].discontinuity = true;
