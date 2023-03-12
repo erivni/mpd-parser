@@ -22,7 +22,7 @@ import trickMode from './manifests/trickmode.mpd';
 import multiperiodStartnumber from './manifests/multiperiod-startnumber.mpd';
 import multiperiodStartnumberRemovedPeriods from
   './manifests/multiperiod-startnumber-removed-periods.mpd';
-import stppRedirect from './manifests/stpp-redirect.mpd';
+import stppNoInit from './manifests/stpp-no-init.mpd';
 import filteredCodecs from './manifests/filtered-codecs.mpd';
 import {
   parsedManifest as maatVttSegmentTemplateManifest
@@ -78,8 +78,8 @@ import {
   parsedManifest as multiperiodStartnumberRemovedPeriodsManifest
 } from './manifests/multiperiod-startnumber-removed-periods.js';
 import {
-  parsedManifest as stppRedirectManifest
-} from './manifests/stpp-redirect.js';
+  parsedManifest as stppNoInitManifest
+} from './manifests/stpp-no-init.js';
 import {
   parsedManifest as filteredCodecsManifest
 } from './manifests/filtered-codecs.js';
@@ -159,18 +159,20 @@ QUnit.test('has parse', function(assert) {
   input: multiperiodStartnumber,
   expected: multiperiodStartnumberManifest
 }, {
-  name: 'stpp_custom_redirect',
-  input: stppRedirect,
-  expected: stppRedirectManifest,
-  options: { subtitleConverterUrl: 'http://localhost:9876?url=' }
+  name: 'stpp_no_init',
+  input: stppNoInit,
+  expected: stppNoInitManifest,
+  options: { removeSubtitlesInit: true }
 }, {
   name: 'filtered_codecs',
   input: filteredCodecs,
   expected: filteredCodecsManifest,
-  options: { codecsFilter:
+  options: {
+    codecsFilter:
       (playlist) => {
         return playlist.attributes.mimeType === 'application/mp4' && playlist.attributes.codecs === 'stpp';
-      }}
+      }
+  }
 }].forEach(({ name, input, expected, options = {} }) => {
   QUnit.test(`${name} test manifest`, function(assert) {
     const actual = parse(input, options);

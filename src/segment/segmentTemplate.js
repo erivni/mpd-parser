@@ -147,8 +147,7 @@ export const segmentsFromTemplate = (attributes, segmentTimeline) => {
   const mapSegment = urlTypeToSegment({
     baseUrl: attributes.baseUrl,
     source: constructTemplateUrl(initialization.sourceURL, templateValues),
-    range: initialization.range,
-    subtitleConverterUrl: attributes.subtitleConverterUrl
+    range: initialization.range
   });
 
   const segments = parseTemplateInfo(attributes, segmentTimeline);
@@ -172,13 +171,13 @@ export const segmentsFromTemplate = (attributes, segmentTimeline) => {
       uri,
       timeline: segment.timeline,
       duration: segment.duration,
-      resolvedUri: encodeURI(`${attributes.subtitleConverterUrl || ''}${resolveUrl(attributes.baseUrl || '', uri)}`),
+      resolvedUri: resolveUrl(attributes.baseUrl || '', uri),
       number: segment.number,
       presentationTime
     };
 
-    // initSegment should exist only when not using subtitle converter
-    if (!attributes.subtitleConverterUrl) {
+    // No need for initSegment for subtitles
+    if (!attributes.removeInitMap) {
       map.map = mapSegment;
     }
     return map;

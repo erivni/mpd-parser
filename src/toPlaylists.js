@@ -30,8 +30,8 @@ export const generateSegments = ({ attributes, segmentInfo }, options) => {
   if (!segmentsFn) {
     return segmentsInfo;
   }
-  if (segmentAttributes.codecs === 'stpp' && options.subtitleConverterUrl !== undefined && options.subtitleConverterUrl !== '') {
-    segmentAttributes.subtitleConverterUrl = options.subtitleConverterUrl;
+  if (segmentAttributes.codecs === 'stpp' && options.removeSubtitlesInit) {
+    segmentAttributes.removeInitMap = true;
   }
   const segments = segmentsFn(segmentAttributes, segmentInfo.segmentTimeline);
 

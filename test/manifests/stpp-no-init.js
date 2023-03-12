@@ -163,7 +163,7 @@ export const parsedManifest = {
                   duration: 0.6673333333333333,
                   number: 0,
                   presentationTime: 0,
-                  resolvedUri: 'http://localhost:9876?url=https://example.com/default_video900_1_640x360/stpp/subtitle/segment0.m4f',
+                  resolvedUri: 'https://example.com/default_video900_1_640x360/stpp/subtitle/segment0.m4f',
                   timeline: 0,
                   uri: 'https://example.com/default_video900_1_640x360/stpp/subtitle/segment0.m4f'
                 },
@@ -171,7 +171,7 @@ export const parsedManifest = {
                   duration: 0.6673333333333333,
                   number: 1,
                   presentationTime: 0.6673333333333333,
-                  resolvedUri: 'http://localhost:9876?url=https://example.com/default_video900_1_640x360/stpp/subtitle/segment1.m4f',
+                  resolvedUri: 'https://example.com/default_video900_1_640x360/stpp/subtitle/segment1.m4f',
                   timeline: 0,
                   uri: 'https://example.com/default_video900_1_640x360/stpp/subtitle/segment1.m4f'
                 },
@@ -179,7 +179,7 @@ export const parsedManifest = {
                   duration: 0.6562111111111111,
                   number: 2,
                   presentationTime: 1.3346666666666667,
-                  resolvedUri: 'http://localhost:9876?url=https://example.com/default_video900_1_640x360/stpp/subtitle/segment2.m4f',
+                  resolvedUri: 'https://example.com/default_video900_1_640x360/stpp/subtitle/segment2.m4f',
                   timeline: 0,
                   uri: 'https://example.com/default_video900_1_640x360/stpp/subtitle/segment2.m4f',
                   last: true
