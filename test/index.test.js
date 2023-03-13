@@ -13,6 +13,7 @@ import cc708CaptionsTemplate from './manifests/708-captions.mpd';
 import locationTemplate from './manifests/location.mpd';
 import locationsTemplate from './manifests/locations.mpd';
 import multiperiod from './manifests/multiperiod.mpd';
+import multiperiodoverlapped from './manifests/multiperiod-overlapped.mpd';
 import webmsegments from './manifests/webmsegments.mpd';
 import multiperiodSegmentTemplate from './manifests/multiperiod-segment-template.mpd';
 import multiperiodSegmentList from './manifests/multiperiod-segment-list.mpd';
@@ -42,6 +43,9 @@ import {
 import {
   parsedManifest as multiperiodManifest
 } from './manifests/multiperiod.js';
+import {
+  parsedManifest as multiperiodOverlappedManifest
+} from './manifests/multiperiod-overlapped.js';
 import {
   parsedManifest as webmsegmentsManifest
 } from './manifests/webmsegments.js';
@@ -118,6 +122,10 @@ QUnit.test('has parse', function(assert) {
   name: 'multiperiod',
   input: multiperiod,
   expected: multiperiodManifest
+}, {
+  name: 'multiperiod_overlapped',
+  input: multiperiodoverlapped,
+  expected: multiperiodOverlappedManifest
 }, {
   name: 'webmsegments',
   input: webmsegments,
