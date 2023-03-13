@@ -197,6 +197,8 @@ export const parsedManifest = {
           }
         },
         {
+          // no overlapped segments.
+          // new segments are from 5.972633333 timeline.
           uri: 'https://example.com/default_video900_1_640x360/segment3.m4f',
           timeline: 5.972633333,
           duration: 1.9352666666666667,
