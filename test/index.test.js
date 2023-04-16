@@ -47,11 +47,17 @@ import {
   parsedManifest as multiperiodOverlappedManifest
 } from './manifests/multiperiod-overlapped.js';
 import {
+  parsedManifest as multiperiodOverlappedNoPeriodMergeManifest
+} from './manifests/multiperiod-overlapped-noperiodmerge.js';
+import {
   parsedManifest as webmsegmentsManifest
 } from './manifests/webmsegments.js';
 import {
   parsedManifest as multiperiodSegmentTemplateManifest
 } from './manifests/multiperiod-segment-template.js';
+import {
+  parsedManifest as multiperiodWithoutPeriodMerge
+} from './manifests/multiperiod-without-period-merge.js';
 import {
   parsedManifest as multiperiodSegmentListManifest
 } from './manifests/multiperiod-segment-list.js';
@@ -181,6 +187,16 @@ QUnit.test('has parse', function(assert) {
         return playlist.attributes.mimeType === 'application/mp4' && playlist.attributes.codecs === 'stpp';
       }
   }
+}, {
+  name: 'multiperiod_without_period_merge',
+  input: multiperiodSegmentTemplate,
+  expected: multiperiodWithoutPeriodMerge,
+  options: { mergePeriods: false }
+}, {
+  name: 'multiperiod_overlapped_period_no_merge',
+  input: multiperiodoverlapped,
+  expected: multiperiodOverlappedNoPeriodMergeManifest,
+  options: { mergePeriods: false }
 }].forEach(({ name, input, expected, options = {} }) => {
   QUnit.test(`${name} test manifest`, function(assert) {
     const actual = parse(input, options);

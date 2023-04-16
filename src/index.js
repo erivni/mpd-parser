@@ -30,7 +30,8 @@ const parse = (manifestString, options = {}) => {
     dashPlaylists: playlists,
     locations: parsedManifestInfo.locations,
     sidxMapping: options.sidxMapping,
-    previousManifest: options.previousManifest
+    previousManifest: options.previousManifest,
+    options
   });
 };
 
