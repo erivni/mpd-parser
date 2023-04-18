@@ -38,12 +38,29 @@ const removeOverlappedSegments = (oldSegments, newSegments) => {
   return oldSegments;
 };
 
-const mergeDiscontiguousPlaylists = playlists => {
-  const mergedPlaylists = values(playlists.reduce((acc, playlist) => {
+const removeOverlappedSegmentsForEachPeriod = (playlists, newPlaylist) => {
+  values(playlists).map((playlist) => {
+    // remove overlapped segments from older periods
+    if (playlist.attributes.periodStart < newPlaylist.attributes.periodStart) {
+      playlist.segments = removeOverlappedSegments(playlist.segments, newPlaylist.segments);
+    }
+  });
+
+  return playlists;
+};
+
+const mergeDiscontiguousPlaylists = (playlists, options = {}) => {
+  const mergedPlaylists = values(playlists.reduce((acc, playlist, idx) => {
     // assuming playlist IDs are the same across periods
     // TODO: handle multiperiod where representation sets are not the same
     // across periods
-    const name = playlist.attributes.id + (playlist.attributes.lang || '');
+
+    let name = playlist.attributes.id + (playlist.attributes.lang || '');
+
+    if (options.mergePeriods === false) {
+      name = idx;
+      acc = removeOverlappedSegmentsForEachPeriod(acc, playlist);
+    }
 
     if (!acc[name]) {
       // First Period
@@ -438,7 +455,8 @@ export const toM3u8 = ({
   dashPlaylists,
   locations,
   sidxMapping = {},
-  previousManifest
+  previousManifest,
+  options = {}
 }) => {
   if (!dashPlaylists.length) {
     return {};
@@ -454,9 +472,9 @@ export const toM3u8 = ({
     publishTime
   } = dashPlaylists[0].attributes;
 
-  const videoPlaylists = mergeDiscontiguousPlaylists(dashPlaylists.filter(videoOnly)).map(formatVideoPlaylist);
-  const audioPlaylists = mergeDiscontiguousPlaylists(dashPlaylists.filter(audioOnly));
-  const vttPlaylists = mergeDiscontiguousPlaylists(dashPlaylists.filter(vttOnly));
+  const videoPlaylists = mergeDiscontiguousPlaylists(dashPlaylists.filter(videoOnly), options).map(formatVideoPlaylist);
+  const audioPlaylists = mergeDiscontiguousPlaylists(dashPlaylists.filter(audioOnly), options);
+  const vttPlaylists = mergeDiscontiguousPlaylists(dashPlaylists.filter(vttOnly), options);
   const captions = dashPlaylists.map((playlist) => playlist.attributes.captionServices).filter(Boolean);
 
   const manifest = {
