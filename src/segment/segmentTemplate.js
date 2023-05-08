@@ -1,7 +1,7 @@
-import resolveUrl from '@videojs/vhs-utils/es/resolve-url';
 import urlTypeToSegment from './urlType';
 import { parseByTimeline } from './timelineTimeParser';
 import { parseByDuration } from './durationTimeParser';
+import { resolveUrl } from '../utils/string';
 
 const identifierPattern = /\$([A-z]*)(?:(%0)([0-9]+)d)?\$/g;
 
