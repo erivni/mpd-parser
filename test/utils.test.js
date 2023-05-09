@@ -1,5 +1,7 @@
 import { merge, values } from '../src/utils/object';
 import { parseDuration } from '../src/utils/time';
+import { resolveSegmentUrl } from '../src/utils/string';
+
 import {
   flatten,
   range,
@@ -221,4 +223,18 @@ QUnit.test('getContent', function(assert) {
   const result = findChildren(this.fixture, 'test')[0];
 
   assert.deepEqual(getContent(result), 'foo', 'gets text and trims');
+});
+
+QUnit.test('resolveSegmentUrl', function(assert) {
+
+  assert.equal(
+    resolveSegmentUrl('http://a.com/b/cd/e.m3u8', 'https://example.com/z.ts'),
+    'https://example.com/z.ts'
+  );
+  assert.equal(resolveSegmentUrl('http://a.com/b/cd/e.m3u8', 'z.ts'), 'http://a.com/b/cd/z.ts');
+  assert.equal(resolveSegmentUrl('//a.com/b/cd/e.m3u8', 'z.ts'), '//a.com/b/cd/z.ts');
+  assert.equal(
+    resolveSegmentUrl('/a/b/cd/e.m3u8', 'https://example.com:8080/z.ts'),
+    'https://example.com:8080/z.ts'
+  );
 });
