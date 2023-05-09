@@ -1,7 +1,7 @@
 import urlTypeToSegment from './urlType';
 import { parseByTimeline } from './timelineTimeParser';
 import { parseByDuration } from './durationTimeParser';
-import { resolveUrl } from '../utils/string';
+import { resolveSegmentUrl } from '../utils/string';
 
 const identifierPattern = /\$([A-z]*)(?:(%0)([0-9]+)d)?\$/g;
 
@@ -171,7 +171,7 @@ export const segmentsFromTemplate = (attributes, segmentTimeline) => {
       uri,
       timeline: segment.timeline,
       duration: segment.duration,
-      resolvedUri: resolveUrl(attributes.baseUrl || '', uri),
+      resolvedUri: resolveSegmentUrl(attributes.baseUrl || '', uri),
       number: segment.number,
       presentationTime
     };
