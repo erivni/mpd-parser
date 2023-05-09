@@ -14,7 +14,10 @@ export const resolveUrl = (baseUrl, relativePath) => {
     return baseUrl + relativePath;
   }
 
-  const idx = baseUrl.lastIndexOf('/');
+  let idx = baseUrl.lastIndexOf('/');
 
-  return baseUrl.substring(0, idx + 1) + relativePath;
+  if (!relativePath.startsWith('/')) {
+    idx += 1;
+  }
+  return baseUrl.substring(0, idx) + relativePath;
 };
