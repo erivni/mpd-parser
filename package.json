@@ -1,6 +1,6 @@
 {
   "name": "mpd-parser",
-  "version": "1.0.1-16",
+  "version": "1.0.1-17",
   "description": "mpd parser",
   "main": "dist/mpd-parser.cjs.js",
   "module": "dist/mpd-parser.es.js",
