@@ -33,6 +33,9 @@ export const generateSegments = ({ attributes, segmentInfo }, options) => {
   if (segmentAttributes.codecs === 'stpp' && options.removeSubtitlesInit) {
     segmentAttributes.removeInitMap = true;
   }
+  if (options && options.relativePresentationTime) {
+    segmentAttributes.relativePresentationTime = true;
+  }
   const segments = segmentsFn(segmentAttributes, segmentInfo.segmentTimeline);
 
   // The @duration attribute will be used to determin the playlist's targetDuration which

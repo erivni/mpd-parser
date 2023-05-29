@@ -80,7 +80,12 @@ export const segmentsFromList = (attributes, segmentTimeline) => {
       // - if timescale isn't present on any level, default to 1.
       const timescale = attributes.timescale || 1;
       // - if presentationTimeOffset isn't present on any level, default to 0
-      const presentationTimeOffset = attributes.presentationTimeOffset || 0;
+      let presentationTimeOffset = attributes.presentationTimeOffset || 0;
+
+      // if relativePresentationTime is set use periodStart instead of presentationTimeOffset.
+      if (attributes.relativePresentationTime && attributes.periodStart) {
+        presentationTimeOffset = attributes.periodStart * timescale;
+      }
 
       segment.timeline = segmentTime.timeline;
       segment.duration = segmentTime.duration;

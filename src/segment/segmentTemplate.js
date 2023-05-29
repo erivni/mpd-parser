@@ -161,7 +161,12 @@ export const segmentsFromTemplate = (attributes, segmentTimeline) => {
     // - if timescale isn't present on any level, default to 1.
     const timescale = attributes.timescale || 1;
     // - if presentationTimeOffset isn't present on any level, default to 0
-    const presentationTimeOffset = attributes.presentationTimeOffset || 0;
+    let presentationTimeOffset = attributes.presentationTimeOffset || 0;
+
+    // if relativePresentationTime is set use periodStart instead of presentationTimeOffset.
+    if (attributes.relativePresentationTime && attributes.periodStart) {
+      presentationTimeOffset = attributes.periodStart * timescale;
+    }
     const presentationTime =
       // Even if the @t attribute is not specified for the segment, segment.time is
       // calculated in mpd-parser prior to this, so it's assumed to be available.

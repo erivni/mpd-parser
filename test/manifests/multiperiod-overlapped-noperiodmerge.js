@@ -229,6 +229,7 @@ export const parsedManifest = {
       discontinuityStarts: [],
       endList: true,
       mediaSequence: 0,
+      presentationTimeOffset: 5.9726,
       resolvedUri: '',
       segments: [
         {

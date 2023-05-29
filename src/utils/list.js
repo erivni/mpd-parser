@@ -37,7 +37,7 @@ export const findIndexes = (l, key) => l.reduce((a, e, i) => {
 /**
  * Returns a union of the included lists provided each element can be identified by a key.
  *
- * @param {Array} list - list of lists to get the union of
+ * @param {Array} lists - list of lists to get the union of
  * @param {Function} keyFunction - the function to use as a key for each element
  *
  * @return {Array} the union of the arrays
