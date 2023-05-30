@@ -84,6 +84,7 @@ export const parsedManifest = {
               endList: true,
               mediaSequence: 0,
               resolvedUri: '',
+              presentationTimeOffset: 15,
               segments: [
                 {
                   duration: 5,
@@ -92,7 +93,7 @@ export const parsedManifest = {
                     uri: 'audio/init.m4f'
                   },
                   number: 0,
-                  presentationTime: 15,
+                  presentationTime: 0,
                   resolvedUri: 'https://www.example.com/audio/segment_0.m4f',
                   timeline: 15,
                   uri: 'audio/segment_0.m4f'
@@ -104,7 +105,7 @@ export const parsedManifest = {
                     uri: 'audio/init.m4f'
                   },
                   number: 1,
-                  presentationTime: 20,
+                  presentationTime: 5,
                   resolvedUri: 'https://www.example.com/audio/segment_1.m4f',
                   timeline: 15,
                   uri: 'audio/segment_1.m4f'
@@ -117,7 +118,7 @@ export const parsedManifest = {
                     uri: 'audio/init.m4f'
                   },
                   number: 2,
-                  presentationTime: 25,
+                  presentationTime: 10,
                   resolvedUri: 'https://www.example.com/audio/segment_2.m4f',
                   timeline: 15,
                   uri: 'audio/segment_2.m4f'
@@ -230,6 +231,7 @@ export const parsedManifest = {
       endList: true,
       mediaSequence: 0,
       resolvedUri: '',
+      presentationTimeOffset: 15,
       segments: [
         {
           duration: 5,
@@ -238,7 +240,7 @@ export const parsedManifest = {
             uri: 'video/init.m4f'
           },
           number: 0,
-          presentationTime: 15,
+          presentationTime: 0,
           resolvedUri: 'https://www.example.com/video/segment_0.m4f',
           timeline: 15,
           uri: 'video/segment_0.m4f'
@@ -250,7 +252,7 @@ export const parsedManifest = {
             uri: 'video/init.m4f'
           },
           number: 1,
-          presentationTime: 20,
+          presentationTime: 5,
           resolvedUri: 'https://www.example.com/video/segment_1.m4f',
           timeline: 15,
           uri: 'video/segment_1.m4f'
@@ -263,7 +265,7 @@ export const parsedManifest = {
             uri: 'video/init.m4f'
           },
           number: 2,
-          presentationTime: 25,
+          presentationTime: 10,
           resolvedUri: 'https://www.example.com/video/segment_2.m4f',
           timeline: 15,
           uri: 'video/segment_2.m4f'

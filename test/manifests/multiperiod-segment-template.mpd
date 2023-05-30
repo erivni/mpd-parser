@@ -45,6 +45,7 @@
     <AdaptationSet mimeType="video/mp4">
       <Representation
         id="1"
+        presentationTimeOffset="150"
         bandwidth="100000"
         width="480"
         height="200"
@@ -63,6 +64,7 @@
         schemeIdUri="urn:mpeg:dash:23003:3:audio_channel_configuration:2011"
         value="2"/>
       <Representation id="2"
+        presentationTimeOffset="720000"
         bandwidth="32000"
         audioSamplingRate="48000"
         codecs="mp4a.40.2">

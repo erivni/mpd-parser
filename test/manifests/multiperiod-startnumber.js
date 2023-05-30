@@ -192,7 +192,6 @@ export const parsedManifest = {
       },
       endList: false,
       mediaSequence: 0,
-      presentationTimeOffset: 100,
       discontinuitySequence: 0,
       discontinuityStarts: [3, 5, 7],
       timelineStarts: [
@@ -348,7 +347,6 @@ export const parsedManifest = {
       },
       endList: false,
       mediaSequence: 0,
-      presentationTimeOffset: 100,
       discontinuitySequence: 0,
       discontinuityStarts: [3, 5, 7],
       timelineStarts: [
@@ -504,7 +502,6 @@ export const parsedManifest = {
       },
       endList: false,
       mediaSequence: 0,
-      presentationTimeOffset: 100,
       discontinuitySequence: 0,
       discontinuityStarts: [3, 5, 7],
       timelineStarts: [
@@ -660,7 +657,6 @@ export const parsedManifest = {
       },
       endList: false,
       mediaSequence: 0,
-      presentationTimeOffset: 100,
       discontinuitySequence: 0,
       discontinuityStarts: [3, 5, 7],
       timelineStarts: [
@@ -816,7 +812,6 @@ export const parsedManifest = {
       },
       endList: false,
       mediaSequence: 0,
-      presentationTimeOffset: 100,
       discontinuitySequence: 0,
       discontinuityStarts: [3, 5, 7],
       timelineStarts: [
@@ -972,7 +967,6 @@ export const parsedManifest = {
       },
       endList: false,
       mediaSequence: 0,
-      presentationTimeOffset: 100,
       discontinuitySequence: 0,
       discontinuityStarts: [3, 5, 7],
       timelineStarts: [

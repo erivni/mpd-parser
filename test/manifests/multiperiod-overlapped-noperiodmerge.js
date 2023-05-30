@@ -84,6 +84,7 @@ export const parsedManifest = {
               endList: true,
               mediaSequence: 0,
               resolvedUri: '',
+              presentationTimeOffset: 5.972630385487529,
               segments: [
                 {
                   duration: 1.9969160997732427,
@@ -229,8 +230,8 @@ export const parsedManifest = {
       discontinuityStarts: [],
       endList: true,
       mediaSequence: 0,
-      presentationTimeOffset: 5.9726,
       resolvedUri: '',
+      presentationTimeOffset: 5.9726,
       segments: [
         {
           duration: 1.9352666666666667,

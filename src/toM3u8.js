@@ -140,7 +140,7 @@ export const formatAudioPlaylist = ({
   mediaSequence,
   discontinuitySequence,
   discontinuityStarts
-}, isAudioOnly) => {
+}, isAudioOnly, options) => {
   const playlist = {
     attributes: {
       NAME: attributes.id,
@@ -168,6 +168,10 @@ export const formatAudioPlaylist = ({
     playlist.trickMode = attributes.trickMode;
   }
 
+  if (options.mergePeriods === false && attributes.presentationTimeOffset) {
+    playlist.presentationTimeOffset = attributes.presentationTimeOffset / attributes.timescale;
+  }
+
   if (sidx) {
     playlist.sidx = sidx;
   }
@@ -186,7 +190,7 @@ export const formatVttPlaylist = ({
   mediaSequence,
   discontinuityStarts,
   discontinuitySequence
-}) => {
+}, options) => {
   if (typeof segments === 'undefined') {
     // vtt tracks may use single file in BaseURL
     segments = [{
@@ -210,7 +214,8 @@ export const formatVttPlaylist = ({
   if (attributes.codecs) {
     m3u8Attributes.CODECS = attributes.codecs;
   }
-  return {
+
+  const playlist = {
     attributes: m3u8Attributes,
     uri: '',
     endList: attributes.type === 'static',
@@ -223,9 +228,15 @@ export const formatVttPlaylist = ({
     mediaSequence,
     segments
   };
+
+  if (options.mergePeriods === false && attributes.presentationTimeOffset) {
+    playlist.presentationTimeOffset = attributes.presentationTimeOffset / attributes.timescale;
+  }
+
+  return playlist;
 };
 
-export const organizeAudioPlaylists = (playlists, sidxMapping = {}, isAudioOnly = false) => {
+export const organizeAudioPlaylists = (playlists, sidxMapping = {}, isAudioOnly = false, options = {}) => {
   let mainPlaylist;
 
   const formattedPlaylists = playlists.reduce((a, playlist) => {
@@ -251,7 +262,7 @@ export const organizeAudioPlaylists = (playlists, sidxMapping = {}, isAudioOnly 
       };
     }
 
-    const formatted = addSidxSegmentsToPlaylist(formatAudioPlaylist(playlist, isAudioOnly), sidxMapping);
+    const formatted = addSidxSegmentsToPlaylist(formatAudioPlaylist(playlist, isAudioOnly, options), sidxMapping);
 
     a[label].playlists.push(formatted);
 
@@ -273,7 +284,7 @@ export const organizeAudioPlaylists = (playlists, sidxMapping = {}, isAudioOnly 
   return formattedPlaylists;
 };
 
-export const organizeVttPlaylists = (playlists, sidxMapping = {}) => {
+export const organizeVttPlaylists = (playlists, sidxMapping = {}, options = {}) => {
   return playlists.reduce((a, playlist) => {
     const label = playlist.attributes.label || playlist.attributes.lang || 'text';
 
@@ -286,7 +297,7 @@ export const organizeVttPlaylists = (playlists, sidxMapping = {}) => {
         uri: ''
       };
     }
-    a[label].playlists.push(addSidxSegmentsToPlaylist(formatVttPlaylist(playlist), sidxMapping));
+    a[label].playlists.push(addSidxSegmentsToPlaylist(formatVttPlaylist(playlist, options), sidxMapping));
 
     return a;
   }, {});
@@ -330,7 +341,7 @@ export const formatVideoPlaylist = ({
   segments,
   sidx,
   discontinuityStarts
-}) => {
+}, options) => {
   const playlist = {
     attributes: {
       NAME: attributes.id,
@@ -366,7 +377,7 @@ export const formatVideoPlaylist = ({
     playlist.trickMode = attributes.trickMode;
   }
 
-  if (attributes.presentationTimeOffset) {
+  if (options.mergePeriods === false && attributes.presentationTimeOffset) {
     playlist.presentationTimeOffset = attributes.presentationTimeOffset / attributes.timescale;
   }
 
@@ -476,7 +487,7 @@ export const toM3u8 = ({
     publishTime
   } = dashPlaylists[0].attributes;
 
-  const videoPlaylists = mergeDiscontiguousPlaylists(dashPlaylists.filter(videoOnly), options).map(formatVideoPlaylist);
+  const videoPlaylists = mergeDiscontiguousPlaylists(dashPlaylists.filter(videoOnly), options).map(element => formatVideoPlaylist(element, options));
   const audioPlaylists = mergeDiscontiguousPlaylists(dashPlaylists.filter(audioOnly), options);
   const vttPlaylists = mergeDiscontiguousPlaylists(dashPlaylists.filter(vttOnly), options);
   const captions = dashPlaylists.map((playlist) => playlist.attributes.captionServices).filter(Boolean);
@@ -519,9 +530,9 @@ export const toM3u8 = ({
 
   const isAudioOnly = manifest.playlists.length === 0;
   const organizedAudioGroup = audioPlaylists.length ?
-    organizeAudioPlaylists(audioPlaylists, sidxMapping, isAudioOnly) : null;
+    organizeAudioPlaylists(audioPlaylists, sidxMapping, isAudioOnly, options) : null;
   const organizedVttGroup = vttPlaylists.length ?
-    organizeVttPlaylists(vttPlaylists, sidxMapping) : null;
+    organizeVttPlaylists(vttPlaylists, sidxMapping, options) : null;
   const formattedPlaylists = videoPlaylists.concat(
     flattenMediaGroupPlaylists(organizedAudioGroup),
     flattenMediaGroupPlaylists(organizedVttGroup)
