@@ -366,6 +366,10 @@ export const formatVideoPlaylist = ({
     playlist.trickMode = attributes.trickMode;
   }
 
+  if (attributes.presentationTimeOffset) {
+    playlist.presentationTimeOffset = attributes.presentationTimeOffset / attributes.timescale;
+  }
+
   if (sidx) {
     playlist.sidx = sidx;
   }
