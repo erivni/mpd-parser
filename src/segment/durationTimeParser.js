@@ -73,7 +73,8 @@ export const segmentRange = {
       duration,
       periodStart = 0,
       minimumUpdatePeriod = 0,
-      timeShiftBufferDepth = Infinity
+      timeShiftBufferDepth = Infinity,
+      timeShiftBufferDepthMargin = 0
     } = attributes;
     const endNumber = parseEndNumber(attributes.endNumber);
     // clientOffset is passed in at the top level of mpd-parser and is an offset calculated
@@ -87,7 +88,7 @@ export const segmentRange = {
     const periodDuration = periodEndWC - periodStartWC;
     const segmentCount = Math.ceil(periodDuration * timescale / duration);
     const availableStart =
-      Math.floor((now - periodStartWC - timeShiftBufferDepth) * timescale / duration);
+      Math.floor((now - periodStartWC - timeShiftBufferDepth + timeShiftBufferDepthMargin) * timescale / duration);
     const availableEnd = Math.floor((now - periodStartWC) * timescale / duration);
 
     return {

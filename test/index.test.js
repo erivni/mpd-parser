@@ -1,5 +1,6 @@
 import { parse, VERSION } from '../src';
 import QUnit from 'qunit';
+import { useFakeTimers } from 'sinon';
 
 QUnit.dump.maxDepth = Infinity;
 
@@ -21,6 +22,7 @@ import multiperiodDynamic from './manifests/multiperiod-dynamic.mpd';
 import audioOnly from './manifests/audio-only.mpd';
 import trickMode from './manifests/trickmode.mpd';
 import multiperiodStartnumber from './manifests/multiperiod-startnumber.mpd';
+import dynamicTimeShiftBufferDepthMargin from './manifests/dynamic-timeshiftbufferdepth-margin.mpd';
 import multiperiodStartnumberRemovedPeriods from
   './manifests/multiperiod-startnumber-removed-periods.mpd';
 import stppNoInit from './manifests/stpp-no-init.mpd';
@@ -84,6 +86,9 @@ import {
 import {
   parsedManifest as multiperiodStartnumberManifest
 } from './manifests/multiperiod-startnumber.js';
+import {
+  parsedManifest as dynamicManifestTimeShiftBufferDepthMargin
+} from './manifests/dynamic-timeshiftbufferdepth-margin.js';
 import {
   parsedManifest as multiperiodStartnumberRemovedPeriodsManifest
 } from './manifests/multiperiod-startnumber-removed-periods.js';
@@ -197,9 +202,20 @@ QUnit.test('has parse', function(assert) {
   input: multiperiodoverlapped,
   expected: multiperiodOverlappedNoPeriodMergeManifest,
   options: { mergePeriods: false }
+}, {
+  // test will use the sinon mock to simulate NOW
+  // original MPD has 64s of segments.
+  // using margin:10 we expect to get 56s of segments.
+  name: 'dynamic_with_timeshiftBufferDepthMargin',
+  input: dynamicTimeShiftBufferDepthMargin,
+  expected: dynamicManifestTimeShiftBufferDepthMargin,
+  options: { timeShiftBufferDepthMargin: 10 }
 }].forEach(({ name, input, expected, options = {} }) => {
   QUnit.test(`${name} test manifest`, function(assert) {
+    const clock = useFakeTimers(new Date('2023-07-09T12:34:56Z'));
     const actual = parse(input, options);
+
+    clock.restore();
 
     assert.deepEqual(actual, expected);
   });
