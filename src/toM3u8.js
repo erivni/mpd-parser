@@ -496,6 +496,9 @@ export const toM3u8 = ({
   if (timeShiftBufferDepth) {
     manifest.timeShiftBufferDepth = timeShiftBufferDepth;
   }
+  if (timeShiftBufferDepth && options && options.timeShiftBufferDepthMargin) {
+    manifest.timeShiftBufferDepthMargin = options.timeShiftBufferDepthMargin;
+  }
 
   if (publishTime) {
     manifest.publishTime = new Date(publishTime).toISOString();
