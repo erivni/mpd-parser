@@ -31,6 +31,39 @@ const getLiveRValue = (attributes, time, duration) => {
 };
 
 /**
+ * Uses information provided by SegmentTemplate.SegmentTimeline to determine playback
+ * timing window
+ *
+ * @param {Object} attributes
+ *        Object containing all inherited attributes from parent elements with attribute
+ *        names as keys
+ *
+ * @return {time}
+ *        The playback window start time
+ */
+
+const getAvailableLiveStart = (attributes) => {
+  const {
+    type,
+    NOW,
+    clientOffset,
+    availabilityStartTime,
+    periodStart = 0,
+    timeShiftBufferDepth = Infinity,
+    timeShiftBufferDepthMargin = 0
+  } = attributes;
+
+  if (type === 'static' || !timeShiftBufferDepthMargin) {
+    return 0;
+  }
+
+  const now = (NOW + clientOffset) / 1000;
+  const periodStartWC = availabilityStartTime + periodStart;
+
+  return Math.floor(now - periodStartWC - timeShiftBufferDepth + timeShiftBufferDepthMargin);
+};
+
+/**
  * Uses information provided by SegmentTemplate.SegmentTimeline to determine segment
  * timing and duration
  *
@@ -55,6 +88,8 @@ export const parseByTimeline = (attributes, segmentTimeline) => {
   } = attributes;
   const segments = [];
   let time = -1;
+
+  const availableLiveStart = getAvailableLiveStart(attributes);
 
   for (let sIndex = 0; sIndex < segmentTimeline.length; sIndex++) {
     const S = segmentTimeline[sIndex];
@@ -119,7 +154,10 @@ export const parseByTimeline = (attributes, segmentTimeline) => {
     let number = startNumber + segments.length;
 
     while (number < end) {
-      segments.push({ number, duration: duration / timescale, time, timeline });
+      // add segments only if they are in timeline window
+      if (time / timescale >= availableLiveStart) {
+        segments.push({ number, duration: duration / timescale, time, timeline });
+      }
       time += duration;
       number++;
     }
