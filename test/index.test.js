@@ -27,6 +27,7 @@ import dynamicTimelineTimeShiftBufferDepthMargin from './manifests/dynamic-timel
 import multiperiodStartnumberRemovedPeriods from
   './manifests/multiperiod-startnumber-removed-periods.mpd';
 import stppNoInit from './manifests/stpp-no-init.mpd';
+import ttmlNoInit from './manifests/ttml-no-init.mpd';
 import filteredCodecs from './manifests/filtered-codecs.mpd';
 import {
   parsedManifest as maatVttSegmentTemplateManifest
@@ -99,6 +100,9 @@ import {
 import {
   parsedManifest as stppNoInitManifest
 } from './manifests/stpp-no-init.js';
+import {
+  parsedManifest as ttmlNoInitManifest
+} from './manifests/ttml-no-init.js';
 import {
   parsedManifest as filteredCodecsManifest
 } from './manifests/filtered-codecs.js';
@@ -185,6 +189,11 @@ QUnit.test('has parse', function(assert) {
   name: 'stpp_no_init',
   input: stppNoInit,
   expected: stppNoInitManifest,
+  options: { removeSubtitlesInit: true }
+}, {
+  name: 'ttml_no_init',
+  input: ttmlNoInit,
+  expected: ttmlNoInitManifest,
   options: { removeSubtitlesInit: true }
 }, {
   name: 'filtered_codecs',

@@ -378,7 +378,7 @@ const videoOnly = ({ attributes }) =>
 const audioOnly = ({ attributes }) =>
   attributes.mimeType === 'audio/mp4' || attributes.mimeType === 'audio/webm' || attributes.contentType === 'audio';
 const vttOnly = ({ attributes }) =>
-  attributes.mimeType === 'text/vtt' || attributes.mimeType === 'application/mp4' || attributes.contentType === 'text';
+  attributes.mimeType === 'text/vtt' || attributes.mimeType === 'application/ttml+xml' || attributes.mimeType === 'application/mp4' || attributes.contentType === 'text';
 
 /**
  * Contains start and timeline properties denoting a timeline start. For DASH, these will

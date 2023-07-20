@@ -30,7 +30,7 @@ export const generateSegments = ({ attributes, segmentInfo }, options) => {
   if (!segmentsFn) {
     return segmentsInfo;
   }
-  if (segmentAttributes.codecs === 'stpp' && options.removeSubtitlesInit) {
+  if ((segmentAttributes.codecs === 'stpp' || segmentAttributes.mimeType === 'application/ttml+xml') && options.removeSubtitlesInit) {
     segmentAttributes.removeInitMap = true;
   }
   if (options && options.timeShiftBufferDepthMargin) {
