@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MPD xmlns:cenc="urn:mpeg:cenc:2013" xmlns:mspr="urn:microsoft:playready" xmlns:scte35="http://www.scte.org/schemas/35/2016" xmlns:dvb="urn:dvb:dash-extensions:2014-1" xmlns="urn:mpeg:dash:schema:mpd:2011" id="G-XX-_E-SHELDONS1E2___-1712193C9" profiles="urn:mpeg:dash:profile:isoff-main:2011" type="static" mediaPresentationDuration="PT30.00S" minBufferTime="PT6.000S" maxSegmentDuration="PT10.000S">
+  <Period id="Period1">
+    <AdaptationSet minBandwidth="3000000" maxBandwidth="7000000" segmentAlignment="true">
+      <Representation id="7Mbps" bandwidth="7000000" profiles="urn:mpeg:dash:profile:isoff-main:2011" width="1920" height="1080" frameRate="25/1" mimeType="video/mp4" codecs="avc1.4d4028">
+        <SegmentTemplate timescale="90000" startNumber="1" duration="900000" media="7Mbps/PID__avc1_segment$Number$.mp4" initialization="7Mbps/PID__avc1_segmentinit.mp4"/>
+      </Representation>
+      <Representation id="3Mbps" bandwidth="3000000" profiles="urn:mpeg:dash:profile:isoff-main:2011" width="1920" height="1080" frameRate="25/1" mimeType="video/mp4" codecs="avc1.4d4028">
+        <SegmentTemplate timescale="90000" startNumber="1" duration="900000" media="3Mbps/PID__avc1_segment$Number$.mp4" initialization="3Mbps/PID__avc1_segmentinit.mp4"/>
+      </Representation>
+    </AdaptationSet>
+    <AdaptationSet lang="eng" minBandwidth="128000" maxBandwidth="384000" segmentAlignment="true">
+      <Representation id="EnglishAAC" bandwidth="128000" profiles="urn:mpeg:dash:profile:isoff-main:2011" audioSamplingRate="48000" mimeType="audio/mp4" codecs="mp4a.40.2">
+        <SegmentTemplate timescale="90000" startNumber="1" duration="540000" media="EnglishAAC/PID__mp4a_segment$Number$.mp4" initialization="EnglishAAC/PID__mp4a_segmentinit.mp4"/>
+      </Representation>
+      <Representation id="DolbyAC3" bandwidth="384000" profiles="urn:mpeg:dash:profile:isoff-main:2011" audioSamplingRate="48000" mimeType="audio/mp4" codecs="ac-3">
+        <SegmentTemplate timescale="90000" startNumber="1" duration="540000" media="DolbyAC3/PID__ac-3_segment$Number$.mp4" initialization="DolbyAC3/PID__ac-3_segmentinit.mp4"/>
+        <AudioChannelConfiguration schemeIdUri="tag:dolby.com,2014:dash:audio_channel_configuration:2011" value="F801"/>
+      </Representation>
+    </AdaptationSet>
+    <AdaptationSet group="1" lang="ara">
+      <Representation id="ttml" bandwidth="354" mimeType="application/ttml+xml">
+        <BaseURL>ttml/PID_ARA.ttml</BaseURL>
+      </Representation>
+    </AdaptationSet>
+  </Period>
+</MPD>
