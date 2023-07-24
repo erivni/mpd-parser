@@ -27,48 +27,48 @@ export const parsedManifest = {
                 {
                   duration: 6,
                   map: {
-                    resolvedUri: 'http://localhost:9999/test/EnglishAAC/PID__mp4a_segmentinit.mp4',
+                    resolvedUri: 'http://example.com/EnglishAAC/PID__mp4a_segmentinit.mp4',
                     uri: 'EnglishAAC/PID__mp4a_segmentinit.mp4'
                   },
                   number: 0,
                   presentationTime: 0,
-                  resolvedUri: 'EnglishAAC/PID__mp4a_segment1.mp4',
+                  resolvedUri: 'http://example.com/EnglishAAC/PID__mp4a_segment1.mp4',
                   timeline: 0,
                   uri: 'EnglishAAC/PID__mp4a_segment1.mp4'
                 },
                 {
                   duration: 6,
                   map: {
-                    resolvedUri: 'http://localhost:9999/test/EnglishAAC/PID__mp4a_segmentinit.mp4',
+                    resolvedUri: 'http://example.com/EnglishAAC/PID__mp4a_segmentinit.mp4',
                     uri: 'EnglishAAC/PID__mp4a_segmentinit.mp4'
                   },
                   number: 1,
                   presentationTime: 6,
-                  resolvedUri: 'EnglishAAC/PID__mp4a_segment2.mp4',
+                  resolvedUri: 'http://example.com/EnglishAAC/PID__mp4a_segment2.mp4',
                   timeline: 0,
                   uri: 'EnglishAAC/PID__mp4a_segment2.mp4'
                 },
                 {
                   duration: 6,
                   map: {
-                    resolvedUri: 'http://localhost:9999/test/EnglishAAC/PID__mp4a_segmentinit.mp4',
+                    resolvedUri: 'http://example.com/EnglishAAC/PID__mp4a_segmentinit.mp4',
                     uri: 'EnglishAAC/PID__mp4a_segmentinit.mp4'
                   },
                   number: 2,
                   presentationTime: 12,
-                  resolvedUri: 'EnglishAAC/PID__mp4a_segment3.mp4',
+                  resolvedUri: 'http://example.com/EnglishAAC/PID__mp4a_segment3.mp4',
                   timeline: 0,
                   uri: 'EnglishAAC/PID__mp4a_segment3.mp4'
                 },
                 {
                   duration: 6,
                   map: {
-                    resolvedUri: 'http://localhost:9999/test/EnglishAAC/PID__mp4a_segmentinit.mp4',
+                    resolvedUri: 'http://example.com/EnglishAAC/PID__mp4a_segmentinit.mp4',
                     uri: 'EnglishAAC/PID__mp4a_segmentinit.mp4'
                   },
                   number: 3,
                   presentationTime: 18,
-                  resolvedUri: 'EnglishAAC/PID__mp4a_segment4.mp4',
+                  resolvedUri: 'http://example.com/EnglishAAC/PID__mp4a_segment4.mp4',
                   timeline: 0,
                   uri: 'EnglishAAC/PID__mp4a_segment4.mp4'
                 },
@@ -76,12 +76,12 @@ export const parsedManifest = {
                   duration: 6,
                   last: true,
                   map: {
-                    resolvedUri: 'http://localhost:9999/test/EnglishAAC/PID__mp4a_segmentinit.mp4',
+                    resolvedUri: 'http://example.com/EnglishAAC/PID__mp4a_segmentinit.mp4',
                     uri: 'EnglishAAC/PID__mp4a_segmentinit.mp4'
                   },
                   number: 4,
                   presentationTime: 24,
-                  resolvedUri: 'EnglishAAC/PID__mp4a_segment5.mp4',
+                  resolvedUri: 'http://example.com/EnglishAAC/PID__mp4a_segment5.mp4',
                   timeline: 0,
                   uri: 'EnglishAAC/PID__mp4a_segment5.mp4'
                 }
@@ -112,48 +112,48 @@ export const parsedManifest = {
                 {
                   duration: 6,
                   map: {
-                    resolvedUri: 'http://localhost:9999/test/DolbyAC3/PID__ac-3_segmentinit.mp4',
+                    resolvedUri: 'http://example.com/DolbyAC3/PID__ac-3_segmentinit.mp4',
                     uri: 'DolbyAC3/PID__ac-3_segmentinit.mp4'
                   },
                   number: 0,
                   presentationTime: 0,
-                  resolvedUri: 'DolbyAC3/PID__ac-3_segment1.mp4',
+                  resolvedUri: 'http://example.com/DolbyAC3/PID__ac-3_segment1.mp4',
                   timeline: 0,
                   uri: 'DolbyAC3/PID__ac-3_segment1.mp4'
                 },
                 {
                   duration: 6,
                   map: {
-                    resolvedUri: 'http://localhost:9999/test/DolbyAC3/PID__ac-3_segmentinit.mp4',
+                    resolvedUri: 'http://example.com/DolbyAC3/PID__ac-3_segmentinit.mp4',
                     uri: 'DolbyAC3/PID__ac-3_segmentinit.mp4'
                   },
                   number: 1,
                   presentationTime: 6,
-                  resolvedUri: 'DolbyAC3/PID__ac-3_segment2.mp4',
+                  resolvedUri: 'http://example.com/DolbyAC3/PID__ac-3_segment2.mp4',
                   timeline: 0,
                   uri: 'DolbyAC3/PID__ac-3_segment2.mp4'
                 },
                 {
                   duration: 6,
                   map: {
-                    resolvedUri: 'http://localhost:9999/test/DolbyAC3/PID__ac-3_segmentinit.mp4',
+                    resolvedUri: 'http://example.com/DolbyAC3/PID__ac-3_segmentinit.mp4',
                     uri: 'DolbyAC3/PID__ac-3_segmentinit.mp4'
                   },
                   number: 2,
                   presentationTime: 12,
-                  resolvedUri: 'DolbyAC3/PID__ac-3_segment3.mp4',
+                  resolvedUri: 'http://example.com/DolbyAC3/PID__ac-3_segment3.mp4',
                   timeline: 0,
                   uri: 'DolbyAC3/PID__ac-3_segment3.mp4'
                 },
                 {
                   duration: 6,
                   map: {
-                    resolvedUri: 'http://localhost:9999/test/DolbyAC3/PID__ac-3_segmentinit.mp4',
+                    resolvedUri: 'http://example.com/DolbyAC3/PID__ac-3_segmentinit.mp4',
                     uri: 'DolbyAC3/PID__ac-3_segmentinit.mp4'
                   },
                   number: 3,
                   presentationTime: 18,
-                  resolvedUri: 'DolbyAC3/PID__ac-3_segment4.mp4',
+                  resolvedUri: 'http://example.com/DolbyAC3/PID__ac-3_segment4.mp4',
                   timeline: 0,
                   uri: 'DolbyAC3/PID__ac-3_segment4.mp4'
                 },
@@ -161,12 +161,12 @@ export const parsedManifest = {
                   duration: 6,
                   last: true,
                   map: {
-                    resolvedUri: 'http://localhost:9999/test/DolbyAC3/PID__ac-3_segmentinit.mp4',
+                    resolvedUri: 'http://example.com/DolbyAC3/PID__ac-3_segmentinit.mp4',
                     uri: 'DolbyAC3/PID__ac-3_segmentinit.mp4'
                   },
                   number: 4,
                   presentationTime: 24,
-                  resolvedUri: 'DolbyAC3/PID__ac-3_segment5.mp4',
+                  resolvedUri: 'http://example.com/DolbyAC3/PID__ac-3_segment5.mp4',
                   timeline: 0,
                   uri: 'DolbyAC3/PID__ac-3_segment5.mp4'
                 }
@@ -197,6 +197,7 @@ export const parsedManifest = {
             {
               attributes: {
                 'BANDWIDTH': 354,
+                'MIME_TYPE': 'application/ttml+xml',
                 'NAME': 'ttml',
                 'PROGRAM-ID': 1
               },
@@ -204,15 +205,15 @@ export const parsedManifest = {
               discontinuityStarts: [],
               endList: true,
               mediaSequence: 0,
-              resolvedUri: 'http://localhost:9999/test/ttml/PID_ARA.ttml',
+              resolvedUri: 'http://example.com/ttml/PID_ARA.ttml',
               segments: [
                 {
                   duration: 30,
                   last: true,
                   number: 0,
-                  resolvedUri: 'http://localhost:9999/test/ttml/PID_ARA.ttml',
+                  resolvedUri: 'http://example.com/ttml/PID_ARA.ttml',
                   timeline: 0,
-                  uri: 'http://localhost:9999/test/ttml/PID_ARA.ttml'
+                  uri: 'http://example.com/ttml/PID_ARA.ttml'
                 }
               ],
               targetDuration: 30,
@@ -256,24 +257,24 @@ export const parsedManifest = {
         {
           duration: 10,
           map: {
-            resolvedUri: 'http://localhost:9999/test/7Mbps/PID__avc1_segmentinit.mp4',
+            resolvedUri: 'http://example.com/7Mbps/PID__avc1_segmentinit.mp4',
             uri: '7Mbps/PID__avc1_segmentinit.mp4'
           },
           number: 0,
           presentationTime: 0,
-          resolvedUri: '7Mbps/PID__avc1_segment1.mp4',
+          resolvedUri: 'http://example.com/7Mbps/PID__avc1_segment1.mp4',
           timeline: 0,
           uri: '7Mbps/PID__avc1_segment1.mp4'
         },
         {
           duration: 10,
           map: {
-            resolvedUri: 'http://localhost:9999/test/7Mbps/PID__avc1_segmentinit.mp4',
+            resolvedUri: 'http://example.com/7Mbps/PID__avc1_segmentinit.mp4',
             uri: '7Mbps/PID__avc1_segmentinit.mp4'
           },
           number: 1,
           presentationTime: 10,
-          resolvedUri: '7Mbps/PID__avc1_segment2.mp4',
+          resolvedUri: 'http://example.com/7Mbps/PID__avc1_segment2.mp4',
           timeline: 0,
           uri: '7Mbps/PID__avc1_segment2.mp4'
         },
@@ -281,12 +282,12 @@ export const parsedManifest = {
           duration: 10,
           last: true,
           map: {
-            resolvedUri: 'http://localhost:9999/test/7Mbps/PID__avc1_segmentinit.mp4',
+            resolvedUri: 'http://example.com/7Mbps/PID__avc1_segmentinit.mp4',
             uri: '7Mbps/PID__avc1_segmentinit.mp4'
           },
           number: 2,
           presentationTime: 20,
-          resolvedUri: '7Mbps/PID__avc1_segment3.mp4',
+          resolvedUri: 'http://example.com/7Mbps/PID__avc1_segment3.mp4',
           timeline: 0,
           uri: '7Mbps/PID__avc1_segment3.mp4'
         }
@@ -324,24 +325,24 @@ export const parsedManifest = {
         {
           duration: 10,
           map: {
-            resolvedUri: 'http://localhost:9999/test/3Mbps/PID__avc1_segmentinit.mp4',
+            resolvedUri: 'http://example.com/3Mbps/PID__avc1_segmentinit.mp4',
             uri: '3Mbps/PID__avc1_segmentinit.mp4'
           },
           number: 0,
           presentationTime: 0,
-          resolvedUri: '3Mbps/PID__avc1_segment1.mp4',
+          resolvedUri: 'http://example.com/3Mbps/PID__avc1_segment1.mp4',
           timeline: 0,
           uri: '3Mbps/PID__avc1_segment1.mp4'
         },
         {
           duration: 10,
           map: {
-            resolvedUri: 'http://localhost:9999/test/3Mbps/PID__avc1_segmentinit.mp4',
+            resolvedUri: 'http://example.com/3Mbps/PID__avc1_segmentinit.mp4',
             uri: '3Mbps/PID__avc1_segmentinit.mp4'
           },
           number: 1,
           presentationTime: 10,
-          resolvedUri: '3Mbps/PID__avc1_segment2.mp4',
+          resolvedUri: 'http://example.com/3Mbps/PID__avc1_segment2.mp4',
           timeline: 0,
           uri: '3Mbps/PID__avc1_segment2.mp4'
         },
@@ -349,12 +350,12 @@ export const parsedManifest = {
           duration: 10,
           last: true,
           map: {
-            resolvedUri: 'http://localhost:9999/test/3Mbps/PID__avc1_segmentinit.mp4',
+            resolvedUri: 'http://example.com/3Mbps/PID__avc1_segmentinit.mp4',
             uri: '3Mbps/PID__avc1_segmentinit.mp4'
           },
           number: 2,
           presentationTime: 20,
-          resolvedUri: '3Mbps/PID__avc1_segment3.mp4',
+          resolvedUri: 'http://example.com/3Mbps/PID__avc1_segment3.mp4',
           timeline: 0,
           uri: '3Mbps/PID__avc1_segment3.mp4'
         }

@@ -19,7 +19,9 @@ export const parsedManifest = {
                 'NAME': '19',
                 'BANDWIDTH': 1095,
                 'PROGRAM-ID': 1,
-                'CODECS': 'stpp'
+                'CODECS': 'stpp',
+                'MIME_TYPE': 'application/mp4'
+
               },
               uri: '',
               endList: true,
@@ -2260,7 +2262,8 @@ export const parsedManifest = {
                 'NAME': '21',
                 'BANDWIDTH': 1101,
                 'PROGRAM-ID': 1,
-                'CODECS': 'stpp'
+                'CODECS': 'stpp',
+                'MIME_TYPE': 'application/mp4'
               },
               uri: '',
               endList: true,
@@ -4501,7 +4504,8 @@ export const parsedManifest = {
                 'NAME': '23',
                 'BANDWIDTH': 1098,
                 'PROGRAM-ID': 1,
-                'CODECS': 'stpp'
+                'CODECS': 'stpp',
+                'MIME_TYPE': 'application/mp4'
               },
               uri: '',
               endList: true,
@@ -6742,7 +6746,8 @@ export const parsedManifest = {
                 'NAME': '25',
                 'BANDWIDTH': 1142,
                 'PROGRAM-ID': 1,
-                'CODECS': 'stpp'
+                'CODECS': 'stpp',
+                'MIME_TYPE': 'application/mp4'
               },
               uri: '',
               endList: true,
@@ -8981,6 +8986,7 @@ export const parsedManifest = {
             {
               attributes: {
                 'NAME': '27',
+                'MIME_TYPE': 'application/mp4',
                 'BANDWIDTH': 1102,
                 'PROGRAM-ID': 1,
                 'CODECS': 'stpp'
