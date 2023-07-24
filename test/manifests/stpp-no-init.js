@@ -150,6 +150,7 @@ export const parsedManifest = {
               attributes: {
                 'BANDWIDTH': 20000,
                 'CODECS': 'stpp',
+                'MIME_TYPE': 'application/mp4',
                 'NAME': 'default_video900_1_640x360/stpp',
                 'PROGRAM-ID': 1
               },

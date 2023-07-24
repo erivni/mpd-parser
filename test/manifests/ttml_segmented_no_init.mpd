@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MPD xmlns:cenc="urn:mpeg:cenc:2013" xmlns:mspr="urn:microsoft:playready" xmlns:scte35="http://www.scte.org/schemas/35/2016" xmlns:dvb="urn:dvb:dash-extensions:2014-1" xmlns="urn:mpeg:dash:schema:mpd:2011" id="G-XX-_E-SHELDONS1E2___-1712193C9" profiles="urn:mpeg:dash:profile:isoff-main:2011" type="static" mediaPresentationDuration="PT30.000S" minBufferTime="PT6.000S" maxSegmentDuration="PT10.000S">
+<BaseURL>http://example.com/</BaseURL>
   <Period id="Period1">
     <AdaptationSet minBandwidth="3000000" maxBandwidth="7000000" segmentAlignment="true">
       <Representation id="7Mbps" bandwidth="7000000" profiles="urn:mpeg:dash:profile:isoff-main:2011" width="1920" height="1080" frameRate="25/1" mimeType="video/mp4" codecs="avc1.4d4028">

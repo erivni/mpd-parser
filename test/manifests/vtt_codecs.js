@@ -358,7 +358,8 @@ export const parsedManifest = {
                 'NAME': 'en',
                 'BANDWIDTH': 256,
                 'PROGRAM-ID': 1,
-                'CODECS': 'stpp.ttml.im1t'
+                'CODECS': 'stpp.ttml.im1t',
+                'MIME_TYPE': 'application/mp4'
               },
               uri: '',
               endList: true,
@@ -395,6 +396,7 @@ export const parsedManifest = {
               attributes: {
                 'NAME': 'es',
                 'BANDWIDTH': 256,
+                'MIME_TYPE': 'text/vtt',
                 'PROGRAM-ID': 1
               },
               uri: '',

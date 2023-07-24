@@ -133,6 +133,7 @@ QUnit.test('playlists', function(assert) {
             playlists: [{
               attributes: {
                 BANDWIDTH: 20000,
+                MIME_TYPE: 'text/vtt',
                 NAME: '1',
                 ['PROGRAM-ID']: 1
               },
@@ -156,6 +157,7 @@ QUnit.test('playlists', function(assert) {
             }, {
               attributes: {
                 BANDWIDTH: 10000,
+                MIME_TYPE: 'text/vtt',
                 NAME: '2',
                 ['PROGRAM-ID']: 1
               },
@@ -483,6 +485,7 @@ QUnit.test('playlists with segments', function(assert) {
             playlists: [{
               attributes: {
                 BANDWIDTH: 20000,
+                MIME_TYPE: 'text/vtt',
                 NAME: '1',
                 ['PROGRAM-ID']: 1
               },
@@ -520,6 +523,7 @@ QUnit.test('playlists with segments', function(assert) {
             }, {
               attributes: {
                 BANDWIDTH: 10000,
+                MIME_TYPE: 'text/vtt',
                 NAME: '2',
                 ['PROGRAM-ID']: 1
               },

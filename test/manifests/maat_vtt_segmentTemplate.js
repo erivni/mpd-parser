@@ -342,6 +342,7 @@ export const parsedManifest = {
               attributes: {
                 'NAME': 'en',
                 'BANDWIDTH': 256,
+                'MIME_TYPE': 'text/vtt',
                 'PROGRAM-ID': 1
               },
               uri: '',
@@ -376,6 +377,7 @@ export const parsedManifest = {
               attributes: {
                 'NAME': 'es',
                 'BANDWIDTH': 256,
+                'MIME_TYPE': 'text/vtt',
                 'PROGRAM-ID': 1
               },
               uri: '',
