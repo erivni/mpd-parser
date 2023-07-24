@@ -210,6 +210,9 @@ export const formatVttPlaylist = ({
   if (attributes.codecs) {
     m3u8Attributes.CODECS = attributes.codecs;
   }
+  if (attributes.mimeType) {
+    m3u8Attributes.MIME_TYPE = attributes.mimeType;
+  }
   return {
     attributes: m3u8Attributes,
     uri: '',
