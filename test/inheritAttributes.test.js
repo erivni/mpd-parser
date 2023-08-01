@@ -3,12 +3,14 @@ import {
   buildBaseUrls,
   parseCaptionServiceMetadata,
   getSegmentInformation,
-  getPeriodStart
+  getPeriodStart,
+  toEventStream
 } from '../src/inheritAttributes';
 import { stringToMpdXml } from '../src/stringToMpdXml';
 import errors from '../src/errors';
 import QUnit from 'qunit';
 import { toPlaylists } from '../src/toPlaylists';
+import { findChildren } from '../src/utils/xml';
 
 QUnit.module('buildBaseUrls');
 
@@ -543,6 +545,7 @@ QUnit.test('end to end - basic', function(assert) {
   `), { NOW });
 
   const expected = {
+    eventStream: [],
     locations: undefined,
     representationInfo: [{
       attributes: {
@@ -617,6 +620,7 @@ QUnit.test('end to end - basic dynamic', function(assert) {
   `), { NOW });
 
   const expected = {
+    eventStream: [],
     locations: undefined,
     representationInfo: [{
       attributes: {
@@ -698,6 +702,7 @@ QUnit.test('end to end - basic multiperiod', function(assert) {
   `), { NOW });
 
   const expected = {
+    eventStream: [],
     locations: undefined,
     representationInfo: [{
       attributes: {
@@ -784,6 +789,7 @@ QUnit.test('end to end - inherits BaseURL from all levels', function(assert) {
   `), { NOW });
 
   const expected = {
+    eventStream: [],
     locations: undefined,
     representationInfo: [{
       attributes: {
@@ -860,6 +866,7 @@ QUnit.test('end to end - alternate BaseURLs', function(assert) {
   `), { NOW });
 
   const expected = {
+    eventStream: [],
     locations: undefined,
     representationInfo: [{
       attributes: {
@@ -1027,6 +1034,7 @@ QUnit.test(
   `), { NOW });
 
     const expected = {
+      eventStream: [],
       locations: undefined,
       representationInfo: [{
         attributes: {
@@ -1139,6 +1147,7 @@ QUnit.test(
   `), { NOW });
 
     const expected = {
+      eventStream: [],
       locations: undefined,
       representationInfo: [{
         attributes: {
@@ -1262,6 +1271,7 @@ QUnit.test(
   `), { NOW });
 
     const expected = {
+      eventStream: [],
       locations: undefined,
       representationInfo: [{
         attributes: {
@@ -2102,6 +2112,7 @@ QUnit.test('keySystem info for representation - lowercase UUIDs', function(asser
 
   // inconsistent quoting because of quote-props
   const expected = {
+    eventStream: [],
     locations: undefined,
     representationInfo: [{
       attributes: {
@@ -2185,6 +2196,7 @@ QUnit.test('keySystem info for representation - uppercase UUIDs', function(asser
 
   // inconsistent quoting because of quote-props
   const expected = {
+    eventStream: [],
     locations: undefined,
     representationInfo: [{
       attributes: {
@@ -2230,4 +2242,275 @@ QUnit.test('keySystem info for representation - uppercase UUIDs', function(asser
 
   assert.equal(actual.representationInfo.length, 1);
   assert.deepEqual(actual, expected);
+});
+
+QUnit.test('gets EventStream data from toEventStream', function(assert) {
+  const mpd = stringToMpdXml(`
+    <MPD mediaPresentationDuration="PT30S" xmlns:cenc="urn:mpeg:cenc:2013">
+      <Period id="dai_pod-0001065804-ad-1" start="PT17738H17M14.156S" duration="PT9.977S">
+        <BaseURL>https://www.example.com/base/</BaseURL>
+        <SegmentTemplate media="$RepresentationID$/$Number$.mp4" initialization="$RepresentationID$/init.mp4"/>
+        <EventStream schemeIdUri="urn:google:dai:2018" timescale="1000" contentEncoding="foo" presentationTimeOffset="1">
+          <Event presentationTime="100" duration="0" id="0" messageData="foo"/>
+          <Event presentationTime="900" duration="0" id="5" messageData="bar"/>
+          <Event presentationTime="1900" duration="0" id="6" messageData="foo_bar"/>
+        </EventStream>
+      </Period>
+    </MPD>`);
+  const expected = [
+    {
+      end: 2.1,
+      id: '0',
+      messageData: 'foo',
+      schemeIdUri: 'urn:google:dai:2018',
+      start: 2.1,
+      value: undefined,
+      contentEncoding: 'foo',
+      presentationTimeOffset: 1
+
+    },
+    {
+      end: 2.9,
+      id: '5',
+      messageData: 'bar',
+      schemeIdUri: 'urn:google:dai:2018',
+      start: 2.9,
+      value: undefined,
+      contentEncoding: 'foo',
+      presentationTimeOffset: 1
+    },
+    {
+      end: 3.9,
+      id: '6',
+      messageData: 'foo_bar',
+      schemeIdUri: 'urn:google:dai:2018',
+      start: 3.9,
+      value: undefined,
+      contentEncoding: 'foo',
+      presentationTimeOffset: 1
+    }
+  ];
+
+  const firstPeriod = { node: findChildren(mpd, 'Period')[0], attributes: { start: 2 } };
+  const eventStreams = toEventStream(firstPeriod);
+
+  assert.deepEqual(eventStreams, expected, 'toEventStream returns the expected object');
+});
+
+QUnit.test('can get EventStream data from toEventStream with no schemeIdUri', function(assert) {
+  const mpd = stringToMpdXml(`
+    <MPD mediaPresentationDuration="PT30S" xmlns:cenc="urn:mpeg:cenc:2013">
+      <Period id="dai_pod-0001065804-ad-1" start="PT17738H17M14.156S" duration="PT9.977S">
+        <BaseURL>https://www.example.com/base/</BaseURL>
+        <SegmentTemplate media="$RepresentationID$/$Number$.mp4" initialization="$RepresentationID$/init.mp4"/>
+        <EventStream timescale="1000">
+          <Event presentationTime="100" duration="0" id="0" messageData="foo"/>
+          <Event presentationTime="900" duration="0" id="5" messageData="bar"/>
+          <Event presentationTime="1900" duration="0" id="6" messageData="foo_bar"/>
+        </EventStream>
+      </Period>
+    </MPD>`);
+
+  const expected = [
+    {
+      end: 2.1,
+      id: '0',
+      messageData: 'foo',
+      schemeIdUri: undefined,
+      start: 2.1,
+      value: undefined,
+      contentEncoding: undefined,
+      presentationTimeOffset: 0
+
+    },
+    {
+      end: 2.9,
+      id: '5',
+      messageData: 'bar',
+      schemeIdUri: undefined,
+      start: 2.9,
+      value: undefined,
+      contentEncoding: undefined,
+      presentationTimeOffset: 0
+    },
+    {
+      end: 3.9,
+      id: '6',
+      messageData: 'foo_bar',
+      schemeIdUri: undefined,
+      start: 3.9,
+      value: undefined,
+      contentEncoding: undefined,
+      presentationTimeOffset: 0
+    }
+  ];
+
+  const firstPeriod = { node: findChildren(mpd, 'Period')[0], attributes: { start: 2} };
+  const eventStreams = toEventStream(firstPeriod);
+
+  assert.deepEqual(eventStreams, expected, 'toEventStream returns the expected object');
+});
+
+QUnit.test('gets eventStream from inheritAttributes', function(assert) {
+  const mpd = stringToMpdXml(`
+    <MPD mediaPresentationDuration="PT30S" xmlns:cenc="urn:mpeg:cenc:2013">
+      <Period id="dai_pod-0001065804-ad-1" start="PT0H0M14.9S" duration="PT9.977S">
+        <BaseURL>https://www.example.com/base/</BaseURL>
+        <SegmentTemplate media="$RepresentationID$/$Number$.mp4" initialization="$RepresentationID$/init.mp4"/>
+        <EventStream schemeIdUri="urn:google:dai:2018" timescale="1000" value="foo">
+          <Event presentationTime="100" duration="0" id="0" messageData="foo"/>
+          <Event presentationTime="1100" duration="0" id="5" messageData="bar"/>
+          <Event presentationTime="2100" duration="0" id="6" messageData="foo_bar"/>
+        </EventStream>
+      </Period>
+    </MPD>`);
+  const expected = {
+    eventStream: [
+      {
+        end: 15,
+        id: '0',
+        messageData: 'foo',
+        schemeIdUri: 'urn:google:dai:2018',
+        start: 15,
+        value: 'foo',
+        contentEncoding: undefined,
+        presentationTimeOffset: 0
+      },
+      {
+        end: 16,
+        id: '5',
+        messageData: 'bar',
+        schemeIdUri: 'urn:google:dai:2018',
+        start: 16,
+        value: 'foo',
+        contentEncoding: undefined,
+        presentationTimeOffset: 0
+      },
+      {
+        end: 17,
+        id: '6',
+        messageData: 'foo_bar',
+        schemeIdUri: 'urn:google:dai:2018',
+        start: 17,
+        value: 'foo',
+        contentEncoding: undefined,
+        presentationTimeOffset: 0
+      }
+    ],
+    locations: undefined,
+    representationInfo: []
+  };
+
+  const eventStreams = inheritAttributes(mpd);
+
+  assert.deepEqual(eventStreams, expected, 'inheritAttributes returns the expected object');
+});
+
+QUnit.test('can get EventStream data from toEventStream with data in Event tags', function(assert) {
+  const mpd = stringToMpdXml(`
+    <MPD mediaPresentationDuration="PT30S" xmlns:cenc="urn:mpeg:cenc:2013">
+      <Period id="dai_pod-0001065804-ad-1" start="PT17738H17M14.156S" duration="PT9.977S">
+        <BaseURL>https://www.example.com/base/</BaseURL>
+        <SegmentTemplate media="$RepresentationID$/$Number$.mp4" initialization="$RepresentationID$/init.mp4"/>
+        <EventStream timescale="1000">
+          <Event presentationTime="100" duration="0" id="0">foo</Event>
+          <Event presentationTime="900" duration="0" id="5">bar</Event>
+          <Event presentationTime="1900" duration="0" id="6">foo_bar</Event>
+        </EventStream>
+      </Period>
+    </MPD>`);
+
+  const expected = [
+    {
+      end: 2.1,
+      id: '0',
+      messageData: 'foo',
+      schemeIdUri: undefined,
+      start: 2.1,
+      value: undefined,
+      contentEncoding: undefined,
+      presentationTimeOffset: 0
+
+    },
+    {
+      end: 2.9,
+      id: '5',
+      messageData: 'bar',
+      schemeIdUri: undefined,
+      start: 2.9,
+      value: undefined,
+      contentEncoding: undefined,
+      presentationTimeOffset: 0
+    },
+    {
+      end: 3.9,
+      id: '6',
+      messageData: 'foo_bar',
+      schemeIdUri: undefined,
+      start: 3.9,
+      value: undefined,
+      contentEncoding: undefined,
+      presentationTimeOffset: 0
+    }
+  ];
+
+  const firstPeriod = { node: findChildren(mpd, 'Period')[0], attributes: { start: 2} };
+  const eventStreams = toEventStream(firstPeriod);
+
+  assert.deepEqual(eventStreams, expected, 'toEventStream returns the expected object');
+});
+
+QUnit.test('gets eventStream from inheritAttributes with data in Event tags', function(assert) {
+  const mpd = stringToMpdXml(`
+    <MPD mediaPresentationDuration="PT30S" xmlns:cenc="urn:mpeg:cenc:2013">
+      <Period id="dai_pod-0001065804-ad-1" start="PT0H0M14.9S" duration="PT9.977S">
+        <BaseURL>https://www.example.com/base/</BaseURL>
+        <SegmentTemplate media="$RepresentationID$/$Number$.mp4" initialization="$RepresentationID$/init.mp4"/>
+        <EventStream schemeIdUri="urn:google:dai:2018" timescale="1000" value="foo">
+          <Event presentationTime="100" duration="0" id="0">foo</Event>
+          <Event presentationTime="1100" duration="0" id="5">bar</Event>
+          <Event presentationTime="2100" duration="0" id="6">foo_bar</Event>
+        </EventStream>
+      </Period>
+    </MPD>`);
+  const expected = {
+    eventStream: [
+      {
+        end: 15,
+        id: '0',
+        messageData: 'foo',
+        schemeIdUri: 'urn:google:dai:2018',
+        start: 15,
+        value: 'foo',
+        contentEncoding: undefined,
+        presentationTimeOffset: 0
+      },
+      {
+        end: 16,
+        id: '5',
+        messageData: 'bar',
+        schemeIdUri: 'urn:google:dai:2018',
+        start: 16,
+        value: 'foo',
+        contentEncoding: undefined,
+        presentationTimeOffset: 0
+      },
+      {
+        end: 17,
+        id: '6',
+        messageData: 'foo_bar',
+        schemeIdUri: 'urn:google:dai:2018',
+        start: 17,
+        value: 'foo',
+        contentEncoding: undefined,
+        presentationTimeOffset: 0
+      }
+    ],
+    locations: undefined,
+    representationInfo: []
+  };
+
+  const eventStreams = inheritAttributes(mpd);
+
+  assert.deepEqual(eventStreams, expected, 'inheritAttributes returns the expected object');
 });
