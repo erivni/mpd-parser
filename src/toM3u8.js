@@ -459,6 +459,7 @@ export const toM3u8 = ({
   locations,
   sidxMapping = {},
   previousManifest,
+  eventStream,
   options = {}
 }) => {
   if (!dashPlaylists.length) {
@@ -517,6 +518,10 @@ export const toM3u8 = ({
 
   if (type === 'dynamic') {
     manifest.suggestedPresentationDelay = suggestedPresentationDelay;
+  }
+
+  if (eventStream && eventStream.length > 0) {
+    manifest.eventStream = eventStream;
   }
 
   const isAudioOnly = manifest.playlists.length === 0;

@@ -31,6 +31,7 @@ const parse = (manifestString, options = {}) => {
     locations: parsedManifestInfo.locations,
     sidxMapping: options.sidxMapping,
     previousManifest: options.previousManifest,
+    eventStream: parsedManifestInfo.eventStream,
     options
   });
 };
