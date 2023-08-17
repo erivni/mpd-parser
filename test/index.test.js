@@ -17,6 +17,7 @@ import multiperiod from './manifests/multiperiod.mpd';
 import multiperiodoverlapped from './manifests/multiperiod-overlapped.mpd';
 import webmsegments from './manifests/webmsegments.mpd';
 import multiperiodSegmentTemplate from './manifests/multiperiod-segment-template.mpd';
+import multiperiodNumberBasedSegmentTemplate from './manifests/multiperiod-number-based-segment-template.mpd';
 import multiperiodSegmentList from './manifests/multiperiod-segment-list.mpd';
 import multiperiodDynamic from './manifests/multiperiod-dynamic.mpd';
 import audioOnly from './manifests/audio-only.mpd';
@@ -63,6 +64,9 @@ import {
 import {
   parsedManifest as multiperiodWithoutPeriodMerge
 } from './manifests/multiperiod-without-period-merge.js';
+import {
+  parsedManifest as multiperiodNumberBasedWithoutPeriodMerge
+} from './manifests/multiperiod-number-based-without-period-merge.js';
 import {
   parsedManifest as multiperiodSegmentListManifest
 } from './manifests/multiperiod-segment-list.js';
@@ -218,6 +222,14 @@ QUnit.test('has parse', function(assert) {
   name: 'multiperiod_without_period_merge',
   input: multiperiodSegmentTemplate,
   expected: multiperiodWithoutPeriodMerge,
+  options: { mergePeriods: false }
+}, {
+  // test a multiperiod mpd with number based, where
+  // second period has an offset.
+  // verifies that presentationTime on second period didn't get reset
+  name: 'multiperiod_numberbased_without_period_merge',
+  input: multiperiodNumberBasedSegmentTemplate,
+  expected: multiperiodNumberBasedWithoutPeriodMerge,
   options: { mergePeriods: false }
 }, {
   name: 'multiperiod_overlapped_period_no_merge',
