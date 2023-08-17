@@ -126,14 +126,17 @@ export const toSegments = (attributes) => (number) => {
     duration,
     timescale = 1,
     periodStart,
-    startNumber = 1
+    startNumber = 1,
+    presentationTimeOffset = 0
   } = attributes;
 
+  // in number based template, number is relative and doesn't represent the absolute mp4 value.
+  // therefore, add presentationTimeOffset if exists to calculate the absolute pts.
   return {
     number: startNumber + number,
     duration: duration / timescale,
     timeline: periodStart,
-    time: number * duration
+    time: presentationTimeOffset + number * duration
   };
 };
 
