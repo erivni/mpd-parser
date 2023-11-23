@@ -31,6 +31,17 @@ export const parsedManifest = {
                     uri: 'A48/init.mp4'
                   },
                   number: 0,
+                  presentationTime: 1688906032,
+                  resolvedUri: 'http://example.com/A48/211113254.m4s',
+                  timeline: 0,
+                  uri: 'A48/211113254.m4s'
+                }, {
+                  duration: 8,
+                  map: {
+                    resolvedUri: 'http://example.com/A48/init.mp4',
+                    uri: 'A48/init.mp4'
+                  },
+                  number: 1,
                   presentationTime: 1688906040,
                   resolvedUri: 'http://example.com/A48/211113255.m4s',
                   timeline: 0,
@@ -42,7 +53,7 @@ export const parsedManifest = {
                     resolvedUri: 'http://example.com/A48/init.mp4',
                     uri: 'A48/init.mp4'
                   },
-                  number: 1,
+                  number: 2,
                   presentationTime: 1688906048,
                   resolvedUri: 'http://example.com/A48/211113256.m4s',
                   timeline: 0,
@@ -54,7 +65,7 @@ export const parsedManifest = {
                     resolvedUri: 'http://example.com/A48/init.mp4',
                     uri: 'A48/init.mp4'
                   },
-                  number: 2,
+                  number: 3,
                   presentationTime: 1688906056,
                   resolvedUri: 'http://example.com/A48/211113257.m4s',
                   timeline: 0,
@@ -66,7 +77,7 @@ export const parsedManifest = {
                     resolvedUri: 'http://example.com/A48/init.mp4',
                     uri: 'A48/init.mp4'
                   },
-                  number: 3,
+                  number: 4,
                   presentationTime: 1688906064,
                   resolvedUri: 'http://example.com/A48/211113258.m4s',
                   timeline: 0,
@@ -78,7 +89,7 @@ export const parsedManifest = {
                     resolvedUri: 'http://example.com/A48/init.mp4',
                     uri: 'A48/init.mp4'
                   },
-                  number: 4,
+                  number: 5,
                   presentationTime: 1688906072,
                   resolvedUri: 'http://example.com/A48/211113259.m4s',
                   timeline: 0,
@@ -90,24 +101,12 @@ export const parsedManifest = {
                     resolvedUri: 'http://example.com/A48/init.mp4',
                     uri: 'A48/init.mp4'
                   },
-                  number: 5,
+                  number: 6,
                   presentationTime: 1688906080,
                   resolvedUri: 'http://example.com/A48/211113260.m4s',
                   timeline: 0,
-                  uri: 'A48/211113260.m4s'
-                },
-                {
-                  duration: 8,
-                  last: true,
-                  map: {
-                    resolvedUri: 'http://example.com/A48/init.mp4',
-                    uri: 'A48/init.mp4'
-                  },
-                  number: 6,
-                  presentationTime: 1688906088,
-                  resolvedUri: 'http://example.com/A48/211113261.m4s',
-                  timeline: 0,
-                  uri: 'A48/211113261.m4s'
+                  uri: 'A48/211113260.m4s',
+                  last: true
                 }
               ],
               targetDuration: 8,
@@ -158,6 +157,17 @@ export const parsedManifest = {
             uri: 'V300/init.mp4'
           },
           number: 0,
+          presentationTime: 1688906032,
+          resolvedUri: 'http://example.com/V300/211113254.m4s',
+          timeline: 0,
+          uri: 'V300/211113254.m4s'
+        }, {
+          duration: 8,
+          map: {
+            resolvedUri: 'http://example.com/V300/init.mp4',
+            uri: 'V300/init.mp4'
+          },
+          number: 1,
           presentationTime: 1688906040,
           resolvedUri: 'http://example.com/V300/211113255.m4s',
           timeline: 0,
@@ -169,7 +179,7 @@ export const parsedManifest = {
             resolvedUri: 'http://example.com/V300/init.mp4',
             uri: 'V300/init.mp4'
           },
-          number: 1,
+          number: 2,
           presentationTime: 1688906048,
           resolvedUri: 'http://example.com/V300/211113256.m4s',
           timeline: 0,
@@ -181,7 +191,7 @@ export const parsedManifest = {
             resolvedUri: 'http://example.com/V300/init.mp4',
             uri: 'V300/init.mp4'
           },
-          number: 2,
+          number: 3,
           presentationTime: 1688906056,
           resolvedUri: 'http://example.com/V300/211113257.m4s',
           timeline: 0,
@@ -193,7 +203,7 @@ export const parsedManifest = {
             resolvedUri: 'http://example.com/V300/init.mp4',
             uri: 'V300/init.mp4'
           },
-          number: 3,
+          number: 4,
           presentationTime: 1688906064,
           resolvedUri: 'http://example.com/V300/211113258.m4s',
           timeline: 0,
@@ -205,7 +215,7 @@ export const parsedManifest = {
             resolvedUri: 'http://example.com/V300/init.mp4',
             uri: 'V300/init.mp4'
           },
-          number: 4,
+          number: 5,
           presentationTime: 1688906072,
           resolvedUri: 'http://example.com/V300/211113259.m4s',
           timeline: 0,
@@ -217,24 +227,12 @@ export const parsedManifest = {
             resolvedUri: 'http://example.com/V300/init.mp4',
             uri: 'V300/init.mp4'
           },
-          number: 5,
+          number: 6,
           presentationTime: 1688906080,
           resolvedUri: 'http://example.com/V300/211113260.m4s',
           timeline: 0,
-          uri: 'V300/211113260.m4s'
-        },
-        {
-          duration: 8,
-          last: true,
-          map: {
-            resolvedUri: 'http://example.com/V300/init.mp4',
-            uri: 'V300/init.mp4'
-          },
-          number: 6,
-          presentationTime: 1688906088,
-          resolvedUri: 'http://example.com/V300/211113261.m4s',
-          timeline: 0,
-          uri: 'V300/211113261.m4s'
+          uri: 'V300/211113260.m4s',
+          last: true
         }
       ],
       targetDuration: 8,
@@ -252,7 +250,6 @@ export const parsedManifest = {
   segments: [],
   suggestedPresentationDelay: 8,
   timeShiftBufferDepth: 64,
-  timeShiftBufferDepthMargin: 10,
   timelineStarts: [
     {
       start: 0,

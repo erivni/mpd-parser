@@ -74,7 +74,9 @@ export const segmentRange = {
       periodStart = 0,
       minimumUpdatePeriod = 0,
       timeShiftBufferDepth = Infinity,
-      timeShiftBufferDepthMargin = 0
+      timeShiftBufferDepthMargin = 0,
+      suggestedPresentationDelay = 0,
+      applySuggestedPresentationDelayMargin = false
     } = attributes;
     const endNumber = parseEndNumber(attributes.endNumber);
     // clientOffset is passed in at the top level of mpd-parser and is an offset calculated
@@ -89,7 +91,8 @@ export const segmentRange = {
     const segmentCount = Math.ceil(periodDuration * timescale / duration);
     const availableStart =
       Math.floor((now - periodStartWC - timeShiftBufferDepth + timeShiftBufferDepthMargin) * timescale / duration);
-    const availableEnd = Math.floor((now - periodStartWC) * timescale / duration);
+    const suggestedPresentationDelayMargin = applySuggestedPresentationDelayMargin ? suggestedPresentationDelay : 0;
+    const availableEnd = Math.floor((now - periodStartWC - suggestedPresentationDelayMargin) * timescale / duration);
 
     return {
       start: Math.max(0, availableStart),

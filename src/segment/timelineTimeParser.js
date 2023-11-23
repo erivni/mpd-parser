@@ -33,34 +33,56 @@ const getLiveRValue = (attributes, time, duration) => {
 /**
  * Uses information provided by SegmentTemplate.SegmentTimeline to determine playback
  * timing window
+ * playback window need to be adjusted only if live.
+ * adjustment will reduce timeShiftBufferDepthMargins from start and suggestedPresentationDelay from the end.
+ * adjustment should be done only of first & last periods.
  *
  * @param {Object} attributes
  *        Object containing all inherited attributes from parent elements with attribute
  *        names as keys
  *
- * @return {time}
- *        The playback window start time
+ *        setAvailableStartMargin: set to true if SegmentTimeline is from first period
+ *        and timeShiftBufferDepthMargin segments should be omitted
+ *
+ *        setAvailableEndMargin: set to true if SegmentTimeline is from last period
+ *        and suggestedPresentationDelay segments should be omitted
+ *
+ * @return {{startMargin: number, endMargin: number}}
+ *        number of seconds (in timescale format) to reduce from start & end playback window
  */
 
-const getAvailableLiveStart = (attributes) => {
+const getAvailableWindow = attributes => {
   const {
     type,
-    NOW,
-    clientOffset,
-    availabilityStartTime,
-    periodStart = 0,
-    timeShiftBufferDepth = Infinity,
-    timeShiftBufferDepthMargin = 0
+    timescale = 1,
+    setAvailableStartMargin = false,
+    setAvailableEndMargin = false,
+    timeShiftBufferDepthMargin = 0,
+    suggestedPresentationDelay = 0,
+    applySuggestedPresentationDelayMargin = false
   } = attributes;
+  let startMargin = 0;
+  let endMargin = 0;
 
-  if (type === 'static' || !timeShiftBufferDepthMargin) {
-    return 0;
+  if (type === 'static') {
+    return {
+      startMargin,
+      endMargin
+    };
   }
 
-  const now = (NOW + clientOffset) / 1000;
-  const periodStartWC = availabilityStartTime + periodStart;
+  if (setAvailableStartMargin && timeShiftBufferDepthMargin > 0) {
+    startMargin = timeShiftBufferDepthMargin * timescale;
+  }
 
-  return Math.floor(now - periodStartWC - timeShiftBufferDepth + timeShiftBufferDepthMargin);
+  if (setAvailableEndMargin && applySuggestedPresentationDelayMargin) {
+    endMargin = suggestedPresentationDelay * timescale;
+  }
+
+  return {
+    startMargin,
+    endMargin
+  };
 };
 
 /**
@@ -89,7 +111,7 @@ export const parseByTimeline = (attributes, segmentTimeline) => {
   const segments = [];
   let time = -1;
 
-  const availableLiveStart = getAvailableLiveStart(attributes);
+  const {startMargin, endMargin} = getAvailableWindow(attributes);
 
   for (let sIndex = 0; sIndex < segmentTimeline.length; sIndex++) {
     const S = segmentTimeline[sIndex];
@@ -150,14 +172,16 @@ export const parseByTimeline = (attributes, segmentTimeline) => {
       count = repeat + 1;
     }
 
-    const end = startNumber + segments.length + count;
-    let number = startNumber + segments.length;
+    // reduce endMargin seconds from end
+    const end = startNumber + segments.length + count - Math.ceil(endMargin / duration);
+    // reduce startMargin from start by increasing number
+    let number = startNumber + segments.length + Math.ceil(startMargin / duration);
+
+    // adjust time to include startMargin seconds
+    time += Math.ceil(startMargin / duration) * duration;
 
     while (number < end) {
-      // add segments only if they are in timeline window
-      if (time / timescale >= availableLiveStart) {
-        segments.push({ number, duration: duration / timescale, time, timeline });
-      }
+      segments.push({ number, duration: duration / timescale, time, timeline });
       time += duration;
       number++;
     }
