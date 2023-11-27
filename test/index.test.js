@@ -23,8 +23,8 @@ import multiperiodDynamic from './manifests/multiperiod-dynamic.mpd';
 import audioOnly from './manifests/audio-only.mpd';
 import trickMode from './manifests/trickmode.mpd';
 import multiperiodStartnumber from './manifests/multiperiod-startnumber.mpd';
-import dynamicDurationTimeShiftBufferDepthMargin from './manifests/dynamic-duration-timeshiftbufferdepth-margin.mpd';
-import dynamicTimelineTimeShiftBufferDepthMargin from './manifests/dynamic-timeline-timeshiftbufferdepth-margin.mpd';
+import dynamicDurationMargin from './manifests/dynamic-duration-margin.mpd';
+import dynamicTimelineMargin from './manifests/dynamic-timeline-margin.mpd';
 import multiperiodStartnumberRemovedPeriods from
   './manifests/multiperiod-startnumber-removed-periods.mpd';
 import stppNoInit from './manifests/stpp-no-init.mpd';
@@ -97,8 +97,14 @@ import {
   parsedManifest as dynamicDurationManifestTimeShiftBufferDepthMargin
 } from './manifests/dynamic-duration-timeshiftbufferdepth-margin.js';
 import {
+  parsedManifest as dynamicDurationManifestSuggestedPresentationDelayMargin
+} from './manifests/dynamic-duration-suggestedpresentationdelay-margin.js';
+import {
   parsedManifest as dynamicTimelineManifestTimeShiftBufferDepthMargin
 } from './manifests/dynamic-timeline-timeshiftbufferdepth-margin.js';
+import {
+  parsedManifest as dynamicTimelineManifestSuggestedPresentationDelayMargin
+} from './manifests/dynamic-timeline-suggestedpresentationdelay-margin.js';
 import {
   parsedManifest as multiperiodStartnumberRemovedPeriodsManifest
 } from './manifests/multiperiod-startnumber-removed-periods.js';
@@ -241,17 +247,35 @@ QUnit.test('has parse', function(assert) {
   // original MPD has 64s of segments.
   // using margin:10 we expect to get 56s of segments.
   name: 'dynamic_byDuration_with_timeshiftBufferDepthMargin',
-  input: dynamicDurationTimeShiftBufferDepthMargin,
+  input: dynamicDurationMargin,
   expected: dynamicDurationManifestTimeShiftBufferDepthMargin,
   options: { timeShiftBufferDepthMargin: 10 }
 }, {
   // test will use the sinon mock to simulate NOW
   // original MPD has 64s of segments.
-  // using margin:10 we expect to get 56s of segments.
+  // using margin:10 we expect to get 56s of segments. (from 1688906040-1688906088)
   name: 'dynamic_byTimeline_with_timeshiftBufferDepthMargin',
-  input: dynamicTimelineTimeShiftBufferDepthMargin,
+  input: dynamicTimelineMargin,
   expected: dynamicTimelineManifestTimeShiftBufferDepthMargin,
   options: { timeShiftBufferDepthMargin: 10 }
+}, {
+  // test will use the sinon mock to simulate NOW
+  // original MPD has 64s of segments.
+  // using applySuggestedPresentationDelayMargin will instruct module to truncate those Xs from segments tip.
+  // we expect to get 56s worth of segments (from 1688906032-1688906080)
+  name: 'dynamic_byDuration_with_applySuggestedPresentationDelayMargin',
+  input: dynamicDurationMargin,
+  expected: dynamicDurationManifestSuggestedPresentationDelayMargin,
+  options: { applySuggestedPresentationDelayMargin: true }
+}, {
+  // test will use the sinon mock to simulate NOW
+  // original MPD has 64s of segments.
+  // using applySuggestedPresentationDelayMargin will instruct module to truncate those Xs from segments tip.
+  // we expect to get 56s worth of segments (from 1688906032-1688906080)
+  name: 'dynamic_byTimeline_with_applySuggestedPresentationDelayMargin',
+  input: dynamicTimelineMargin,
+  expected: dynamicTimelineManifestSuggestedPresentationDelayMargin,
+  options: { applySuggestedPresentationDelayMargin: true }
 }].forEach(({ name, input, expected, options = {} }) => {
   QUnit.test(`${name} test manifest`, function(assert) {
     const clock = useFakeTimers(new Date('2023-07-09T12:34:56Z'));

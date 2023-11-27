@@ -564,7 +564,9 @@ QUnit.test('end to end - basic', function(assert) {
         type: 'static',
         width: 720,
         NOW,
-        clientOffset: 0
+        clientOffset: 0,
+        setAvailableEndMargin: true,
+        setAvailableStartMargin: true
       },
       segmentInfo: {
         template: {}
@@ -582,7 +584,9 @@ QUnit.test('end to end - basic', function(assert) {
         sourceDuration: 30,
         type: 'static',
         NOW,
-        clientOffset: 0
+        clientOffset: 0,
+        setAvailableEndMargin: true,
+        setAvailableStartMargin: true
       },
       segmentInfo: {}
     }]
@@ -638,7 +642,9 @@ QUnit.test('end to end - basic dynamic', function(assert) {
         type: 'dyanmic',
         width: 720,
         NOW,
-        clientOffset: 0
+        clientOffset: 0,
+        setAvailableEndMargin: true,
+        setAvailableStartMargin: true
       },
       segmentInfo: {
         template: {}
@@ -655,7 +661,9 @@ QUnit.test('end to end - basic dynamic', function(assert) {
         sourceDuration: 0,
         type: 'dyanmic',
         NOW,
-        clientOffset: 0
+        clientOffset: 0,
+        setAvailableEndMargin: true,
+        setAvailableStartMargin: true
       },
       segmentInfo: {}
     }]
@@ -723,7 +731,9 @@ QUnit.test('end to end - basic multiperiod', function(assert) {
         type: 'static',
         width: 720,
         NOW,
-        clientOffset: 0
+        clientOffset: 0,
+        setAvailableStartMargin: true,
+        setAvailableEndMargin: false
       },
       segmentInfo: {
         template: {}
@@ -746,7 +756,9 @@ QUnit.test('end to end - basic multiperiod', function(assert) {
         type: 'static',
         width: 720,
         NOW,
-        clientOffset: 0
+        clientOffset: 0,
+        setAvailableStartMargin: false,
+        setAvailableEndMargin: true
       },
       segmentInfo: {
         template: {}
@@ -796,6 +808,8 @@ QUnit.test('end to end - inherits BaseURL from all levels', function(assert) {
         bandwidth: 5000000,
         baseUrl: 'https://www.example.com/base/foo/bar/buzz/',
         clientOffset: 0,
+        setAvailableEndMargin: true,
+        setAvailableStartMargin: true,
         codecs: 'avc1.64001e',
         height: 404,
         id: 'test',
@@ -826,7 +840,9 @@ QUnit.test('end to end - inherits BaseURL from all levels', function(assert) {
         sourceDuration: 30,
         type: 'static',
         NOW,
-        clientOffset: 0
+        clientOffset: 0,
+        setAvailableEndMargin: true,
+        setAvailableStartMargin: true
       },
       segmentInfo: { }
     }]
@@ -885,7 +901,9 @@ QUnit.test('end to end - alternate BaseURLs', function(assert) {
         type: 'static',
         width: 720,
         NOW,
-        clientOffset: 0
+        clientOffset: 0,
+        setAvailableEndMargin: true,
+        setAvailableStartMargin: true
       },
       segmentInfo: {
         template: {}
@@ -907,7 +925,9 @@ QUnit.test('end to end - alternate BaseURLs', function(assert) {
         type: 'static',
         width: 720,
         NOW,
-        clientOffset: 0
+        clientOffset: 0,
+        setAvailableEndMargin: true,
+        setAvailableStartMargin: true
       },
       segmentInfo: {
         template: {}
@@ -929,7 +949,9 @@ QUnit.test('end to end - alternate BaseURLs', function(assert) {
         type: 'static',
         width: 720,
         NOW,
-        clientOffset: 0
+        clientOffset: 0,
+        setAvailableEndMargin: true,
+        setAvailableStartMargin: true
       },
       segmentInfo: {
         template: {}
@@ -951,7 +973,9 @@ QUnit.test('end to end - alternate BaseURLs', function(assert) {
         type: 'static',
         width: 720,
         NOW,
-        clientOffset: 0
+        clientOffset: 0,
+        setAvailableEndMargin: true,
+        setAvailableStartMargin: true
       },
       segmentInfo: {
         template: {}
@@ -969,7 +993,9 @@ QUnit.test('end to end - alternate BaseURLs', function(assert) {
         sourceDuration: 30,
         type: 'static',
         NOW,
-        clientOffset: 0
+        clientOffset: 0,
+        setAvailableEndMargin: true,
+        setAvailableStartMargin: true
       },
       segmentInfo: {}
     }, {
@@ -985,7 +1011,9 @@ QUnit.test('end to end - alternate BaseURLs', function(assert) {
         sourceDuration: 30,
         type: 'static',
         NOW,
-        clientOffset: 0
+        clientOffset: 0,
+        setAvailableEndMargin: true,
+        setAvailableStartMargin: true
       },
       segmentInfo: {}
     }]
@@ -1053,7 +1081,9 @@ QUnit.test(
           type: 'static',
           width: 720,
           NOW,
-          clientOffset: 0
+          clientOffset: 0,
+          setAvailableEndMargin: true,
+          setAvailableStartMargin: true
         },
         segmentInfo: {
           base: {
@@ -1077,7 +1107,9 @@ QUnit.test(
           sourceDuration: 30,
           type: 'static',
           NOW,
-          clientOffset: 0
+          clientOffset: 0,
+          setAvailableEndMargin: true,
+          setAvailableStartMargin: true
         },
         segmentInfo: {
           base: {
@@ -1101,7 +1133,9 @@ QUnit.test(
           sourceDuration: 30,
           type: 'static',
           NOW,
-          clientOffset: 0
+          clientOffset: 0,
+          setAvailableEndMargin: true,
+          setAvailableStartMargin: true
         },
         segmentInfo: {}
       }]
@@ -1167,7 +1201,9 @@ QUnit.test(
           type: 'static',
           width: 720,
           NOW,
-          clientOffset: 0
+          clientOffset: 0,
+          setAvailableEndMargin: true,
+          setAvailableStartMargin: true
         },
         segmentInfo: {
           base: {
@@ -1192,7 +1228,9 @@ QUnit.test(
           sourceDuration: 30,
           type: 'static',
           NOW,
-          clientOffset: 0
+          clientOffset: 0,
+          setAvailableEndMargin: true,
+          setAvailableStartMargin: true
         },
         segmentInfo: {
           base: {
@@ -1217,7 +1255,9 @@ QUnit.test(
           sourceDuration: 30,
           type: 'static',
           NOW,
-          clientOffset: 0
+          clientOffset: 0,
+          setAvailableEndMargin: true,
+          setAvailableStartMargin: true
         },
         segmentInfo: {
           base: {
@@ -1290,7 +1330,9 @@ QUnit.test(
           type: 'static',
           width: 720,
           NOW,
-          clientOffset: 0
+          clientOffset: 0,
+          setAvailableEndMargin: true,
+          setAvailableStartMargin: true
         },
         segmentInfo: {
           base: {
@@ -1315,7 +1357,9 @@ QUnit.test(
           sourceDuration: 30,
           type: 'static',
           NOW,
-          clientOffset: 0
+          clientOffset: 0,
+          setAvailableEndMargin: true,
+          setAvailableStartMargin: true
         },
         segmentInfo: {
           base: {
@@ -1339,7 +1383,9 @@ QUnit.test(
           sourceDuration: 30,
           type: 'static',
           NOW,
-          clientOffset: 0
+          clientOffset: 0,
+          setAvailableEndMargin: true,
+          setAvailableStartMargin: true
         },
         segmentInfo: {}
       }]
@@ -1420,6 +1466,8 @@ QUnit.test(
           value: 'main'
         },
         clientOffset: 0,
+        setAvailableEndMargin: true,
+        setAvailableStartMargin: true,
         initialization: {
           sourceURL: '$RepresentationID$/es/init.m4f'
         },
@@ -1626,6 +1674,8 @@ QUnit.test(
         type: 'static',
         startWithSAP: '1',
         clientOffset: 0,
+        setAvailableEndMargin: true,
+        setAvailableStartMargin: true,
         initialization: {
           sourceURL: '$RepresentationID$/es/init.m4f'
         },
@@ -1868,6 +1918,8 @@ QUnit.test('Test to check use of either Segment Template or Segment List when bo
     attributes: {
       NOW,
       clientOffset: 0,
+      setAvailableEndMargin: true,
+      setAvailableStartMargin: true,
       initialization: {
         sourceURL: '$RepresentationID$/es/init.m4f'
       },
@@ -2148,6 +2200,8 @@ QUnit.test('keySystem info for representation - lowercase UUIDs', function(asser
         'width': 720,
         NOW,
         'clientOffset': 0,
+        'setAvailableEndMargin': true,
+        'setAvailableStartMargin': true,
         'xmlns:cenc': 'urn:mpeg:cenc:2013'
       },
       segmentInfo: {
@@ -2232,6 +2286,8 @@ QUnit.test('keySystem info for representation - uppercase UUIDs', function(asser
         'width': 720,
         NOW,
         'clientOffset': 0,
+        'setAvailableEndMargin': true,
+        'setAvailableStartMargin': true,
         'xmlns:cenc': 'urn:mpeg:cenc:2013'
       },
       segmentInfo: {

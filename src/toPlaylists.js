@@ -36,6 +36,9 @@ export const generateSegments = ({ attributes, segmentInfo }, options) => {
   if (options && options.timeShiftBufferDepthMargin) {
     segmentAttributes.timeShiftBufferDepthMargin = options.timeShiftBufferDepthMargin;
   }
+  if (options && options.applySuggestedPresentationDelayMargin) {
+    segmentAttributes.applySuggestedPresentationDelayMargin = options.applySuggestedPresentationDelayMargin;
+  }
   const segments = segmentsFn(segmentAttributes, segmentInfo.segmentTimeline);
 
   // The @duration attribute will be used to determin the playlist's targetDuration which

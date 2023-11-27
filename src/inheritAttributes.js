@@ -432,10 +432,12 @@ export const toRepresentations =
  * @return {toAdaptationSetsCallback}
  *         Callback map function
  */
-export const toAdaptationSets = (mpdAttributes, mpdBaseUrls) => (period, index) => {
+export const toAdaptationSets = (mpdAttributes, mpdBaseUrls) => (period, index, { length }) => {
   const periodBaseUrls = buildBaseUrls(mpdBaseUrls, findChildren(period.node, 'BaseURL'));
   const periodAttributes = merge(mpdAttributes, {
-    periodStart: period.attributes.start
+    periodStart: period.attributes.start,
+    setAvailableStartMargin: index === 0,
+    setAvailableEndMargin: index === length - 1
   });
 
   if (typeof period.attributes.duration === 'number') {

@@ -1128,6 +1128,7 @@ QUnit.test('correctly handles duration with segmentTimeline', function(assert) {
     NOW: 8000,
     clientOffset: 0,
     availabilityStartTime: 0,
+    suggestedPresentationDelay: 0,
     startNumber: 1,
     periodIndex: 1,
     periodStart: 0
