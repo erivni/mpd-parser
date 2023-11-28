@@ -168,8 +168,12 @@ export const formatAudioPlaylist = ({
     playlist.trickMode = attributes.trickMode;
   }
 
-  if (options.mergePeriods === false && attributes.presentationTimeOffset) {
-    playlist.presentationTimeOffset = attributes.presentationTimeOffset / (attributes.timescale || 1);
+  if (options.mergePeriods === false) {
+    if (attributes.presentationTimeOffset) {
+      playlist.presentationTimeOffset = attributes.presentationTimeOffset / (attributes.timescale || 1);
+    }
+    playlist.setAvailableStartMargin = attributes.setAvailableStartMargin;
+    playlist.setAvailableEndMargin = attributes.setAvailableEndMargin;
   }
 
   if (sidx) {
@@ -232,8 +236,12 @@ export const formatVttPlaylist = ({
     segments
   };
 
-  if (options.mergePeriods === false && attributes.presentationTimeOffset) {
-    playlist.presentationTimeOffset = attributes.presentationTimeOffset / (attributes.timescale || 1);
+  if (options.mergePeriods === false) {
+    if (attributes.presentationTimeOffset) {
+      playlist.presentationTimeOffset = attributes.presentationTimeOffset / (attributes.timescale || 1);
+    }
+    playlist.setAvailableStartMargin = attributes.setAvailableStartMargin;
+    playlist.setAvailableEndMargin = attributes.setAvailableEndMargin;
   }
 
   return playlist;
@@ -380,8 +388,12 @@ export const formatVideoPlaylist = ({
     playlist.trickMode = attributes.trickMode;
   }
 
-  if (options.mergePeriods === false && attributes.presentationTimeOffset) {
-    playlist.presentationTimeOffset = attributes.presentationTimeOffset / (attributes.timescale || 1);
+  if (options.mergePeriods === false) {
+    if (attributes.presentationTimeOffset) {
+      playlist.presentationTimeOffset = attributes.presentationTimeOffset / (attributes.timescale || 1);
+    }
+    playlist.setAvailableStartMargin = attributes.setAvailableStartMargin;
+    playlist.setAvailableEndMargin = attributes.setAvailableEndMargin;
   }
 
   if (sidx) {
@@ -515,10 +527,6 @@ export const toM3u8 = ({
   if (timeShiftBufferDepth) {
     manifest.timeShiftBufferDepth = timeShiftBufferDepth;
   }
-  if (timeShiftBufferDepth && options && options.timeShiftBufferDepthMargin) {
-    manifest.timeShiftBufferDepthMargin = options.timeShiftBufferDepthMargin;
-  }
-
   if (publishTime) {
     manifest.publishTime = new Date(publishTime).toISOString();
   }

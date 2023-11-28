@@ -31,61 +31,6 @@ const getLiveRValue = (attributes, time, duration) => {
 };
 
 /**
- * Uses information provided by SegmentTemplate.SegmentTimeline to determine playback
- * timing window
- * playback window need to be adjusted only if live.
- * adjustment will reduce timeShiftBufferDepthMargins from start and suggestedPresentationDelay from the end.
- * adjustment should be done only of first & last periods.
- *
- * @param {Object} attributes
- *        Object containing all inherited attributes from parent elements with attribute
- *        names as keys
- *
- *        setAvailableStartMargin: set to true if SegmentTimeline is from first period
- *        and timeShiftBufferDepthMargin segments should be omitted
- *
- *        setAvailableEndMargin: set to true if SegmentTimeline is from last period
- *        and suggestedPresentationDelay segments should be omitted
- *
- * @return {{startMargin: number, endMargin: number}}
- *        number of seconds (in timescale format) to reduce from start & end playback window
- */
-
-const getAvailableWindow = attributes => {
-  const {
-    type,
-    timescale = 1,
-    setAvailableStartMargin = false,
-    setAvailableEndMargin = false,
-    timeShiftBufferDepthMargin = 0,
-    suggestedPresentationDelay = 0,
-    applySuggestedPresentationDelayMargin = false
-  } = attributes;
-  let startMargin = 0;
-  let endMargin = 0;
-
-  if (type === 'static') {
-    return {
-      startMargin,
-      endMargin
-    };
-  }
-
-  if (setAvailableStartMargin && timeShiftBufferDepthMargin > 0) {
-    startMargin = timeShiftBufferDepthMargin * timescale;
-  }
-
-  if (setAvailableEndMargin && applySuggestedPresentationDelayMargin) {
-    endMargin = suggestedPresentationDelay * timescale;
-  }
-
-  return {
-    startMargin,
-    endMargin
-  };
-};
-
-/**
  * Uses information provided by SegmentTemplate.SegmentTimeline to determine segment
  * timing and duration
  *
@@ -110,8 +55,6 @@ export const parseByTimeline = (attributes, segmentTimeline) => {
   } = attributes;
   const segments = [];
   let time = -1;
-
-  const {startMargin, endMargin} = getAvailableWindow(attributes);
 
   for (let sIndex = 0; sIndex < segmentTimeline.length; sIndex++) {
     const S = segmentTimeline[sIndex];
@@ -172,13 +115,8 @@ export const parseByTimeline = (attributes, segmentTimeline) => {
       count = repeat + 1;
     }
 
-    // reduce endMargin seconds from end
-    const end = startNumber + segments.length + count - Math.ceil(endMargin / duration);
-    // reduce startMargin from start by increasing number
-    let number = startNumber + segments.length + Math.ceil(startMargin / duration);
-
-    // adjust time to include startMargin seconds
-    time += Math.ceil(startMargin / duration) * duration;
+    const end = startNumber + segments.length + count;
+    let number = startNumber + segments.length;
 
     while (number < end) {
       segments.push({ number, duration: duration / timescale, time, timeline });
