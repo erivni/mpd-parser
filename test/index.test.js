@@ -13,6 +13,7 @@ import cc608CaptionsTemplate from './manifests/608-captions.mpd';
 import cc708CaptionsTemplate from './manifests/708-captions.mpd';
 import locationTemplate from './manifests/location.mpd';
 import locationsTemplate from './manifests/locations.mpd';
+import locationsWithoutBaseUrlTemplate from './manifests/locations-without-baseUrl.mpd';
 import multiperiod from './manifests/multiperiod.mpd';
 import multiperiodoverlapped from './manifests/multiperiod-overlapped.mpd';
 import webmsegments from './manifests/webmsegments.mpd';
@@ -77,6 +78,10 @@ import {
 import {
   parsedManifest as locationsManifest
 } from './manifests/locations.js';
+
+import {
+  parsedManifest as locationsWithoutBaseURLManifest
+} from './manifests/locations-without-baseUrl.js';
 
 import {
   parsedManifest as vttCodecsManifest
@@ -170,6 +175,10 @@ QUnit.test('has parse', function(assert) {
   name: 'locations',
   input: locationsTemplate,
   expected: locationsManifest
+}, {
+  name: 'locations without BaseURL',
+  input: locationsWithoutBaseUrlTemplate,
+  expected: locationsWithoutBaseURLManifest
 }, {
   name: 'vtt_codecs',
   input: vttCodecsTemplate,
