@@ -1111,5 +1111,6 @@ export const parsedManifest = {
   suggestedPresentationDelay: 6,
   timeShiftBufferDepth: 180,
   publishTime: '2021-03-18T20:32:55.000Z',
+  availabilityStartTime: 1616097636,
   uri: ''
 };

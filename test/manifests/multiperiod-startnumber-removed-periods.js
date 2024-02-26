@@ -487,6 +487,7 @@ export const parsedManifest = {
   segments: [],
   suggestedPresentationDelay: 6,
   timeShiftBufferDepth: 180,
+  availabilityStartTime: 1616097636,
   publishTime: '2021-03-18T20:32:55.000Z',
   uri: ''
 };
