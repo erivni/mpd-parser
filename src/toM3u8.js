@@ -542,7 +542,7 @@ export const toM3u8 = ({
 
   if (type === 'dynamic') {
     manifest.suggestedPresentationDelay = suggestedPresentationDelay;
-    if (availabilityStartTime) {
+    if (!isNaN(availabilityStartTime)) {
       manifest.availabilityStartTime = availabilityStartTime;
     }
   }
