@@ -500,6 +500,7 @@ export const toM3u8 = ({
     suggestedPresentationDelay,
     minimumUpdatePeriod,
     timeShiftBufferDepth,
+    availabilityStartTime,
     publishTime
   } = dashPlaylists[0].attributes;
 
@@ -541,6 +542,9 @@ export const toM3u8 = ({
 
   if (type === 'dynamic') {
     manifest.suggestedPresentationDelay = suggestedPresentationDelay;
+    if (availabilityStartTime) {
+      manifest.availabilityStartTime = availabilityStartTime;
+    }
   }
 
   if (eventStream && eventStream.length > 0) {
