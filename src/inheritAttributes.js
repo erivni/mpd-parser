@@ -299,7 +299,7 @@ export const parseCaptionServiceMetadata = (service) => {
  * https://dashif-documents.azurewebsites.net/Events/master/event.html#mpd-event-timing
  *
  * @param {PeriodInformation} period object containing necessary period information
- * @return a collection of parsed eventstream event objects
+ * @return {Object} a collection of parsed eventstream event objects
  */
 export const toEventStream = (period) => {
   // get and flatten all EventStreams tags and parse attributes and children
@@ -394,7 +394,17 @@ export const toRepresentations =
   const representations = findChildren(adaptationSet, 'Representation');
   const adaptationSetSegmentInfo = merge(periodSegmentInfo, segmentInfo);
 
-  return flatten(representations.map(inheritBaseUrls(attrs, adaptationSetBaseUrls, adaptationSetSegmentInfo)));
+  return flatten(representations.map((representation) => {
+    const representationContentProtection = generateKeySystemInformation(findChildren(representation, 'ContentProtection'));
+
+    if (Object.keys(representationContentProtection).length) {
+      attrs = merge(attrs, {
+        contentProtection: representationContentProtection
+      });
+    }
+
+    return inheritBaseUrls(attrs, adaptationSetBaseUrls, adaptationSetSegmentInfo)(representation);
+  }));
 };
 
 /**
