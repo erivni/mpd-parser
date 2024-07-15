@@ -760,12 +760,233 @@ QUnit.test('correctly handles negative @r repeat value for last S', function(ass
   );
 });
 
-QUnit.skip(
-  'detects discontinuity when @t time is greater than expected start time',
-  function(assert) {
+QUnit.test('correctly handles multiple negative @r repeat value', function(assert) {
+  const attributes = {
+    startNumber: 0,
+    sourceDuration: 16,
+    timescale: 1000,
+    periodIndex: 1,
+    type: 'static',
+    periodStart: 0
+  };
+  const segmentTimeline = [
+    {
+      t: 0,
+      d: 6000
+    },
+    {
+      d: 1000,
+      r: -1
+    },
+    {
+      t: 10000,
+      d: 5000
+    },
+    {
+      d: 1000,
+      r: -1
+    },
+    {
+      t: 17000,
+      d: 1000
+    }
+  ];
 
-  }
-);
+  assert.deepEqual(
+    parseTemplateInfo(attributes, segmentTimeline),
+    [
+      {
+        number: 0,
+        duration: 6,
+        time: 0,
+        timeline: 0
+      },
+      {
+        number: 1,
+        duration: 1,
+        time: 6000,
+        timeline: 0
+      },
+      {
+        number: 2,
+        duration: 1,
+        time: 7000,
+        timeline: 0
+      },
+      {
+        number: 3,
+        duration: 1,
+        time: 8000,
+        timeline: 0
+      },
+      {
+        number: 4,
+        duration: 1,
+        time: 9000,
+        timeline: 0
+      },
+      {
+        number: 5,
+        duration: 5,
+        time: 10000,
+        timeline: 0
+      },
+      {
+        number: 6,
+        duration: 1,
+        time: 15000,
+        timeline: 0
+      },
+      {
+        number: 7,
+        duration: 1,
+        time: 16000,
+        timeline: 0
+      },
+      {
+        number: 8,
+        duration: 1,
+        time: 17000,
+        timeline: 0
+      }
+    ],
+    'correctly uses multiple negative @r repeat attribute'
+  );
+});
+
+QUnit.test('detects discontinuity when @t time is greater than expected start time', function(assert) {
+  const attributes = {
+    startNumber: 101,
+    sourceDuration: 16,
+    timescale: 1000,
+    periodIndex: 1,
+    type: 'static',
+    periodStart: 0
+  };
+  const segmentTimeline = [
+    {
+      t: 0,
+      d: 6000
+    },
+    {
+      d: 2000
+    },
+    {
+      d: 3000
+    },
+    {
+      d: 5000
+    },
+    {
+      d: 5000,
+      // instead of 16s
+      t: 15000
+    }
+  ];
+
+  assert.deepEqual(
+    parseTemplateInfo(attributes, segmentTimeline),
+    [
+      {
+        number: 101,
+        duration: 6,
+        time: 0,
+        timeline: 0
+      },
+      {
+        number: 102,
+        duration: 2,
+        time: 6000,
+        timeline: 0
+      },
+      {
+        number: 103,
+        duration: 3,
+        time: 8000,
+        timeline: 0
+      },
+      {
+        number: 104,
+        duration: 5,
+        time: 11000,
+        timeline: 0
+      }, {
+        number: 105,
+        duration: 5,
+        time: 15000,
+        timeline: 0
+      }
+    ],
+    'duration should be adjusted for discontinuity'
+  );
+});
+
+QUnit.test('detects discontinuity when @t time is lower than expected start time', function(assert) {
+  const attributes = {
+    startNumber: 101,
+    sourceDuration: 16,
+    timescale: 1000,
+    periodIndex: 1,
+    type: 'static',
+    periodStart: 0
+  };
+  const segmentTimeline = [
+    {
+      t: 0,
+      d: 6000
+    },
+    {
+      d: 2000
+    },
+    {
+      d: 3000
+    },
+    {
+      d: 5000
+    },
+    {
+      d: 5000,
+      // instead of 16s
+      t: 17000
+    }
+  ];
+
+  assert.deepEqual(
+    parseTemplateInfo(attributes, segmentTimeline),
+    [
+      {
+        number: 101,
+        duration: 6,
+        time: 0,
+        timeline: 0
+      },
+      {
+        number: 102,
+        duration: 2,
+        time: 6000,
+        timeline: 0
+      },
+      {
+        number: 103,
+        duration: 3,
+        time: 8000,
+        timeline: 0
+      },
+      {
+        number: 104,
+        duration: 5,
+        time: 11000,
+        timeline: 0
+      }, {
+        number: 105,
+        duration: 5,
+        time: 17000,
+        timeline: 0
+      }
+    ],
+    'duration should be adjusted for discontinuity'
+  );
+});
 
 QUnit.module('segmentTemplate - type ="dynamic"');
 

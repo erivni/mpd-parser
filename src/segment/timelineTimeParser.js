@@ -67,7 +67,7 @@ export const parseByTimeline = (attributes, segmentTimeline) => {
       time = segmentTime;
     }
 
-    if (segmentTime && segmentTime > time) {
+    if (segmentTime) {
       // discontinuity
 
       // TODO: How to handle this type of discontinuity
