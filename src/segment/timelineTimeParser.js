@@ -58,38 +58,12 @@ export const parseByTimeline = (attributes, segmentTimeline) => {
 
   for (let sIndex = 0; sIndex < segmentTimeline.length; sIndex++) {
     const S = segmentTimeline[sIndex];
-    const duration = S.d;
+    let duration = S.d;
     const repeat = S.r || 0;
     const segmentTime = S.t || 0;
 
     if (time < 0) {
       // first segment
-      time = segmentTime;
-    }
-
-    if (segmentTime) {
-      // discontinuity
-
-      // TODO: How to handle this type of discontinuity
-      // timeline++ here would treat it like HLS discontuity and content would
-      // get appended without gap
-      // E.G.
-      //  <S t="0" d="1" />
-      //  <S d="1" />
-      //  <S d="1" />
-      //  <S t="5" d="1" />
-      // would have $Time$ values of [0, 1, 2, 5]
-      // should this be appened at time positions [0, 1, 2, 3],(#EXT-X-DISCONTINUITY)
-      // or [0, 1, 2, gap, gap, 5]? (#EXT-X-GAP)
-      // does the value of sourceDuration consider this when calculating arbitrary
-      // negative @r repeat value?
-      // E.G. Same elements as above with this added at the end
-      //  <S d="1" r="-1" />
-      //  with a sourceDuration of 10
-      // Would the 2 gaps be included in the time duration calculations resulting in
-      // 8 segments with $Time$ values of [0, 1, 2, 5, 6, 7, 8, 9] or 10 segments
-      // with $Time$ values of [0, 1, 2, 5, 6, 7, 8, 9, 10, 11] ?
-
       time = segmentTime;
     }
 
@@ -118,7 +92,19 @@ export const parseByTimeline = (attributes, segmentTimeline) => {
     const end = startNumber + segments.length + count;
     let number = startNumber + segments.length;
 
+    //  check if next segment as a t set
+    const nextS = sIndex + 1 < segmentTimeline.length ? segmentTimeline[sIndex + 1] : undefined;
+
     while (number < end) {
+      if (number + 1 === end) {
+        if (nextS && nextS.t && (nextS.t - time + duration !== 0)) {
+          // discontinuity -
+          // if t is set in next segment and its timing is not as expected
+          // adjust current duration accordingly
+          duration = nextS.t - time;
+        }
+      }
+
       segments.push({ number, duration: duration / timescale, time, timeline });
       time += duration;
       number++;

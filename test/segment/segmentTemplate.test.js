@@ -907,7 +907,7 @@ QUnit.test('detects discontinuity when @t time is greater than expected start ti
       },
       {
         number: 104,
-        duration: 5,
+        duration: 4,
         time: 11000,
         timeline: 0
       }, {
@@ -974,7 +974,7 @@ QUnit.test('detects discontinuity when @t time is lower than expected start time
       },
       {
         number: 104,
-        duration: 5,
+        duration: 6,
         time: 11000,
         timeline: 0
       }, {
