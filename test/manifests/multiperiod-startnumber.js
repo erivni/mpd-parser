@@ -46,7 +46,8 @@ export const parsedManifest = {
                   number: 0,
                   resolvedUri: 'http://example.com/audio/500.m4f',
                   timeline: 100,
-                  uri: '500.m4f'
+                  uri: '500.m4f',
+                  validUntil: 1688906097
                 },
                 {
                   duration: 1,
@@ -58,7 +59,8 @@ export const parsedManifest = {
                   number: 1,
                   resolvedUri: 'http://example.com/audio/501.m4f',
                   timeline: 100,
-                  uri: '501.m4f'
+                  uri: '501.m4f',
+                  validUntil: 1688906098
                 },
                 {
                   duration: 1,
@@ -70,7 +72,8 @@ export const parsedManifest = {
                   number: 2,
                   resolvedUri: 'http://example.com/audio/502.m4f',
                   timeline: 100,
-                  uri: '502.m4f'
+                  uri: '502.m4f',
+                  validUntil: 1688906099
                 },
                 {
                   discontinuity: true,
@@ -83,7 +86,8 @@ export const parsedManifest = {
                   number: 3,
                   resolvedUri: 'http://example.com/audio/v0/000.m4f',
                   timeline: 103,
-                  uri: '000.m4f'
+                  uri: '000.m4f',
+                  validUntil: 1688906101
                 },
                 {
                   duration: 2,
@@ -95,7 +99,8 @@ export const parsedManifest = {
                   number: 4,
                   resolvedUri: 'http://example.com/audio/v0/001.m4f',
                   timeline: 103,
-                  uri: '001.m4f'
+                  uri: '001.m4f',
+                  validUntil: 1688906103
                 },
                 {
                   discontinuity: true,
@@ -108,7 +113,8 @@ export const parsedManifest = {
                   number: 5,
                   resolvedUri: 'http://example.com/audio/v0/000.m4f',
                   timeline: 107,
-                  uri: '000.m4f'
+                  uri: '000.m4f',
+                  validUntil: 1688906105
                 },
                 {
                   duration: 2,
@@ -120,7 +126,8 @@ export const parsedManifest = {
                   number: 6,
                   resolvedUri: 'http://example.com/audio/v0/001.m4f',
                   timeline: 107,
-                  uri: '001.m4f'
+                  uri: '001.m4f',
+                  validUntil: 1688906107
                 },
                 {
                   discontinuity: true,
@@ -133,7 +140,8 @@ export const parsedManifest = {
                   number: 7,
                   resolvedUri: 'http://example.com/audio/v0/862.m4f',
                   timeline: 111,
-                  uri: '862.m4f'
+                  uri: '862.m4f',
+                  validUntil: 1688906108
                 },
                 {
                   duration: 1,
@@ -145,7 +153,8 @@ export const parsedManifest = {
                   number: 8,
                   resolvedUri: 'http://example.com/audio/v0/863.m4f',
                   timeline: 111,
-                  uri: '863.m4f'
+                  uri: '863.m4f',
+                  validUntil: 1688906109
                 },
                 {
                   duration: 1,
@@ -158,7 +167,8 @@ export const parsedManifest = {
                   resolvedUri: 'http://example.com/audio/v0/864.m4f',
                   timeline: 111,
                   uri: '864.m4f',
-                  last: true
+                  last: true,
+                  validUntil: 1688906110
                 }
               ],
               targetDuration: 1,
@@ -212,7 +222,8 @@ export const parsedManifest = {
           number: 0,
           resolvedUri: 'http://example.com/video/D/D500.m4f',
           timeline: 100,
-          uri: 'D500.m4f'
+          uri: 'D500.m4f',
+          validUntil: 1688906097
         },
         {
           duration: 1,
@@ -224,7 +235,8 @@ export const parsedManifest = {
           number: 1,
           resolvedUri: 'http://example.com/video/D/D501.m4f',
           timeline: 100,
-          uri: 'D501.m4f'
+          uri: 'D501.m4f',
+          validUntil: 1688906098
         },
         {
           duration: 1,
@@ -236,7 +248,8 @@ export const parsedManifest = {
           number: 2,
           resolvedUri: 'http://example.com/video/D/D502.m4f',
           timeline: 100,
-          uri: 'D502.m4f'
+          uri: 'D502.m4f',
+          validUntil: 1688906099
         },
         {
           discontinuity: true,
@@ -249,7 +262,8 @@ export const parsedManifest = {
           number: 3,
           resolvedUri: 'http://example.com/video/D/D000.m4f',
           timeline: 103,
-          uri: 'D000.m4f'
+          uri: 'D000.m4f',
+          validUntil: 1688906101
         },
         {
           duration: 2,
@@ -261,7 +275,8 @@ export const parsedManifest = {
           number: 4,
           resolvedUri: 'http://example.com/video/D/D001.m4f',
           timeline: 103,
-          uri: 'D001.m4f'
+          uri: 'D001.m4f',
+          validUntil: 1688906103
         },
         {
           discontinuity: true,
@@ -274,7 +289,8 @@ export const parsedManifest = {
           number: 5,
           resolvedUri: 'http://example.com/video/D/D000.m4f',
           timeline: 107,
-          uri: 'D000.m4f'
+          uri: 'D000.m4f',
+          validUntil: 1688906105
         },
         {
           duration: 2,
@@ -286,7 +302,8 @@ export const parsedManifest = {
           number: 6,
           resolvedUri: 'http://example.com/video/D/D001.m4f',
           timeline: 107,
-          uri: 'D001.m4f'
+          uri: 'D001.m4f',
+          validUntil: 1688906107
         },
         {
           discontinuity: true,
@@ -299,7 +316,8 @@ export const parsedManifest = {
           number: 7,
           resolvedUri: 'http://example.com/video/D/D862.m4f',
           timeline: 111,
-          uri: 'D862.m4f'
+          uri: 'D862.m4f',
+          validUntil: 1688906108
         },
         {
           duration: 1,
@@ -311,7 +329,8 @@ export const parsedManifest = {
           number: 8,
           resolvedUri: 'http://example.com/video/D/D863.m4f',
           timeline: 111,
-          uri: 'D863.m4f'
+          uri: 'D863.m4f',
+          validUntil: 1688906109
         },
         {
           duration: 1,
@@ -324,7 +343,8 @@ export const parsedManifest = {
           resolvedUri: 'http://example.com/video/D/D864.m4f',
           timeline: 111,
           uri: 'D864.m4f',
-          last: true
+          last: true,
+          validUntil: 1688906110
         }
       ],
       targetDuration: 1,
@@ -367,7 +387,8 @@ export const parsedManifest = {
           number: 0,
           resolvedUri: 'http://example.com/video/E/E500.m4f',
           timeline: 100,
-          uri: 'E500.m4f'
+          uri: 'E500.m4f',
+          validUntil: 1688906097
         },
         {
           duration: 1,
@@ -379,7 +400,8 @@ export const parsedManifest = {
           number: 1,
           resolvedUri: 'http://example.com/video/E/E501.m4f',
           timeline: 100,
-          uri: 'E501.m4f'
+          uri: 'E501.m4f',
+          validUntil: 1688906098
         },
         {
           duration: 1,
@@ -391,7 +413,8 @@ export const parsedManifest = {
           number: 2,
           resolvedUri: 'http://example.com/video/E/E502.m4f',
           timeline: 100,
-          uri: 'E502.m4f'
+          uri: 'E502.m4f',
+          validUntil: 1688906099
         },
         {
           discontinuity: true,
@@ -404,7 +427,8 @@ export const parsedManifest = {
           number: 3,
           resolvedUri: 'http://example.com/video/E/E000.m4f',
           timeline: 103,
-          uri: 'E000.m4f'
+          uri: 'E000.m4f',
+          validUntil: 1688906101
         },
         {
           duration: 2,
@@ -416,7 +440,8 @@ export const parsedManifest = {
           number: 4,
           resolvedUri: 'http://example.com/video/E/E001.m4f',
           timeline: 103,
-          uri: 'E001.m4f'
+          uri: 'E001.m4f',
+          validUntil: 1688906103
         },
         {
           discontinuity: true,
@@ -429,7 +454,8 @@ export const parsedManifest = {
           number: 5,
           resolvedUri: 'http://example.com/video/E/E000.m4f',
           timeline: 107,
-          uri: 'E000.m4f'
+          uri: 'E000.m4f',
+          validUntil: 1688906105
         },
         {
           duration: 2,
@@ -441,7 +467,8 @@ export const parsedManifest = {
           number: 6,
           resolvedUri: 'http://example.com/video/E/E001.m4f',
           timeline: 107,
-          uri: 'E001.m4f'
+          uri: 'E001.m4f',
+          validUntil: 1688906107
         },
         {
           discontinuity: true,
@@ -454,7 +481,8 @@ export const parsedManifest = {
           number: 7,
           resolvedUri: 'http://example.com/video/E/E862.m4f',
           timeline: 111,
-          uri: 'E862.m4f'
+          uri: 'E862.m4f',
+          validUntil: 1688906108
         },
         {
           duration: 1,
@@ -466,7 +494,8 @@ export const parsedManifest = {
           number: 8,
           resolvedUri: 'http://example.com/video/E/E863.m4f',
           timeline: 111,
-          uri: 'E863.m4f'
+          uri: 'E863.m4f',
+          validUntil: 1688906109
         },
         {
           duration: 1,
@@ -479,7 +508,8 @@ export const parsedManifest = {
           resolvedUri: 'http://example.com/video/E/E864.m4f',
           timeline: 111,
           uri: 'E864.m4f',
-          last: true
+          last: true,
+          validUntil: 1688906110
         }
       ],
       targetDuration: 1,
@@ -522,7 +552,8 @@ export const parsedManifest = {
           number: 0,
           resolvedUri: 'http://example.com/video/E/F500.m4f',
           timeline: 100,
-          uri: 'F500.m4f'
+          uri: 'F500.m4f',
+          validUntil: 1688906097
         },
         {
           duration: 1,
@@ -534,7 +565,8 @@ export const parsedManifest = {
           number: 1,
           resolvedUri: 'http://example.com/video/E/F501.m4f',
           timeline: 100,
-          uri: 'F501.m4f'
+          uri: 'F501.m4f',
+          validUntil: 1688906098
         },
         {
           duration: 1,
@@ -546,7 +578,8 @@ export const parsedManifest = {
           number: 2,
           resolvedUri: 'http://example.com/video/E/F502.m4f',
           timeline: 100,
-          uri: 'F502.m4f'
+          uri: 'F502.m4f',
+          validUntil: 1688906099
         },
         {
           discontinuity: true,
@@ -559,7 +592,8 @@ export const parsedManifest = {
           number: 3,
           resolvedUri: 'http://example.com/video/F/F000.m4f',
           timeline: 103,
-          uri: 'F000.m4f'
+          uri: 'F000.m4f',
+          validUntil: 1688906101
         },
         {
           duration: 2,
@@ -571,7 +605,8 @@ export const parsedManifest = {
           number: 4,
           resolvedUri: 'http://example.com/video/F/F001.m4f',
           timeline: 103,
-          uri: 'F001.m4f'
+          uri: 'F001.m4f',
+          validUntil: 1688906103
         },
         {
           discontinuity: true,
@@ -584,7 +619,8 @@ export const parsedManifest = {
           number: 5,
           resolvedUri: 'http://example.com/video/F/F000.m4f',
           timeline: 107,
-          uri: 'F000.m4f'
+          uri: 'F000.m4f',
+          validUntil: 1688906104
         },
         {
           duration: 1,
@@ -596,7 +632,8 @@ export const parsedManifest = {
           number: 6,
           resolvedUri: 'http://example.com/video/F/F001.m4f',
           timeline: 107,
-          uri: 'F001.m4f'
+          uri: 'F001.m4f',
+          validUntil: 1688906105
         },
         {
           discontinuity: true,
@@ -609,7 +646,8 @@ export const parsedManifest = {
           number: 7,
           resolvedUri: 'http://example.com/video/F/F862.m4f',
           timeline: 111,
-          uri: 'F862.m4f'
+          uri: 'F862.m4f',
+          validUntil: 1688906108
         },
         {
           duration: 1,
@@ -621,7 +659,8 @@ export const parsedManifest = {
           number: 8,
           resolvedUri: 'http://example.com/video/F/F863.m4f',
           timeline: 111,
-          uri: 'F863.m4f'
+          uri: 'F863.m4f',
+          validUntil: 1688906109
         },
         {
           duration: 1,
@@ -634,7 +673,8 @@ export const parsedManifest = {
           resolvedUri: 'http://example.com/video/F/F864.m4f',
           timeline: 111,
           uri: 'F864.m4f',
-          last: true
+          last: true,
+          validUntil: 1688906110
         }
       ],
       targetDuration: 1,
@@ -677,7 +717,8 @@ export const parsedManifest = {
           number: 0,
           resolvedUri: 'http://example.com/video/A/A500.m4f',
           timeline: 100,
-          uri: 'A500.m4f'
+          uri: 'A500.m4f',
+          validUntil: 1688906097
         },
         {
           duration: 1,
@@ -689,7 +730,8 @@ export const parsedManifest = {
           number: 1,
           resolvedUri: 'http://example.com/video/A/A501.m4f',
           timeline: 100,
-          uri: 'A501.m4f'
+          uri: 'A501.m4f',
+          validUntil: 1688906098
         },
         {
           duration: 1,
@@ -701,7 +743,8 @@ export const parsedManifest = {
           number: 2,
           resolvedUri: 'http://example.com/video/A/A502.m4f',
           timeline: 100,
-          uri: 'A502.m4f'
+          uri: 'A502.m4f',
+          validUntil: 1688906099
         },
         {
           discontinuity: true,
@@ -714,7 +757,8 @@ export const parsedManifest = {
           number: 3,
           resolvedUri: 'http://example.com/video/A/A000.m4f',
           timeline: 103,
-          uri: 'A000.m4f'
+          uri: 'A000.m4f',
+          validUntil: 1688906101
         },
         {
           duration: 2,
@@ -726,7 +770,8 @@ export const parsedManifest = {
           number: 4,
           resolvedUri: 'http://example.com/video/A/A001.m4f',
           timeline: 103,
-          uri: 'A001.m4f'
+          uri: 'A001.m4f',
+          validUntil: 1688906103
         },
         {
           discontinuity: true,
@@ -739,7 +784,8 @@ export const parsedManifest = {
           number: 5,
           resolvedUri: 'http://example.com/video/A/A000.m4f',
           timeline: 107,
-          uri: 'A000.m4f'
+          uri: 'A000.m4f',
+          validUntil: 1688906105
         },
         {
           duration: 2,
@@ -751,7 +797,8 @@ export const parsedManifest = {
           number: 6,
           resolvedUri: 'http://example.com/video/A/A001.m4f',
           timeline: 107,
-          uri: 'A001.m4f'
+          uri: 'A001.m4f',
+          validUntil: 1688906107
         },
         {
           discontinuity: true,
@@ -764,7 +811,8 @@ export const parsedManifest = {
           number: 7,
           resolvedUri: 'http://example.com/video/A/A862.m4f',
           timeline: 111,
-          uri: 'A862.m4f'
+          uri: 'A862.m4f',
+          validUntil: 1688906108
         },
         {
           duration: 1,
@@ -776,7 +824,8 @@ export const parsedManifest = {
           number: 8,
           resolvedUri: 'http://example.com/video/A/A863.m4f',
           timeline: 111,
-          uri: 'A863.m4f'
+          uri: 'A863.m4f',
+          validUntil: 1688906109
         },
         {
           duration: 1,
@@ -789,7 +838,8 @@ export const parsedManifest = {
           resolvedUri: 'http://example.com/video/A/A864.m4f',
           timeline: 111,
           uri: 'A864.m4f',
-          last: true
+          last: true,
+          validUntil: 1688906110
         }
       ],
       targetDuration: 1,
@@ -832,7 +882,8 @@ export const parsedManifest = {
           number: 0,
           resolvedUri: 'http://example.com/video/B/B500.m4f',
           timeline: 100,
-          uri: 'B500.m4f'
+          uri: 'B500.m4f',
+          validUntil: 1688906097
         },
         {
           duration: 1,
@@ -844,7 +895,8 @@ export const parsedManifest = {
           number: 1,
           resolvedUri: 'http://example.com/video/B/B501.m4f',
           timeline: 100,
-          uri: 'B501.m4f'
+          uri: 'B501.m4f',
+          validUntil: 1688906098
         },
         {
           duration: 1,
@@ -856,7 +908,8 @@ export const parsedManifest = {
           number: 2,
           resolvedUri: 'http://example.com/video/B/B502.m4f',
           timeline: 100,
-          uri: 'B502.m4f'
+          uri: 'B502.m4f',
+          validUntil: 1688906099
         },
         {
           discontinuity: true,
@@ -869,7 +922,8 @@ export const parsedManifest = {
           number: 3,
           resolvedUri: 'http://example.com/video/B/B000.m4f',
           timeline: 103,
-          uri: 'B000.m4f'
+          uri: 'B000.m4f',
+          validUntil: 1688906101
         },
         {
           duration: 2,
@@ -881,7 +935,8 @@ export const parsedManifest = {
           number: 4,
           resolvedUri: 'http://example.com/video/B/B001.m4f',
           timeline: 103,
-          uri: 'B001.m4f'
+          uri: 'B001.m4f',
+          validUntil: 1688906103
         },
         {
           discontinuity: true,
@@ -894,7 +949,8 @@ export const parsedManifest = {
           number: 5,
           resolvedUri: 'http://example.com/video/B/B000.m4f',
           timeline: 107,
-          uri: 'B000.m4f'
+          uri: 'B000.m4f',
+          validUntil: 1688906105
         },
         {
           duration: 2,
@@ -906,7 +962,8 @@ export const parsedManifest = {
           number: 6,
           resolvedUri: 'http://example.com/video/B/B001.m4f',
           timeline: 107,
-          uri: 'B001.m4f'
+          uri: 'B001.m4f',
+          validUntil: 1688906107
         },
         {
           discontinuity: true,
@@ -919,7 +976,8 @@ export const parsedManifest = {
           number: 7,
           resolvedUri: 'http://example.com/video/B/B862.m4f',
           timeline: 111,
-          uri: 'B862.m4f'
+          uri: 'B862.m4f',
+          validUntil: 1688906108
         },
         {
           duration: 1,
@@ -931,7 +989,8 @@ export const parsedManifest = {
           number: 8,
           resolvedUri: 'http://example.com/video/B/B863.m4f',
           timeline: 111,
-          uri: 'B863.m4f'
+          uri: 'B863.m4f',
+          validUntil: 1688906109
         },
         {
           duration: 1,
@@ -944,7 +1003,8 @@ export const parsedManifest = {
           resolvedUri: 'http://example.com/video/B/B864.m4f',
           timeline: 111,
           uri: 'B864.m4f',
-          last: true
+          last: true,
+          validUntil: 1688906110
         }
       ],
       targetDuration: 1,
@@ -987,7 +1047,8 @@ export const parsedManifest = {
           number: 0,
           resolvedUri: 'http://example.com/video/E/C500.m4f',
           timeline: 100,
-          uri: 'C500.m4f'
+          uri: 'C500.m4f',
+          validUntil: 1688906097
         },
         {
           duration: 1,
@@ -999,7 +1060,8 @@ export const parsedManifest = {
           number: 1,
           resolvedUri: 'http://example.com/video/E/C501.m4f',
           timeline: 100,
-          uri: 'C501.m4f'
+          uri: 'C501.m4f',
+          validUntil: 1688906098
         },
         {
           duration: 1,
@@ -1011,7 +1073,8 @@ export const parsedManifest = {
           number: 2,
           resolvedUri: 'http://example.com/video/E/C502.m4f',
           timeline: 100,
-          uri: 'C502.m4f'
+          uri: 'C502.m4f',
+          validUntil: 1688906099
         },
         {
           discontinuity: true,
@@ -1024,7 +1087,8 @@ export const parsedManifest = {
           number: 3,
           resolvedUri: 'http://example.com/video/C/C000.m4f',
           timeline: 103,
-          uri: 'C000.m4f'
+          uri: 'C000.m4f',
+          validUntil: 1688906101
         },
         {
           duration: 2,
@@ -1036,7 +1100,8 @@ export const parsedManifest = {
           number: 4,
           resolvedUri: 'http://example.com/video/C/C001.m4f',
           timeline: 103,
-          uri: 'C001.m4f'
+          uri: 'C001.m4f',
+          validUntil: 1688906103
         },
         {
           discontinuity: true,
@@ -1049,7 +1114,8 @@ export const parsedManifest = {
           number: 5,
           resolvedUri: 'http://example.com/video/C/C000.m4f',
           timeline: 107,
-          uri: 'C000.m4f'
+          uri: 'C000.m4f',
+          validUntil: 1688906105
         },
         {
           duration: 2,
@@ -1061,7 +1127,8 @@ export const parsedManifest = {
           number: 6,
           resolvedUri: 'http://example.com/video/C/C001.m4f',
           timeline: 107,
-          uri: 'C001.m4f'
+          uri: 'C001.m4f',
+          validUntil: 1688906107
         },
         {
           discontinuity: true,
@@ -1074,7 +1141,8 @@ export const parsedManifest = {
           number: 7,
           resolvedUri: 'http://example.com/video/C/C862.m4f',
           timeline: 111,
-          uri: 'C862.m4f'
+          uri: 'C862.m4f',
+          validUntil: 1688906108
         },
         {
           duration: 1,
@@ -1086,7 +1154,8 @@ export const parsedManifest = {
           number: 8,
           resolvedUri: 'http://example.com/video/C/C863.m4f',
           timeline: 111,
-          uri: 'C863.m4f'
+          uri: 'C863.m4f',
+          validUntil: 1688906109
         },
         {
           duration: 1,
@@ -1099,7 +1168,8 @@ export const parsedManifest = {
           resolvedUri: 'http://example.com/video/C/C864.m4f',
           timeline: 111,
           uri: 'C864.m4f',
-          last: true
+          last: true,
+          validUntil: 1688906110
         }
       ],
       targetDuration: 1,

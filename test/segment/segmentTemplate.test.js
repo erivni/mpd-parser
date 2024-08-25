@@ -1235,6 +1235,39 @@ QUnit.test('correctly handles duration', function(assert) {
   assert.deepEqual(
     segmentsFromTemplate(Object.assign(
       {}, basicAttributes,
+      { timeShiftBufferDepth: 4, firstPresentationTime: 6 }, []
+    )),
+    [{
+      duration: 2,
+      map: {
+        resolvedUri: 'http://www.example.com/',
+        uri: ''
+      },
+      number: 4,
+      resolvedUri: 'http://www.example.com/n-4.m4s',
+      timeline: 0,
+      uri: 'n-4.m4s',
+      presentationTime: 6,
+      validUntil: 12
+    }, {
+      duration: 2,
+      map: {
+        resolvedUri: 'http://www.example.com/',
+        uri: ''
+      },
+      number: 5,
+      resolvedUri: 'http://www.example.com/n-5.m4s',
+      timeline: 0,
+      uri: 'n-5.m4s',
+      presentationTime: 8,
+      validUntil: 14
+    }],
+    'segments correct with @timeShiftBufferDepth and @firstPresentationTime set'
+  );
+
+  assert.deepEqual(
+    segmentsFromTemplate(Object.assign(
+      {}, basicAttributes,
       { clientOffset: -2000 }, []
     )),
     [{

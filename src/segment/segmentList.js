@@ -88,6 +88,11 @@ export const segmentsFromList = (attributes, segmentTimeline) => {
       segment.presentationTime =
         periodStart + ((segmentTime.time - presentationTimeOffset) / timescale);
 
+      // validUntil is set to tsb up to the end of segment duration
+      if (attributes.timeShiftBufferDepth && attributes.NOW && attributes.firstPresentationTime !== undefined) {
+        segment.validUntil = attributes.NOW / 1000 + (segment.presentationTime - attributes.firstPresentationTime + segment.duration);
+      }
+
       return segment;
     }
     // Since we're mapping we should get rid of any blank segments (in case

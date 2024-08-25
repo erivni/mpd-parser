@@ -407,6 +407,61 @@ export const toRepresentations =
   }));
 };
 
+const getFirstPresentationTime = (periodAttributes, period) => {
+  const {
+    NOW,
+    clientOffset,
+    periodStart = 0,
+    availabilityStartTime = 0,
+    timeShiftBufferDepth = 0
+  } = periodAttributes;
+
+  let segmentInfo = getSegmentInformation(period.node);
+
+  if (!segmentInfo.template) {
+    const adaptationSets = findChildren(period.node, 'AdaptationSet');
+
+    segmentInfo = getSegmentInformation(adaptationSets[0]);
+
+    if (!segmentInfo.template) {
+      const representations = findChildren(adaptationSets[0], 'Representation');
+
+      segmentInfo = getSegmentInformation(representations[0]);
+
+      if (!segmentInfo.template) {
+        return undefined;
+      }
+    }
+  }
+
+  if (segmentInfo.template) {
+    const {
+      presentationTimeOffset = 0,
+      timescale = 1,
+      duration,
+      startNumber
+    } = segmentInfo.template;
+
+    // if timeline based
+    if (segmentInfo.segmentTimeline !== undefined) {
+      const t = segmentInfo.segmentTimeline[0].t || 0;
+
+      return periodStart + (t - presentationTimeOffset) / timescale;
+    }
+
+    // if number based
+    if (startNumber !== undefined) {
+      const now = (NOW + clientOffset) / 1000;
+      const periodStartWC = availabilityStartTime + periodStart;
+      const availableStart = Math.floor((now - periodStartWC - timeShiftBufferDepth) * timescale / duration);
+
+      return periodStart + availableStart * duration / timescale;
+    }
+  }
+
+  return undefined;
+};
+
 /**
  * Contains all period information for mapping nodes onto adaptation sets.
  *
@@ -455,6 +510,14 @@ export const toAdaptationSets = (mpdAttributes, mpdBaseUrls) => (period, index, 
   }
   const adaptationSets = findChildren(period.node, 'AdaptationSet');
   const periodSegmentInfo = getSegmentInformation(period.node);
+
+  if (!mpdAttributes.firstPresentationTime && mpdAttributes.type === 'dynamic') {
+    const firstPresentationTime = getFirstPresentationTime(periodAttributes, period);
+
+    if (firstPresentationTime !== undefined) {
+      mpdAttributes.firstPresentationTime = periodAttributes.firstPresentationTime = firstPresentationTime;
+    }
+  }
 
   return flatten(adaptationSets.map(toRepresentations(periodAttributes, periodBaseUrls, periodSegmentInfo)));
 };

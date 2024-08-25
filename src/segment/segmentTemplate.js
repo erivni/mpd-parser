@@ -152,7 +152,7 @@ export const segmentsFromTemplate = (attributes, segmentTimeline) => {
 
   const segments = parseTemplateInfo(attributes, segmentTimeline);
 
-  return segments.map(segment => {
+  return segments.map((segment, index) => {
     templateValues.Number = segment.number;
     templateValues.Time = segment.time;
 
@@ -180,6 +180,12 @@ export const segmentsFromTemplate = (attributes, segmentTimeline) => {
     if (!attributes.removeInitMap) {
       map.map = mapSegment;
     }
+
+    // validUntil is set to tsb up to the end of segment duration
+    if (attributes.timeShiftBufferDepth && attributes.NOW && attributes.firstPresentationTime !== undefined) {
+      map.validUntil = attributes.NOW / 1000 + (map.presentationTime - attributes.firstPresentationTime + map.duration);
+    }
+
     return map;
   });
 };

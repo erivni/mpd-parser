@@ -44,7 +44,8 @@ export const parsedManifest = {
                   number: 7,
                   resolvedUri: 'http://example.com/audio/v0/862.m4f',
                   timeline: 111,
-                  uri: '862.m4f'
+                  uri: '862.m4f',
+                  validUntil: 1688906097
                 },
                 {
                   duration: 1,
@@ -56,7 +57,8 @@ export const parsedManifest = {
                   number: 8,
                   resolvedUri: 'http://example.com/audio/v0/863.m4f',
                   timeline: 111,
-                  uri: '863.m4f'
+                  uri: '863.m4f',
+                  validUntil: 1688906098
                 },
                 {
                   duration: 1,
@@ -69,7 +71,8 @@ export const parsedManifest = {
                   resolvedUri: 'http://example.com/audio/v0/864.m4f',
                   timeline: 111,
                   uri: '864.m4f',
-                  last: true
+                  last: true,
+                  validUntil: 1688906099
                 }
               ],
               targetDuration: 1,
@@ -121,7 +124,8 @@ export const parsedManifest = {
           number: 7,
           resolvedUri: 'http://example.com/video/D/D862.m4f',
           timeline: 111,
-          uri: 'D862.m4f'
+          uri: 'D862.m4f',
+          validUntil: 1688906097
         },
         {
           duration: 1,
@@ -133,7 +137,8 @@ export const parsedManifest = {
           number: 8,
           resolvedUri: 'http://example.com/video/D/D863.m4f',
           timeline: 111,
-          uri: 'D863.m4f'
+          uri: 'D863.m4f',
+          validUntil: 1688906098
         },
         {
           duration: 1,
@@ -146,7 +151,8 @@ export const parsedManifest = {
           resolvedUri: 'http://example.com/video/D/D864.m4f',
           timeline: 111,
           uri: 'D864.m4f',
-          last: true
+          last: true,
+          validUntil: 1688906099
         }
       ],
       targetDuration: 1,
@@ -187,7 +193,8 @@ export const parsedManifest = {
           number: 7,
           resolvedUri: 'http://example.com/video/E/E862.m4f',
           timeline: 111,
-          uri: 'E862.m4f'
+          uri: 'E862.m4f',
+          validUntil: 1688906097
         },
         {
           duration: 1,
@@ -199,7 +206,8 @@ export const parsedManifest = {
           number: 8,
           resolvedUri: 'http://example.com/video/E/E863.m4f',
           timeline: 111,
-          uri: 'E863.m4f'
+          uri: 'E863.m4f',
+          validUntil: 1688906098
         },
         {
           duration: 1,
@@ -212,7 +220,8 @@ export const parsedManifest = {
           resolvedUri: 'http://example.com/video/E/E864.m4f',
           timeline: 111,
           uri: 'E864.m4f',
-          last: true
+          last: true,
+          validUntil: 1688906099
         }
       ],
       targetDuration: 1,
@@ -253,7 +262,8 @@ export const parsedManifest = {
           number: 7,
           resolvedUri: 'http://example.com/video/F/F862.m4f',
           timeline: 111,
-          uri: 'F862.m4f'
+          uri: 'F862.m4f',
+          validUntil: 1688906097
         },
         {
           duration: 1,
@@ -265,7 +275,8 @@ export const parsedManifest = {
           number: 8,
           resolvedUri: 'http://example.com/video/F/F863.m4f',
           timeline: 111,
-          uri: 'F863.m4f'
+          uri: 'F863.m4f',
+          validUntil: 1688906098
         },
         {
           duration: 1,
@@ -278,7 +289,8 @@ export const parsedManifest = {
           resolvedUri: 'http://example.com/video/F/F864.m4f',
           timeline: 111,
           uri: 'F864.m4f',
-          last: true
+          last: true,
+          validUntil: 1688906099
         }
       ],
       targetDuration: 1,
@@ -319,7 +331,8 @@ export const parsedManifest = {
           number: 7,
           resolvedUri: 'http://example.com/video/A/A862.m4f',
           timeline: 111,
-          uri: 'A862.m4f'
+          uri: 'A862.m4f',
+          validUntil: 1688906097
         },
         {
           duration: 1,
@@ -331,7 +344,8 @@ export const parsedManifest = {
           number: 8,
           resolvedUri: 'http://example.com/video/A/A863.m4f',
           timeline: 111,
-          uri: 'A863.m4f'
+          uri: 'A863.m4f',
+          validUntil: 1688906098
         },
         {
           duration: 1,
@@ -344,7 +358,8 @@ export const parsedManifest = {
           resolvedUri: 'http://example.com/video/A/A864.m4f',
           timeline: 111,
           uri: 'A864.m4f',
-          last: true
+          last: true,
+          validUntil: 1688906099
         }
       ],
       targetDuration: 1,
@@ -385,7 +400,8 @@ export const parsedManifest = {
           number: 7,
           resolvedUri: 'http://example.com/video/B/B862.m4f',
           timeline: 111,
-          uri: 'B862.m4f'
+          uri: 'B862.m4f',
+          validUntil: 1688906097
         },
         {
           duration: 1,
@@ -397,7 +413,8 @@ export const parsedManifest = {
           number: 8,
           resolvedUri: 'http://example.com/video/B/B863.m4f',
           timeline: 111,
-          uri: 'B863.m4f'
+          uri: 'B863.m4f',
+          validUntil: 1688906098
         },
         {
           duration: 1,
@@ -410,7 +427,8 @@ export const parsedManifest = {
           resolvedUri: 'http://example.com/video/B/B864.m4f',
           timeline: 111,
           uri: 'B864.m4f',
-          last: true
+          last: true,
+          validUntil: 1688906099
         }
       ],
       targetDuration: 1,
@@ -451,7 +469,8 @@ export const parsedManifest = {
           number: 7,
           resolvedUri: 'http://example.com/video/C/C862.m4f',
           timeline: 111,
-          uri: 'C862.m4f'
+          uri: 'C862.m4f',
+          validUntil: 1688906097
         },
         {
           duration: 1,
@@ -463,7 +482,8 @@ export const parsedManifest = {
           number: 8,
           resolvedUri: 'http://example.com/video/C/C863.m4f',
           timeline: 111,
-          uri: 'C863.m4f'
+          uri: 'C863.m4f',
+          validUntil: 1688906098
         },
         {
           duration: 1,
@@ -476,7 +496,8 @@ export const parsedManifest = {
           resolvedUri: 'http://example.com/video/C/C864.m4f',
           timeline: 111,
           uri: 'C864.m4f',
-          last: true
+          last: true,
+          validUntil: 1688906099
         }
       ],
       targetDuration: 1,
