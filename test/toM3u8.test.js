@@ -18,7 +18,8 @@ QUnit.test('playlists', function(assert) {
       bandwidth: 20000,
       periodStart: 0,
       mimeType: 'audio/mp4',
-      type: 'static'
+      type: 'static',
+      NOW: 1688906096000
     },
     segments: []
   }, {
@@ -30,7 +31,8 @@ QUnit.test('playlists', function(assert) {
       bandwidth: 10000,
       periodStart: 0,
       mimeType: 'audio/mp4',
-      type: 'static'
+      type: 'static',
+      NOW: 1688906096000
     },
     segments: []
   }, {
@@ -45,7 +47,8 @@ QUnit.test('playlists', function(assert) {
       frameRate: 30,
       periodStart: 0,
       mimeType: 'video/mp4',
-      type: 'static'
+      type: 'static',
+      NOW: 1688906096000
     },
     segments: []
   }, {
@@ -56,7 +59,8 @@ QUnit.test('playlists', function(assert) {
       periodStart: 0,
       mimeType: 'text/vtt',
       type: 'static',
-      baseUrl: 'https://www.example.com/vtt'
+      baseUrl: 'https://www.example.com/vtt',
+      NOW: 1688906096000
     }
   }, {
     attributes: {
@@ -66,7 +70,8 @@ QUnit.test('playlists', function(assert) {
       periodStart: 0,
       mimeType: 'text/vtt',
       type: 'static',
-      baseUrl: 'https://www.example.com/vtt'
+      baseUrl: 'https://www.example.com/vtt',
+      NOW: 1688906096000
     }
   }];
 
@@ -95,6 +100,7 @@ QUnit.test('playlists', function(assert) {
               discontinuityStarts: [],
               timelineStarts: [{ start: 0, timeline: 0 }],
               endList: true,
+              NOW: 1688906096000,
               resolvedUri: '',
               segments: [],
               timeline: 0,
@@ -116,6 +122,7 @@ QUnit.test('playlists', function(assert) {
               segments: [],
               timeline: 0,
               uri: '',
+              NOW: 1688906096000,
               targetDuration: 0
 
             }],
@@ -143,6 +150,7 @@ QUnit.test('playlists', function(assert) {
               timelineStarts: [{ start: 0, timeline: 0 }],
               targetDuration: 100,
               endList: true,
+              NOW: 1688906096000,
               resolvedUri: 'https://www.example.com/vtt',
               segments: [{
                 duration: 100,
@@ -167,6 +175,7 @@ QUnit.test('playlists', function(assert) {
               timelineStarts: [{ start: 0, timeline: 0 }],
               targetDuration: 100,
               endList: true,
+              NOW: 1688906096000,
               resolvedUri: 'https://www.example.com/vtt',
               segments: [{
                 duration: 100,
@@ -200,6 +209,7 @@ QUnit.test('playlists', function(assert) {
         }
       },
       endList: true,
+      NOW: 1688906096000,
       mediaSequence: 0,
       discontinuitySequence: 0,
       discontinuityStarts: [],
@@ -227,7 +237,8 @@ QUnit.test('playlists with segments', function(assert) {
       bandwidth: 20000,
       periodStart: 0,
       mimeType: 'audio/mp4',
-      type: 'static'
+      type: 'static',
+      NOW: 1688906096000
     },
     segments: [{
       uri: '',
@@ -259,7 +270,8 @@ QUnit.test('playlists with segments', function(assert) {
       bandwidth: 10000,
       periodStart: 0,
       mimeType: 'audio/mp4',
-      type: 'static'
+      type: 'static',
+      NOW: 1688906096000
     },
     segments: [{
       uri: '',
@@ -293,7 +305,8 @@ QUnit.test('playlists with segments', function(assert) {
       bandwidth: 10000,
       periodStart: 0,
       mimeType: 'video/mp4',
-      type: 'static'
+      type: 'static',
+      NOW: 1688906096000
     },
     segments: [{
       uri: '',
@@ -325,6 +338,7 @@ QUnit.test('playlists with segments', function(assert) {
       periodStart: 0,
       mimeType: 'text/vtt',
       type: 'static',
+      NOW: 1688906096000,
       baseUrl: 'https://www.example.com/vtt'
     },
     segments: [{
@@ -357,6 +371,7 @@ QUnit.test('playlists with segments', function(assert) {
       periodStart: 0,
       mimeType: 'text/vtt',
       type: 'static',
+      NOW: 1688906096000,
       baseUrl: 'https://www.example.com/vtt'
     },
     segments: [{
@@ -406,6 +421,7 @@ QUnit.test('playlists with segments', function(assert) {
               discontinuitySequence: 0,
               discontinuityStarts: [],
               endList: true,
+              NOW: 1688906096000,
               resolvedUri: '',
               segments: [{
                 uri: '',
@@ -444,6 +460,7 @@ QUnit.test('playlists with segments', function(assert) {
               discontinuitySequence: 0,
               discontinuityStarts: [],
               endList: true,
+              NOW: 1688906096000,
               resolvedUri: '',
               segments: [{
                 uri: '',
@@ -490,6 +507,7 @@ QUnit.test('playlists with segments', function(assert) {
                 ['PROGRAM-ID']: 1
               },
               endList: true,
+              NOW: 1688906096000,
               targetDuration: 2,
               mediaSequence: 0,
               discontinuitySequence: 0,
@@ -528,6 +546,7 @@ QUnit.test('playlists with segments', function(assert) {
                 ['PROGRAM-ID']: 1
               },
               endList: true,
+              NOW: 1688906096000,
               targetDuration: 2,
               mediaSequence: 0,
               discontinuitySequence: 0,
@@ -579,6 +598,7 @@ QUnit.test('playlists with segments', function(assert) {
         }
       },
       endList: true,
+      NOW: 1688906096000,
       resolvedUri: '',
       mediaSequence: 0,
       discontinuitySequence: 0,
@@ -630,7 +650,8 @@ QUnit.test('playlists with sidx and sidxMapping', function(assert) {
       bandwidth: 10000,
       periodStart: 0,
       mimeType: 'video/mp4',
-      type: 'static'
+      type: 'static',
+      NOW: 1688906096000
     },
     segments: [],
     sidx: {
@@ -687,6 +708,7 @@ QUnit.test('playlists with sidx and sidxMapping', function(assert) {
     timeline: 0,
     timelineStarts: [{ start: 0, timeline: 0 }],
     uri: '',
+    NOW: 1688906096000,
     segments: [{
       map: {
         resolvedUri: 'http://example.com/sidx.mp4',
@@ -1156,7 +1178,8 @@ QUnit.test('eventStreams with playlists', function(assert) {
       bandwidth: 20000,
       periodStart: 0,
       mimeType: 'audio/mp4',
-      type: 'static'
+      type: 'static',
+      NOW: 1688906096000
     },
     segments: []
   }, {
@@ -1168,7 +1191,8 @@ QUnit.test('eventStreams with playlists', function(assert) {
       bandwidth: 10000,
       periodStart: 0,
       mimeType: 'audio/mp4',
-      type: 'static'
+      type: 'static',
+      NOW: 1688906096000
     },
     segments: []
   }, {
@@ -1183,7 +1207,8 @@ QUnit.test('eventStreams with playlists', function(assert) {
       frameRate: 30,
       periodStart: 0,
       mimeType: 'video/mp4',
-      type: 'static'
+      type: 'static',
+      NOW: 1688906096000
     },
     segments: []
   }, {
@@ -1194,6 +1219,7 @@ QUnit.test('eventStreams with playlists', function(assert) {
       periodStart: 0,
       mimeType: 'text/vtt',
       type: 'static',
+      NOW: 1688906096000,
       baseUrl: 'https://www.example.com/vtt'
     }
   }, {
@@ -1204,6 +1230,7 @@ QUnit.test('eventStreams with playlists', function(assert) {
       periodStart: 0,
       mimeType: 'text/vtt',
       type: 'static',
+      NOW: 1688906096000,
       baseUrl: 'https://www.example.com/vtt'
     }
   }];
@@ -1286,6 +1313,7 @@ QUnit.test('eventStreams with playlists', function(assert) {
               discontinuityStarts: [],
               timelineStarts: [{ start: 0, timeline: 0 }],
               endList: true,
+              NOW: 1688906096000,
               resolvedUri: '',
               segments: [],
               timeline: 0,
@@ -1303,6 +1331,7 @@ QUnit.test('eventStreams with playlists', function(assert) {
               discontinuityStarts: [],
               timelineStarts: [{ start: 0, timeline: 0 }],
               endList: true,
+              NOW: 1688906096000,
               resolvedUri: '',
               segments: [],
               timeline: 0,
@@ -1334,6 +1363,7 @@ QUnit.test('eventStreams with playlists', function(assert) {
               timelineStarts: [{ start: 0, timeline: 0 }],
               targetDuration: 100,
               endList: true,
+              NOW: 1688906096000,
               resolvedUri: 'https://www.example.com/vtt',
               segments: [{
                 duration: 100,
@@ -1358,6 +1388,7 @@ QUnit.test('eventStreams with playlists', function(assert) {
               timelineStarts: [{ start: 0, timeline: 0 }],
               targetDuration: 100,
               endList: true,
+              NOW: 1688906096000,
               resolvedUri: 'https://www.example.com/vtt',
               segments: [{
                 duration: 100,
@@ -1391,6 +1422,7 @@ QUnit.test('eventStreams with playlists', function(assert) {
         }
       },
       endList: true,
+      NOW: 1688906096000,
       mediaSequence: 0,
       discontinuitySequence: 0,
       discontinuityStarts: [],

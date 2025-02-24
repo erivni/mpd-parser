@@ -19,6 +19,7 @@ export const parsedManifest = {
                 'CODECS': 'mp4a.40.2',
                 'PROGRAM-ID': 1
               },
+              NOW: 1688906096000,
               uri: '',
               endList: true,
               timeline: 0,
@@ -96,6 +97,7 @@ export const parsedManifest = {
                 'PROGRAM-ID': 1
               },
               uri: '',
+              NOW: 1688906096000,
               endList: true,
               timeline: 0,
               timelineStarts: [{ start: 0, timeline: 0 }],
@@ -179,6 +181,7 @@ export const parsedManifest = {
                 'CODECS': 'mp4a.40.2',
                 'PROGRAM-ID': 1
               },
+              NOW: 1688906096000,
               uri: '',
               endList: true,
               timeline: 0,
@@ -256,6 +259,7 @@ export const parsedManifest = {
                 'PROGRAM-ID': 1
               },
               uri: '',
+              NOW: 1688906096000,
               endList: true,
               timeline: 0,
               timelineStarts: [{ start: 0, timeline: 0 }],
@@ -346,6 +350,7 @@ export const parsedManifest = {
                 'PROGRAM-ID': 1
               },
               uri: '',
+              NOW: 1688906096000,
               endList: true,
               timeline: 0,
               timelineStarts: [{ start: 0, timeline: 0 }],
@@ -381,6 +386,7 @@ export const parsedManifest = {
                 'PROGRAM-ID': 1
               },
               uri: '',
+              NOW: 1688906096000,
               endList: true,
               timeline: 0,
               timelineStarts: [{ start: 0, timeline: 0 }],
@@ -424,6 +430,7 @@ export const parsedManifest = {
         'PROGRAM-ID': 1
       },
       uri: '',
+      NOW: 1688906096000,
       endList: true,
       timeline: 0,
       timelineStarts: [{ start: 0, timeline: 0 }],
@@ -507,6 +514,7 @@ export const parsedManifest = {
         'PROGRAM-ID': 1
       },
       uri: '',
+      NOW: 1688906096000,
       endList: true,
       timeline: 0,
       timelineStarts: [{ start: 0, timeline: 0 }],

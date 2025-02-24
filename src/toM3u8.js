@@ -148,6 +148,7 @@ export const formatAudioPlaylist = ({
       CODECS: attributes.codecs,
       ['PROGRAM-ID']: 1
     },
+    NOW: attributes.NOW,
     uri: '',
     endList: attributes.type === 'static',
     timeline: attributes.periodStart,
@@ -224,6 +225,7 @@ export const formatVttPlaylist = ({
 
   const playlist = {
     attributes: m3u8Attributes,
+    NOW: attributes.NOW,
     uri: '',
     endList: attributes.type === 'static',
     timeline: attributes.periodStart,
@@ -366,6 +368,7 @@ export const formatVideoPlaylist = ({
       BANDWIDTH: attributes.bandwidth,
       ['PROGRAM-ID']: 1
     },
+    NOW: attributes.NOW,
     uri: '',
     endList: attributes.type === 'static',
     timeline: attributes.periodStart,

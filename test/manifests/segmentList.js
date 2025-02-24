@@ -25,6 +25,7 @@ export const parsedManifest = {
         'SUBTITLES': 'subs'
       },
       endList: true,
+      NOW: 1688906096000,
       mediaSequence: 0,
       targetDuration: 1,
       resolvedUri: '',
@@ -124,6 +125,7 @@ export const parsedManifest = {
         'SUBTITLES': 'subs'
       },
       endList: true,
+      NOW: 1688906096000,
       resolvedUri: '',
       mediaSequence: 0,
       targetDuration: 60,

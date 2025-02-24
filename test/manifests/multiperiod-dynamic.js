@@ -35,6 +35,7 @@ export const parsedManifest = {
                 'PROGRAM-ID': 1
               },
               uri: '',
+              NOW: 1688906096000,
               endList: false,
               timeline: 0,
               resolvedUri: '',
@@ -322,6 +323,7 @@ export const parsedManifest = {
                 'PROGRAM-ID': 1
               },
               uri: '',
+              NOW: 1688906096000,
               endList: false,
               timeline: 0,
               resolvedUri: '',
@@ -628,6 +630,7 @@ export const parsedManifest = {
         'SUBTITLES': 'subs'
       },
       uri: '',
+      NOW: 1688906096000,
       endList: false,
       timeline: 0,
       resolvedUri: '',
@@ -922,6 +925,7 @@ export const parsedManifest = {
         'SUBTITLES': 'subs'
       },
       uri: '',
+      NOW: 1688906096000,
       endList: false,
       timeline: 0,
       resolvedUri: '',
@@ -1216,6 +1220,7 @@ export const parsedManifest = {
         'SUBTITLES': 'subs'
       },
       uri: '',
+      NOW: 1688906096000,
       endList: false,
       timeline: 0,
       resolvedUri: '',

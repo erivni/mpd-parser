@@ -25,6 +25,7 @@ export const parsedManifest = {
                 'PROGRAM-ID': 1
               },
               endList: false,
+              NOW: 1688906096000,
               mediaSequence: 0,
               discontinuitySequence: 0,
               discontinuityStarts: [3, 5, 7],
@@ -191,6 +192,7 @@ export const parsedManifest = {
         'SUBTITLES': 'subs'
       },
       endList: false,
+      NOW: 1688906096000,
       mediaSequence: 0,
       discontinuitySequence: 0,
       discontinuityStarts: [3, 5, 7],
@@ -346,6 +348,7 @@ export const parsedManifest = {
         'SUBTITLES': 'subs'
       },
       endList: false,
+      NOW: 1688906096000,
       mediaSequence: 0,
       discontinuitySequence: 0,
       discontinuityStarts: [3, 5, 7],
@@ -501,6 +504,7 @@ export const parsedManifest = {
         'SUBTITLES': 'subs'
       },
       endList: false,
+      NOW: 1688906096000,
       mediaSequence: 0,
       discontinuitySequence: 0,
       discontinuityStarts: [3, 5, 7],
@@ -656,6 +660,7 @@ export const parsedManifest = {
         'SUBTITLES': 'subs'
       },
       endList: false,
+      NOW: 1688906096000,
       mediaSequence: 0,
       discontinuitySequence: 0,
       discontinuityStarts: [3, 5, 7],
@@ -811,6 +816,7 @@ export const parsedManifest = {
         'SUBTITLES': 'subs'
       },
       endList: false,
+      NOW: 1688906096000,
       mediaSequence: 0,
       discontinuitySequence: 0,
       discontinuityStarts: [3, 5, 7],
@@ -966,6 +972,7 @@ export const parsedManifest = {
         'SUBTITLES': 'subs'
       },
       endList: false,
+      NOW: 1688906096000,
       mediaSequence: 0,
       discontinuitySequence: 0,
       discontinuityStarts: [3, 5, 7],

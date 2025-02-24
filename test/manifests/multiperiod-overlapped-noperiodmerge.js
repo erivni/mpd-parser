@@ -21,6 +21,7 @@ export const parsedManifest = {
               discontinuitySequence: 0,
               discontinuityStarts: [],
               endList: true,
+              NOW: 1688906096000,
               mediaSequence: 0,
               resolvedUri: '',
               segments: [
@@ -84,6 +85,7 @@ export const parsedManifest = {
               discontinuitySequence: 1,
               discontinuityStarts: [],
               endList: true,
+              NOW: 1688906096000,
               mediaSequence: 0,
               resolvedUri: '',
               presentationTimeOffset: 5.972630385487529,
@@ -165,6 +167,7 @@ export const parsedManifest = {
       discontinuitySequence: 0,
       discontinuityStarts: [],
       endList: true,
+      NOW: 1688906096000,
       mediaSequence: 0,
       resolvedUri: '',
       segments: [
@@ -235,6 +238,7 @@ export const parsedManifest = {
       discontinuitySequence: 1,
       discontinuityStarts: [],
       endList: true,
+      NOW: 1688906096000,
       mediaSequence: 0,
       resolvedUri: '',
       presentationTimeOffset: 5.9726,

@@ -19,6 +19,7 @@ export const parsedManifest = {
                 'PROGRAM-ID': 1
               },
               uri: '',
+              NOW: 1688906096000,
               endList: true,
               timeline: 0,
               resolvedUri: '',
@@ -143,6 +144,7 @@ export const parsedManifest = {
       },
       uri: '',
       endList: true,
+      NOW: 1688906096000,
       timeline: 0,
       resolvedUri: '',
       targetDuration: 3,

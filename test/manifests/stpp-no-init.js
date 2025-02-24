@@ -21,6 +21,7 @@ export const parsedManifest = {
               discontinuitySequence: 0,
               discontinuityStarts: [],
               endList: true,
+              NOW: 1688906096000,
               mediaSequence: 0,
               resolvedUri: '',
               segments: [
@@ -82,6 +83,7 @@ export const parsedManifest = {
               discontinuitySequence: 0,
               discontinuityStarts: [],
               endList: true,
+              NOW: 1688906096000,
               mediaSequence: 0,
               resolvedUri: '',
               segments: [
@@ -157,6 +159,7 @@ export const parsedManifest = {
               discontinuitySequence: 0,
               discontinuityStarts: [],
               endList: true,
+              NOW: 1688906096000,
               mediaSequence: 0,
               resolvedUri: '',
               segments: [
@@ -221,6 +224,7 @@ export const parsedManifest = {
       discontinuitySequence: 0,
       discontinuityStarts: [],
       endList: true,
+      NOW: 1688906096000,
       mediaSequence: 0,
       resolvedUri: '',
       segments: [
@@ -289,6 +293,7 @@ export const parsedManifest = {
       discontinuitySequence: 0,
       discontinuityStarts: [],
       endList: true,
+      NOW: 1688906096000,
       mediaSequence: 0,
       resolvedUri: '',
       segments: [
@@ -357,6 +362,7 @@ export const parsedManifest = {
       discontinuitySequence: 0,
       discontinuityStarts: [],
       endList: true,
+      NOW: 1688906096000,
       mediaSequence: 0,
       resolvedUri: '',
       segments: [

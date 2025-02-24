@@ -47,6 +47,7 @@ export const parsedManifest = {
         'SUBTITLES': 'subs'
       },
       endList: true,
+      NOW: 1688906096000,
       resolvedUri: '',
       targetDuration: 6,
       mediaSequence: 0,

@@ -21,6 +21,7 @@ export const parsedManifest = {
               discontinuitySequence: 0,
               discontinuityStarts: [],
               endList: true,
+              NOW: 1688906096000,
               mediaSequence: 0,
               resolvedUri: '',
               segments: [
@@ -106,6 +107,7 @@ export const parsedManifest = {
               discontinuitySequence: 0,
               discontinuityStarts: [],
               endList: true,
+              NOW: 1688906096000,
               mediaSequence: 0,
               resolvedUri: '',
               segments: [
@@ -204,6 +206,7 @@ export const parsedManifest = {
               discontinuitySequence: 0,
               discontinuityStarts: [],
               endList: true,
+              NOW: 1688906096000,
               mediaSequence: 0,
               resolvedUri: 'http://example.com/ttml/PID_ARA.ttml',
               segments: [
@@ -251,6 +254,7 @@ export const parsedManifest = {
       discontinuitySequence: 0,
       discontinuityStarts: [],
       endList: true,
+      NOW: 1688906096000,
       mediaSequence: 0,
       resolvedUri: '',
       segments: [
@@ -319,6 +323,7 @@ export const parsedManifest = {
       discontinuitySequence: 0,
       discontinuityStarts: [],
       endList: true,
+      NOW: 1688906096000,
       mediaSequence: 0,
       resolvedUri: '',
       segments: [

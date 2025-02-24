@@ -25,6 +25,7 @@ export const parsedManifest = {
         'SUBTITLES': 'subs'
       },
       endList: true,
+      NOW: 1688906096000,
       mediaSequence: 0,
       discontinuitySequence: 0,
       discontinuityStarts: [2],

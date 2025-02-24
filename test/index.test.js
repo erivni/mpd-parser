@@ -250,8 +250,10 @@ QUnit.test('has parse', function(assert) {
 
 // this test is handled separately as a `previousManifest` needs to be parsed and provided
 QUnit.test('multiperiod_startnumber_removed_periods test manifest', function(assert) {
+  const clock = useFakeTimers(new Date('2023-07-09T12:34:56Z'));
   const previousManifest = parse(multiperiodStartnumber);
   const actual = parse(multiperiodStartnumberRemovedPeriods, { previousManifest });
 
+  clock.restore();
   assert.deepEqual(actual, multiperiodStartnumberRemovedPeriodsManifest);
 });
