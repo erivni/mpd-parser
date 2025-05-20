@@ -191,6 +191,7 @@ export const formatAudioPlaylist = ({
 export const formatVttPlaylist = ({
   attributes,
   segments,
+  sidx,
   mediaSequence,
   discontinuityStarts,
   discontinuitySequence
@@ -242,6 +243,9 @@ export const formatVttPlaylist = ({
     }
     playlist.setAvailableStartMargin = attributes.setAvailableStartMargin;
     playlist.setAvailableEndMargin = attributes.setAvailableEndMargin;
+  }
+  if (sidx) {
+    playlist.sidx = sidx;
   }
 
   return playlist;
