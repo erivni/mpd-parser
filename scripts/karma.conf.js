@@ -5,13 +5,13 @@ module.exports = function(config) {
   // see https://github.com/videojs/videojs-generate-karma-config
   // for options
   const options = {
-    customLaunchers(defaults) {
-      return Object.assign(defaults, {
+    browsers(aboutToRun) {
+      return [{
         ChromeHeadlessNoSandbox: {
           base: 'ChromeHeadless',
           flags: ['--no-sandbox']
         }
-      });
+      }];
     }
   };
 
