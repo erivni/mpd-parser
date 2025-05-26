@@ -301,7 +301,7 @@ export const organizeAudioPlaylists = (playlists, sidxMapping = {}, isAudioOnly 
 
 export const organizeVttPlaylists = (playlists, sidxMapping = {}, options = {}) => {
   return playlists.reduce((a, playlist) => {
-    const label = playlist.attributes.label || playlist.attributes.lang || 'text';
+    const label = playlist.attributes.lang || playlist.attributes.label || 'text';
 
     if (!a[label]) {
       a[label] = {

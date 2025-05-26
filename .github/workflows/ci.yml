@@ -61,9 +61,9 @@ jobs:
       run: npm i --prefer-offline --no-audit
 
     - name: run npm test
-      uses: coactions/setup-xvfb@v1
-      with:
-        run: npm run test
+      run: xvfb-run npm run test
+      env:
+        CI: true
 
     - name: coverage
       uses: codecov/codecov-action@v3
