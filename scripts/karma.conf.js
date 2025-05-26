@@ -6,18 +6,14 @@ module.exports = function(config) {
   // for options
   const options = {
     browsers(aboutToRun) {
-      return [{
-        ChromeHeadlessNoSandbox: {
-          base: 'ChromeHeadless',
-          flags: ['--no-sandbox']
-        }
-      }];
+      return aboutToRun.filter(function(launcherName) {
+        return process.env.CI ? launcherName !== 'ChromeHeadless' && launcherName !== 'ChromiumHeadless' : true;
+      });
     }
   };
 
   config = generate(config, options);
   // any other custom stuff not supported by options here!
-
   return config;
 };
 

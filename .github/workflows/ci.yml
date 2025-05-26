@@ -62,6 +62,8 @@ jobs:
 
     - name: run npm test
       run: xvfb-run npm run test
+      env:
+        CI: true
 
     - name: coverage
       uses: codecov/codecov-action@v3
