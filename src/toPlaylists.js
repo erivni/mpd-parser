@@ -30,7 +30,7 @@ export const generateSegments = ({ attributes, segmentInfo }, options) => {
   if (!segmentsFn) {
     return segmentsInfo;
   }
-  if ((segmentAttributes.codecs === 'stpp' || segmentAttributes.mimeType === 'application/ttml+xml') && options.removeSubtitlesInit) {
+  if ((segmentAttributes.mimeType === 'application/mp4' || segmentAttributes.mimeType === 'application/ttml+xml' || segmentAttributes.mimeType === 'text/vtt') && options.removeSubtitlesInit) {
     segmentAttributes.removeInitMap = true;
   }
   const segments = segmentsFn(segmentAttributes, segmentInfo.segmentTimeline);
