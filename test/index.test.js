@@ -27,6 +27,8 @@ import multiperiodStartnumber from './manifests/multiperiod-startnumber.mpd';
 import multiperiodStartnumberRemovedPeriods from
   './manifests/multiperiod-startnumber-removed-periods.mpd';
 import stppNoInit from './manifests/stpp-no-init.mpd';
+import wvttNoInit from './manifests/wvtt-no-init.mpd';
+import singleWvttNoInit from './manifests/single-wvtt-no-init.mpd';
 import ttmlNoSegment from './manifests/ttml_no_segment_validate_mime_type.mpd';
 import ttmlSegmentedNoInit from './manifests/ttml_segmented_no_init.mpd';
 import filteredCodecs from './manifests/filtered-codecs.mpd';
@@ -102,6 +104,12 @@ import {
 import {
   parsedManifest as stppNoInitManifest
 } from './manifests/stpp-no-init.js';
+import {
+  parsedManifest as wvttNoInitManifest
+} from './manifests/wvtt-no-init.js';
+import {
+  parsedManifest as singleWvttNoInitManifest
+} from './manifests/single-wvtt-no-init.js';
 import {
   parsedManifest as ttmlNoSegmentValidateMimeTypecManifest
 } from './manifests/ttml_no_segment_validate_mime_type.js';
@@ -199,6 +207,16 @@ QUnit.test('has parse', function(assert) {
   name: 'stpp_no_init',
   input: stppNoInit,
   expected: stppNoInitManifest,
+  options: { removeSubtitlesInit: true }
+}, {
+  name: 'wvtt_no_init',
+  input: wvttNoInit,
+  expected: wvttNoInitManifest,
+  options: { removeSubtitlesInit: true }
+}, {
+  name: 'single_wvtt_no_init',
+  input: singleWvttNoInit,
+  expected: singleWvttNoInitManifest,
   options: { removeSubtitlesInit: true }
 }, {
   name: 'ttml_no_segment',

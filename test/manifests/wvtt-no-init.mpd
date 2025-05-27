@@ -1,0 +1,21 @@
+<MPD xmlns="urn:mpeg:dash:schema:mpd:2011" minBufferTime="PT1.500S" type="static" mediaPresentationDuration="PT10.000S" maxSegmentDuration="PT0H0M4.000S" profiles="urn:mpeg:dash:profile:isoff-live:2011,http://dashif.org/guidelines/dash264">
+  <BaseURL>https://example.com/wvtt/</BaseURL>
+  <Period duration="PT10.000S">
+    <AdaptationSet segmentAlignment="true" group="1" maxWidth="3840" maxHeight="2160" maxFrameRate="24" par="16:9" lang="und">
+      <Role schemeIdUri="urn:mpeg:dash:role:2011" value="main" />
+      <SegmentTemplate timescale="24" media="$RepresentationID$/$Number%04d$.m4s" startNumber="1" duration="96" initialization="$RepresentationID$/init.mp4" />
+      <Representation id="1" mimeType="video/mp4" codecs="avc1.64001f" width="512" height="288" frameRate="24" sar="1:1" startWithSAP="1" bandwidth="386437"></Representation>
+    </AdaptationSet>
+    <AdaptationSet segmentAlignment="true" group="3" lang="en">
+      <Role schemeIdUri="urn:mpeg:dash:role:2011" value="main" />
+      <Role schemeIdUri="urn:mpeg:dash:role:2011" value="subtitle" />
+      <SegmentTemplate timescale="1000" media="$RepresentationID$/$Number%04d$.m4s" startNumber="1" duration="4000" initialization="$RepresentationID$/init.mp4" />
+      <Representation id="18" mimeType="application/mp4" codecs="wvtt" startWithSAP="1" bandwidth="428"></Representation>
+    </AdaptationSet>
+    <AdaptationSet segmentAlignment="true" group="3" lang="nl">
+      <Role schemeIdUri="urn:mpeg:dash:role:2011" value="subtitle" />
+      <SegmentTemplate timescale="1000" media="$RepresentationID$/$Number%04d$.m4s" startNumber="1" duration="4000" initialization="$RepresentationID$/init.mp4" />
+      <Representation id="22" mimeType="application/mp4" codecs="wvtt" startWithSAP="1" bandwidth="429"></Representation>
+    </AdaptationSet>
+  </Period>
+</MPD>
