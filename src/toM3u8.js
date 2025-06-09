@@ -172,6 +172,9 @@ export const formatAudioPlaylist = ({
     if (attributes.presentationTimeOffset) {
       playlist.presentationTimeOffset = attributes.presentationTimeOffset / (attributes.timescale || 1);
     }
+    if (attributes.periodDuration) {
+      playlist.timelineDuration = attributes.periodDuration;
+    }
     playlist.setAvailableStartMargin = attributes.setAvailableStartMargin;
     playlist.setAvailableEndMargin = attributes.setAvailableEndMargin;
   }
@@ -240,6 +243,9 @@ export const formatVttPlaylist = ({
   if (options.mergePeriods === false) {
     if (attributes.presentationTimeOffset) {
       playlist.presentationTimeOffset = attributes.presentationTimeOffset / (attributes.timescale || 1);
+    }
+    if (attributes.periodDuration) {
+      playlist.timelineDuration = attributes.periodDuration;
     }
     playlist.setAvailableStartMargin = attributes.setAvailableStartMargin;
     playlist.setAvailableEndMargin = attributes.setAvailableEndMargin;
@@ -395,6 +401,9 @@ export const formatVideoPlaylist = ({
   if (options.mergePeriods === false) {
     if (attributes.presentationTimeOffset) {
       playlist.presentationTimeOffset = attributes.presentationTimeOffset / (attributes.timescale || 1);
+    }
+    if (attributes.periodDuration) {
+      playlist.timelineDuration = attributes.periodDuration;
     }
     playlist.setAvailableStartMargin = attributes.setAvailableStartMargin;
     playlist.setAvailableEndMargin = attributes.setAvailableEndMargin;
