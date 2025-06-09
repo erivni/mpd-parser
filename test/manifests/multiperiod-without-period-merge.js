@@ -66,6 +66,7 @@ export const parsedManifest = {
               setAvailableEndMargin: false,
               setAvailableStartMargin: true,
               timeline: 0,
+              timelineDuration: 15,
               timelineStarts: [
                 {
                   start: 0,
@@ -129,6 +130,7 @@ export const parsedManifest = {
               setAvailableEndMargin: true,
               setAvailableStartMargin: false,
               timeline: 15,
+              timelineDuration: 15,
               timelineStarts: [
                 {
                   start: 15,
@@ -209,6 +211,7 @@ export const parsedManifest = {
       setAvailableEndMargin: false,
       setAvailableStartMargin: true,
       timeline: 0,
+      timelineDuration: 15,
       timelineStarts: [
         {
           start: 0,
@@ -279,6 +282,7 @@ export const parsedManifest = {
       setAvailableEndMargin: true,
       setAvailableStartMargin: false,
       timeline: 15,
+      timelineDuration: 15,
       timelineStarts: [
         {
           start: 15,
