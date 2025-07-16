@@ -293,6 +293,14 @@ export const parseCaptionServiceMetadata = (service) => {
   }
 };
 
+// defined in section B.1 of ETSI TS 102 822-3-1
+export const parseAccessibilityDescriptor = (service) => {
+  // AudioPurposeCS
+  if (service.schemeIdUri === 'urn:tva:metadata:cs:AudioPurposeCS:2007') {
+    return service.value;
+  }
+};
+
 /**
  * A map callback that will parse all event stream data for a collection of periods
  * DASH ISO_IEC_23009 5.10.2.2
@@ -370,10 +378,16 @@ export const toRepresentations =
   );
 
   const accessibility = findChildren(adaptationSet, 'Accessibility')[0];
-  const captionServices = parseCaptionServiceMetadata(parseAttributes(accessibility));
+  const accessibilityAttributes = parseAttributes(accessibility);
+  const captionServices = parseCaptionServiceMetadata(accessibilityAttributes);
+  const accessibilityDescriptor = parseAccessibilityDescriptor(accessibilityAttributes);
 
   if (captionServices) {
     attrs = merge(attrs, { captionServices });
+  }
+
+  if (accessibilityDescriptor) {
+    attrs = merge(attrs, { accessibility: accessibilityAttributes });
   }
 
   const label = findChildren(adaptationSet, 'Label')[0];
