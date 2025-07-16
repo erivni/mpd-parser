@@ -2611,7 +2611,7 @@ QUnit.test(
         role: {
           value: 'main'
         },
-        accessibility: {
+        accessibilityPurpose: {
           schemeIdUri: 'urn:tva:metadata:cs:AudioPurposeCS:2007',
           value: '1'
         },

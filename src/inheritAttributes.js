@@ -387,7 +387,7 @@ export const toRepresentations =
   }
 
   if (accessibilityDescriptor) {
-    attrs = merge(attrs, { accessibility: accessibilityAttributes });
+    attrs = merge(attrs, { accessibilityPurpose: accessibilityAttributes });
   }
 
   const label = findChildren(adaptationSet, 'Label')[0];
