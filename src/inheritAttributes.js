@@ -362,7 +362,7 @@ export const toEventStream = (period) => {
  *         Callback map function
  */
 export const toRepresentations =
-(periodAttributes, periodBaseUrls, periodSegmentInfo) => (adaptationSet) => {
+(periodAttributes, periodBaseUrls, periodSegmentInfo, options = {}) => (adaptationSet) => {
   const adaptationSetAttributes = parseAttributes(adaptationSet);
   const adaptationSetBaseUrls = buildBaseUrls(
     periodBaseUrls,
@@ -417,6 +417,12 @@ export const toRepresentations =
       });
     }
 
+    if (options.programIdFn && typeof options.programIdFn === 'function') {
+      attrs = merge(attrs, {
+        programId: options.programIdFn(attrs)
+      });
+    }
+
     return inheritBaseUrls(attrs, adaptationSetBaseUrls, adaptationSetSegmentInfo)(representation);
   }));
 };
@@ -456,7 +462,7 @@ export const toRepresentations =
  * @return {toAdaptationSetsCallback}
  *         Callback map function
  */
-export const toAdaptationSets = (mpdAttributes, mpdBaseUrls) => (period, index, { length }) => {
+export const toAdaptationSets = (mpdAttributes, mpdBaseUrls, options = {}) => (period, index, { length }) => {
   const periodBaseUrls = buildBaseUrls(mpdBaseUrls, findChildren(period.node, 'BaseURL'));
   const periodAttributes = merge(mpdAttributes, {
     periodStart: period.attributes.start,
@@ -470,7 +476,7 @@ export const toAdaptationSets = (mpdAttributes, mpdBaseUrls) => (period, index, 
   const adaptationSets = findChildren(period.node, 'AdaptationSet');
   const periodSegmentInfo = getSegmentInformation(period.node);
 
-  return flatten(adaptationSets.map(toRepresentations(periodAttributes, periodBaseUrls, periodSegmentInfo)));
+  return flatten(adaptationSets.map(toRepresentations(periodAttributes, periodBaseUrls, periodSegmentInfo, options)));
 };
 
 /**
@@ -601,7 +607,7 @@ export const inheritAttributes = (mpd, options = {}) => {
 
   return {
     locations: mpdAttributes.locations,
-    representationInfo: flatten(periods.map(toAdaptationSets(mpdAttributes, mpdBaseUrls))),
+    representationInfo: flatten(periods.map(toAdaptationSets(mpdAttributes, mpdBaseUrls, options))),
     eventStream: flatten(periods.map(toEventStream))
   };
 };

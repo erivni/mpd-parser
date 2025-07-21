@@ -146,7 +146,7 @@ export const formatAudioPlaylist = ({
       NAME: attributes.id,
       BANDWIDTH: attributes.bandwidth,
       CODECS: attributes.codecs,
-      ['PROGRAM-ID']: 1
+      ['PROGRAM-ID']: attributes.programId || 1
     },
     uri: '',
     endList: attributes.type === 'static',
@@ -216,7 +216,7 @@ export const formatVttPlaylist = ({
   const m3u8Attributes = {
     NAME: attributes.id,
     BANDWIDTH: attributes.bandwidth,
-    ['PROGRAM-ID']: 1
+    ['PROGRAM-ID']: attributes.programId || 1
   };
 
   if (attributes.codecs) {
@@ -374,7 +374,7 @@ export const formatVideoPlaylist = ({
       },
       CODECS: attributes.codecs,
       BANDWIDTH: attributes.bandwidth,
-      ['PROGRAM-ID']: 1
+      ['PROGRAM-ID']: attributes.programId || 1
     },
     uri: '',
     endList: attributes.type === 'static',

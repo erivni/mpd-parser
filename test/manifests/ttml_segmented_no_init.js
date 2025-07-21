@@ -6,10 +6,10 @@ export const parsedManifest = {
   mediaGroups: {
     'AUDIO': {
       audio: {
-        eng: {
+        en: {
           autoselect: true,
           default: true,
-          language: 'eng',
+          language: 'en',
           playlists: [
             {
               attributes: {
@@ -189,10 +189,10 @@ export const parsedManifest = {
     'CLOSED-CAPTIONS': {},
     'SUBTITLES': {
       subs: {
-        ara: {
+        ar: {
           autoselect: false,
           default: false,
-          language: 'ara',
+          language: 'ar',
           playlists: [
             {
               attributes: {
