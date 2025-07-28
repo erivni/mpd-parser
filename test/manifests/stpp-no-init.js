@@ -141,10 +141,10 @@ export const parsedManifest = {
     'CLOSED-CAPTIONS': {},
     'SUBTITLES': {
       subs: {
-        eng: {
+        en: {
           autoselect: false,
           default: false,
-          language: 'eng',
+          language: 'en',
           playlists: [
             {
               attributes: {

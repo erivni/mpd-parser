@@ -2252,8 +2252,8 @@ export const parsedManifest = {
           ],
           uri: ''
         },
-        'zh-Hant-CN': {
-          language: 'zh-Hant-CN',
+        'zh-HANT': {
+          language: 'zh-HANT',
           default: false,
           autoselect: false,
           playlists: [

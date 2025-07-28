@@ -1,6 +1,7 @@
 import { parseDivisionValue } from './utils/string';
 import { from } from './utils/list';
 import { parseDuration, parseDate } from './utils/time';
+import { isoMap } from './utils/iso';
 
 // TODO: maybe order these in some way that makes it easy to find specific attributes
 export const parsers = {
@@ -252,6 +253,40 @@ export const parsers = {
    */
   presentationTime(value) {
     return parseInt(value, 10);
+  },
+
+  /**
+   * Specifies the lang.
+   *
+   * @param {string} value
+   *        value of the attribute as a string
+   *
+   * @return {number}
+   *         The parsed lang in ISO 639-1 format
+   */
+  lang(value) {
+    const privateUsePrefix = 'x-';
+    const [languageRegion = '', privateUseSuffix = ''] =
+        value.split(`-${privateUsePrefix}`);
+    const [languageCode = '', regionCode = ''] = languageRegion.split('-');
+
+    // We are only going to use the language, the region and the private use part (as per https://datatracker.ietf.org/doc/html/rfc5646).
+    // Anything else is thrown away.
+    const privateUse = privateUseSuffix ?
+      `${privateUsePrefix}${privateUseSuffix}` : '';
+
+    // Convert the language to lower case. It is standard for the language code
+    // to be in lower case, but it will also make the map look-up easier.
+    let language = languageCode.toLowerCase();
+
+    language = isoMap.get(language) || language;
+
+    // Convert the region to upper case. It is standard for the region to be in
+    // upper case. If there is no upper code, then it will be an empty string
+    // and this will be a no-op.
+    const region = regionCode.toUpperCase();
+
+    return `${region ? `${language}-${region}` : language}${privateUse ? `-${privateUse}` : ''}`;
   },
 
   /**
