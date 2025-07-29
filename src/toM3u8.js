@@ -261,8 +261,9 @@ export const organizeAudioPlaylists = (playlists, sidxMapping = {}, isAudioOnly 
   let mainPlaylist;
 
   const formattedPlaylists = playlists.reduce((a, playlist) => {
-    const role = playlist.attributes.role &&
-      playlist.attributes.role.value || '';
+    const role = playlist.attributes.roles && playlist.attributes.roles[0] || '';
+    const primary = playlist.attributes.roles && playlist.attributes.roles.includes('main') || false;
+
     const language = playlist.attributes.lang || '';
 
     let label = playlist.attributes.label || 'main';
@@ -277,7 +278,7 @@ export const organizeAudioPlaylists = (playlists, sidxMapping = {}, isAudioOnly 
       a[label] = {
         language,
         autoselect: true,
-        default: role === 'main',
+        default: primary,
         playlists: [],
         uri: ''
       };
@@ -287,7 +288,7 @@ export const organizeAudioPlaylists = (playlists, sidxMapping = {}, isAudioOnly 
 
     a[label].playlists.push(formatted);
 
-    if (typeof mainPlaylist === 'undefined' && role === 'main') {
+    if (typeof mainPlaylist === 'undefined' && primary) {
       mainPlaylist = playlist;
       mainPlaylist.default = true;
     }

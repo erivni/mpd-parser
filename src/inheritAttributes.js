@@ -368,8 +368,11 @@ export const toRepresentations =
     periodBaseUrls,
     findChildren(adaptationSet, 'BaseURL')
   );
-  const role = findChildren(adaptationSet, 'Role')[0];
-  const roleAttributes = { role: parseAttributes(role) };
+  const roles = findChildren(adaptationSet, 'Role')
+    .map(role => parseAttributes(role).value)
+    .filter(Boolean);
+
+  const roleAttributes = { roles };
 
   let attrs = merge(
     periodAttributes,
