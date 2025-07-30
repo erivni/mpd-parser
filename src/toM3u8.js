@@ -175,6 +175,9 @@ export const formatAudioPlaylist = ({
     if (attributes.periodDuration) {
       playlist.timelineDuration = attributes.periodDuration;
     }
+    if (attributes.lastTimeline) {
+      playlist.lastTimeline = attributes.lastTimeline;
+    }
     playlist.setAvailableStartMargin = attributes.setAvailableStartMargin;
     playlist.setAvailableEndMargin = attributes.setAvailableEndMargin;
   }
@@ -246,6 +249,9 @@ export const formatVttPlaylist = ({
     }
     if (attributes.periodDuration) {
       playlist.timelineDuration = attributes.periodDuration;
+    }
+    if (attributes.lastTimeline) {
+      playlist.lastTimeline = attributes.lastTimeline;
     }
     playlist.setAvailableStartMargin = attributes.setAvailableStartMargin;
     playlist.setAvailableEndMargin = attributes.setAvailableEndMargin;
@@ -404,6 +410,9 @@ export const formatVideoPlaylist = ({
     }
     if (attributes.periodDuration) {
       playlist.timelineDuration = attributes.periodDuration;
+    }
+    if (attributes.lastTimeline) {
+      playlist.lastTimeline = attributes.lastTimeline;
     }
     playlist.setAvailableStartMargin = attributes.setAvailableStartMargin;
     playlist.setAvailableEndMargin = attributes.setAvailableEndMargin;
