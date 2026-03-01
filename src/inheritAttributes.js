@@ -194,12 +194,20 @@ const generateKeySystemInformation = (contentProtectionNodes) => {
     if (keySystem) {
       acc[keySystem] = { attributes };
 
-      const psshNode = findChildren(node, 'cenc:pssh')[0];
+      const cencPsshNode = findChildren(node, 'cenc:pssh')[0];
 
-      if (psshNode) {
-        const pssh = getContent(psshNode);
+      if (cencPsshNode) {
+        const pssh = getContent(cencPsshNode);
 
         acc[keySystem].pssh = pssh;
+      } else {
+        const psshNode = findChildren(node, 'pssh')[0];
+
+        if (psshNode) {
+          const pssh = getContent(psshNode);
+
+          acc[keySystem].pssh = pssh;
+        }
       }
     }
 
